@@ -42,7 +42,7 @@
   "minerals": [
     {
       "mineral": "Amethyst",
-      "rarity": "",
+      "rarity": "common",
       "locations": [
         {
           "location": "Rubble Creek Sands",
@@ -64,7 +64,7 @@
     },
     {
       "mineral": "Blue Ice",
-      "rarity": "",
+      "rarity": "common",
       "locations": [
         {
           "location": "Frostbite River",
@@ -90,7 +90,7 @@
     },
     {
       "mineral": "Copper",
-      "rarity": "",
+      "rarity": "common",
       "locations": [
         {
           "location": "Crystal Cavern River",
@@ -148,7 +148,7 @@
     },
     {
       "mineral": "Gold",
-      "rarity": "",
+      "rarity": "common",
       "locations": [
         {
           "location": "Rubble Creek Sands",
@@ -230,7 +230,7 @@
     },
     {
       "mineral": "Obsidian",
-      "rarity": "",
+      "rarity": "common",
       "locations": [
         {
           "location": "The Magma Furnace",
@@ -260,7 +260,7 @@
     },
     {
       "mineral": "Pearl",
-      "rarity": "",
+      "rarity": "common",
       "locations": [
         {
           "location": "Sunset Beach",
@@ -282,7 +282,7 @@
     },
     {
       "mineral": "Platinum",
-      "rarity": "",
+      "rarity": "common",
       "locations": [
         {
           "location": "Rubble Creek Deposits",
@@ -304,7 +304,7 @@
     },
     {
       "mineral": "Pyrite",
-      "rarity": "",
+      "rarity": "common",
       "locations": [
         {
           "location": "Rubble Creek Deposits",
@@ -318,7 +318,7 @@
     },
     {
       "mineral": "Seashell",
-      "rarity": "",
+      "rarity": "common",
       "locations": [
         {
           "location": "Sunset Beach",
@@ -336,7 +336,7 @@
     },
     {
       "mineral": "Silver",
-      "rarity": "",
+      "rarity": "common",
       "locations": [
         {
           "location": "Frostbite River",
@@ -402,7 +402,7 @@
     },
     {
       "mineral": "Coral",
-      "rarity": "",
+      "rarity": "uncommon",
       "locations": [
         {
           "location": "Windswept Beach",
@@ -424,7 +424,7 @@
     },
     {
       "mineral": "Electrum",
-      "rarity": "",
+      "rarity": "uncommon",
       "locations": [
         {
           "location": "Timelocked Sanctuary",
@@ -446,7 +446,7 @@
     },
     {
       "mineral": "Glowberry",
-      "rarity": "",
+      "rarity": "uncommon",
       "locations": [
         {
           "location": "Enchanted Ruins",
@@ -468,7 +468,7 @@
     },
     {
       "mineral": "Malachite",
-      "rarity": "",
+      "rarity": "uncommon",
       "locations": [
         {
           "location": "Windswept Beach",
@@ -522,7 +522,7 @@
     },
     {
       "mineral": "Neodymium",
-      "rarity": "",
+      "rarity": "uncommon",
       "locations": [
         {
           "location": "Sunset Beach",
@@ -564,7 +564,7 @@
     },
     {
       "mineral": "Rock Candy",
-      "rarity": "",
+      "rarity": "uncommon",
       "locations": [
         {
           "location": "Haunted Creek",
@@ -578,7 +578,7 @@
     },
     {
       "mineral": "Sapphire",
-      "rarity": "",
+      "rarity": "uncommon",
       "locations": [
         {
           "location": "North Pole",
@@ -612,7 +612,7 @@
     },
     {
       "mineral": "Smoky Quartz",
-      "rarity": "",
+      "rarity": "uncommon",
       "locations": [
         {
           "location": "Timelocked Sanctuary",
@@ -670,7 +670,7 @@
     },
     {
       "mineral": "Titanium",
-      "rarity": "",
+      "rarity": "uncommon",
       "locations": [
         {
           "location": "Frostbite River",
@@ -720,7 +720,7 @@
     },
     {
       "mineral": "Topaz",
-      "rarity": "",
+      "rarity": "uncommon",
       "locations": [
         {
           "location": "Timelocked Sanctuary",
@@ -770,7 +770,7 @@
     },
     {
       "mineral": "Zircon",
-      "rarity": "",
+      "rarity": "uncommon",
       "locations": [
         {
           "location": "Infernal Heart",
@@ -796,7 +796,7 @@
     },
     {
       "mineral": "Amber",
-      "rarity": "",
+      "rarity": "rare",
       "locations": [
         {
           "location": "Enchanted Ruins",
@@ -818,7 +818,7 @@
     },
     {
       "mineral": "Azuralite",
-      "rarity": "",
+      "rarity": "rare",
       "locations": [
         {
           "location": "Enchanted Ruins",
@@ -852,7 +852,7 @@
     },
     {
       "mineral": "Candy Cane",
-      "rarity": "",
+      "rarity": "rare",
       "locations": [
         {
           "location": "The Void",
@@ -866,7 +866,7 @@
     },
     {
       "mineral": "Diopside",
-      "rarity": "",
+      "rarity": "rare",
       "locations": [
         {
           "location": "Timelocked Sanctuary",
@@ -888,7 +888,7 @@
     },
     {
       "mineral": "Glacial Quartz",
-      "rarity": "",
+      "rarity": "rare",
       "locations": [
         {
           "location": "North Pole",
@@ -914,7 +914,7 @@
     },
     {
       "mineral": "Gloomberry",
-      "rarity": "",
+      "rarity": "rare",
       "locations": [
         {
           "location": "Abyssal Depths",
@@ -928,7 +928,7 @@
     },
     {
       "mineral": "Jade",
-      "rarity": "",
+      "rarity": "rare",
       "locations": [
         {
           "location": "North Pole",
@@ -962,7 +962,7 @@
     },
     {
       "mineral": "Lapis Lazuli",
-      "rarity": "",
+      "rarity": "rare",
       "locations": [
         {
           "location": "Rubble Creek Deposits",
@@ -1000,7 +1000,7 @@
     },
     {
       "mineral": "Meteoric Iron",
-      "rarity": "",
+      "rarity": "rare",
       "locations": [
         {
           "location": "Volcanic Sands",
@@ -1034,7 +1034,7 @@
     },
     {
       "mineral": "Onyx",
-      "rarity": "",
+      "rarity": "rare",
       "locations": [
         {
           "location": "Infernal Heart",
@@ -1092,7 +1092,7 @@
     },
     {
       "mineral": "Peridot",
-      "rarity": "",
+      "rarity": "rare",
       "locations": [
         {
           "location": "Infernal Heart",
@@ -1122,7 +1122,7 @@
     },
     {
       "mineral": "Pyrelith",
-      "rarity": "",
+      "rarity": "rare",
       "locations": [
         {
           "location": "Infernal Heart",
@@ -1140,7 +1140,7 @@
     },
     {
       "mineral": "Ruby",
-      "rarity": "",
+      "rarity": "rare",
       "locations": [
         {
           "location": "Rubble Creek Sands",
@@ -1162,7 +1162,7 @@
     },
     {
       "mineral": "Silver Clamshell",
-      "rarity": "",
+      "rarity": "rare",
       "locations": [
         {
           "location": "Windswept Beach",
@@ -1184,7 +1184,7 @@
     },
     {
       "mineral": "Ammonite Fossil",
-      "rarity": "",
+      "rarity": "epic",
       "locations": [
         {
           "location": "Windswept Beach",
@@ -1198,7 +1198,7 @@
     },
     {
       "mineral": "Ashvein",
-      "rarity": "",
+      "rarity": "epic",
       "locations": [
         {
           "location": "Sunset Beach",
@@ -1220,7 +1220,7 @@
     },
     {
       "mineral": "Aurorite",
-      "rarity": "",
+      "rarity": "epic",
       "locations": [
         {
           "location": "Fortune River",
@@ -1278,7 +1278,7 @@
     },
     {
       "mineral": "Bone",
-      "rarity": "",
+      "rarity": "epic",
       "locations": [
         {
           "location": "Rotwood Swamp",
@@ -1300,7 +1300,7 @@
     },
     {
       "mineral": "Borealite",
-      "rarity": "",
+      "rarity": "epic",
       "locations": [
         {
           "location": "Frostbite River",
@@ -1334,7 +1334,7 @@
     },
     {
       "mineral": "Cobalt",
-      "rarity": "",
+      "rarity": "epic",
       "locations": [
         {
           "location": "Overgrown Grotto",
@@ -1392,7 +1392,7 @@
     },
     {
       "mineral": "Emerald",
-      "rarity": "",
+      "rarity": "epic",
       "locations": [
         {
           "location": "Fortune River",
@@ -1458,7 +1458,7 @@
     },
     {
       "mineral": "Glowmoss",
-      "rarity": "",
+      "rarity": "epic",
       "locations": [
         {
           "location": "Enchanted Ruins",
@@ -1484,7 +1484,7 @@
     },
     {
       "mineral": "Golden Pearl",
-      "rarity": "",
+      "rarity": "epic",
       "locations": [
         {
           "location": "Sunset Beach",
@@ -1502,7 +1502,7 @@
     },
     {
       "mineral": "Iridium",
-      "rarity": "",
+      "rarity": "epic",
       "locations": [
         {
           "location": "Rubble Creek Deposits",
@@ -1544,7 +1544,7 @@
     },
     {
       "mineral": "Lightshard",
-      "rarity": "",
+      "rarity": "epic",
       "locations": [
         {
           "location": "The Void",
@@ -1578,7 +1578,7 @@
     },
     {
       "mineral": "Mercury",
-      "rarity": "",
+      "rarity": "epic",
       "locations": [
         {
           "location": "Timelocked Sanctuary",
@@ -1600,7 +1600,7 @@
     },
     {
       "mineral": "Moonstone",
-      "rarity": "",
+      "rarity": "epic",
       "locations": [
         {
           "location": "Sunset Beach",
@@ -1618,7 +1618,7 @@
     },
     {
       "mineral": "Opal",
-      "rarity": "",
+      "rarity": "epic",
       "locations": [
         {
           "location": "Fortune River",
@@ -1664,7 +1664,7 @@
     },
     {
       "mineral": "Osmium",
-      "rarity": "",
+      "rarity": "epic",
       "locations": [
         {
           "location": "Rotwood Swamp",
@@ -1722,7 +1722,7 @@
     },
     {
       "mineral": "Pyronium",
-      "rarity": "",
+      "rarity": "epic",
       "locations": [
         {
           "location": "Infernal Heart",
@@ -1748,7 +1748,7 @@
     },
     {
       "mineral": "Aetherite",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Enchanted Ruins",
@@ -1822,7 +1822,7 @@
     },
     {
       "mineral": "Aquamarine",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "North Pole",
@@ -1848,7 +1848,7 @@
     },
     {
       "mineral": "Bismuth",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Timelocked Sanctuary",
@@ -1870,7 +1870,7 @@
     },
     {
       "mineral": "Catseye",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Windswept Beach",
@@ -1904,7 +1904,7 @@
     },
     {
       "mineral": "Cinnabar",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Infernal Heart",
@@ -1930,7 +1930,7 @@
     },
     {
       "mineral": "Diamond",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Sunset Beach",
@@ -1992,7 +1992,7 @@
     },
     {
       "mineral": "Dragon Bone",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Infernal Heart",
@@ -2014,7 +2014,7 @@
     },
     {
       "mineral": "Fire Opal",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Volcanic Springs",
@@ -2040,7 +2040,7 @@
     },
     {
       "mineral": "Firefly Stone",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Overgrown Grotto",
@@ -2066,7 +2066,7 @@
     },
     {
       "mineral": "Gloomcap",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "The Void",
@@ -2076,7 +2076,7 @@
     },
     {
       "mineral": "Lost Soul",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Haunted Creek",
@@ -2090,7 +2090,7 @@
     },
     {
       "mineral": "Luminum",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Sunset Beach",
@@ -2124,7 +2124,7 @@
     },
     {
       "mineral": "Palladium",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Frostbite River",
@@ -2154,7 +2154,7 @@
     },
     {
       "mineral": "Peppermint Prism",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "The Void",
@@ -2168,7 +2168,7 @@
     },
     {
       "mineral": "Radium",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Volcanic Springs",
@@ -2182,7 +2182,7 @@
     },
     {
       "mineral": "Rose Gold",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Windswept Beach",
@@ -2228,7 +2228,7 @@
     },
     {
       "mineral": "Specterite",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Rotwood Swamp",
@@ -2262,7 +2262,7 @@
     },
     {
       "mineral": "Starshine",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Azuralite Oasis",
@@ -2300,7 +2300,7 @@
     },
     {
       "mineral": "Tourmaline",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Frostbite Waterfall",
@@ -2322,7 +2322,7 @@
     },
     {
       "mineral": "Uranium",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Infernal Heart",
@@ -2348,7 +2348,7 @@
     },
     {
       "mineral": "Volcanic Key",
-      "rarity": "",
+      "rarity": "legendary",
       "locations": [
         {
           "location": "Infernal Heart",
@@ -2366,7 +2366,7 @@
     },
     {
       "mineral": "Chrysoberyl",
-      "rarity": "",
+      "rarity": "mythic",
       "locations": [
         {
           "location": "Rotwood Swamp",
@@ -2388,7 +2388,7 @@
     },
     {
       "mineral": "Flarebloom",
-      "rarity": "",
+      "rarity": "mythic",
       "locations": [
         {
           "location": "Infernal Heart",
@@ -2414,7 +2414,7 @@
     },
     {
       "mineral": "Frostshard",
-      "rarity": "",
+      "rarity": "mythic",
       "locations": [
         {
           "location": "North Pole",
@@ -2436,7 +2436,7 @@
     },
     {
       "mineral": "Inferlume",
-      "rarity": "",
+      "rarity": "mythic",
       "locations": [
         {
           "location": "Infernal Heart",
@@ -2474,7 +2474,7 @@
     },
     {
       "mineral": "Mythril",
-      "rarity": "",
+      "rarity": "mythic",
       "locations": [
         {
           "location": "Enchanted Ruins",
@@ -2508,7 +2508,7 @@
     },
     {
       "mineral": "Painite",
-      "rarity": "",
+      "rarity": "mythic",
       "locations": [
         {
           "location": "Sunset Beach",
@@ -2546,7 +2546,7 @@
     },
     {
       "mineral": "Pink Diamond",
-      "rarity": "",
+      "rarity": "mythic",
       "locations": [
         {
           "location": "Fortune River Delta",
@@ -2580,7 +2580,7 @@
     },
     {
       "mineral": "Prismara",
-      "rarity": "",
+      "rarity": "mythic",
       "locations": [
         {
           "location": "Enchanted Ruins",
@@ -2602,7 +2602,7 @@
     },
     {
       "mineral": "Radiant Gold",
-      "rarity": "",
+      "rarity": "mythic",
       "locations": [
         {
           "location": "Enchanted Ruins",
@@ -2632,7 +2632,7 @@
     },
     {
       "mineral": "Red Beryl",
-      "rarity": "",
+      "rarity": "mythic",
       "locations": [
         {
           "location": "Timelocked Sanctuary",
@@ -2650,7 +2650,7 @@
     },
     {
       "mineral": "Star Garnet",
-      "rarity": "",
+      "rarity": "mythic",
       "locations": [
         {
           "location": "Timelocked Sanctuary",
@@ -2672,7 +2672,7 @@
     },
     {
       "mineral": "Vortessence",
-      "rarity": "",
+      "rarity": "mythic",
       "locations": [
         {
           "location": "Windswept Beach",
@@ -2710,7 +2710,7 @@
     },
     {
       "mineral": "Volcanic Core",
-      "rarity": "",
+      "rarity": "mythic",
       "locations": [
         {
           "location": "Infernal Heart",
@@ -2728,7 +2728,7 @@
     },
     {
       "mineral": "Adamantine",
-      "rarity": "",
+      "rarity": "exotic",
       "locations": [
         {
           "location": "Enchanted Ruins",
@@ -2738,7 +2738,7 @@
     },
     {
       "mineral": "Astral Spore",
-      "rarity": "",
+      "rarity": "exotic",
       "locations": [
         {
           "location": "Timelocked Sanctuary",
@@ -2748,7 +2748,7 @@
     },
     {
       "mineral": "Bloodstone",
-      "rarity": "",
+      "rarity": "exotic",
       "locations": [
         {
           "location": "Rotwood Swamp",
@@ -2762,7 +2762,7 @@
     },
     {
       "mineral": "Cryonic Artifact",
-      "rarity": "",
+      "rarity": "exotic",
       "locations": [
         {
           "location": "Frozen Peak",
@@ -2772,7 +2772,7 @@
     },
     {
       "mineral": "Dinosaur Skull",
-      "rarity": "",
+      "rarity": "exotic",
       "locations": [
         {
           "location": "Infernal Heart",
@@ -2782,7 +2782,7 @@
     },
     {
       "mineral": "Eternium",
-      "rarity": "",
+      "rarity": "exotic",
       "locations": [
         {
           "location": "Timelocked Sanctuary",
@@ -2792,7 +2792,7 @@
     },
     {
       "mineral": "North Star",
-      "rarity": "",
+      "rarity": "exotic",
       "locations": [
         {
           "location": "North Pole",
@@ -2802,7 +2802,7 @@
     },
     {
       "mineral": "Pumpkin Soul",
-      "rarity": "",
+      "rarity": "exotic",
       "locations": [
         {
           "location": "Haunted Creek",
@@ -2812,7 +2812,7 @@
     },
     {
       "mineral": "Umbrite",
-      "rarity": "",
+      "rarity": "exotic",
       "locations": [
         {
           "location": "Abyssal Depths",
@@ -2822,7 +2822,7 @@
     },
     {
       "mineral": "Vineheart",
-      "rarity": "",
+      "rarity": "exotic",
       "locations": [
         {
           "location": "Deeproot Spring",
@@ -2832,7 +2832,7 @@
     },
     {
       "mineral": "Voidstone",
-      "rarity": "",
+      "rarity": "exotic",
       "locations": [
         {
           "location": "The Void",

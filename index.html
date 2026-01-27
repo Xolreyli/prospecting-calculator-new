@@ -238,6 +238,13 @@ h1{
         <label>Filter by rarity</label>
         <select id="rarityFilter">
           <option value="all">(all)</option>
+          <option value="common">Common</option>
+          <option value="uncommon">Uncommon</option>
+          <option value="rare">Rare</option>
+          <option value="epic">Epic</option>
+          <option value="legendary">Legendary</option>
+          <option value="mythic">Mythic</option>
+          <option value="exotic">Exotic</option>
         </select>
       </div>
 
@@ -353,8 +360,8 @@ function rarityColor(r){
     rare:      "#3b82f6",
     epic:      "#a855f7",
     legendary: "#f59e0b",
-    mythic:    "#ef4444",
-    exotic:    "#06b6d4"
+    mythic:    "#cf0064",
+    exotic:    "#ff0011"
   };
   return map[key] || "#7c8cff";
 }
@@ -414,13 +421,17 @@ fetch("./minerals.json")
     }
 
     // rarity dropdown
-    const rarities = [...raritySet].sort((a,b)=> a.localeCompare(b));
-    for (const r of rarities){
-      const opt = document.createElement("option");
-      opt.value = r;
-      opt.textContent = r;
-      rarityFilter.appendChild(opt);
-    }
+    rarityFilter.addEventListener("change", () => {
+      const selected = rarityFilter.value;
+
+      filteredMinerals =
+        selected === "(all)"
+          ? [...minerals]
+          : minerals.filter(m => m.rarity === selected);
+
+      populateMinerals();
+      calculate();
+    });
 
     // location filter dropdown
     const locs = [...allLocationNames].sort((a,b)=> a.localeCompare(b));

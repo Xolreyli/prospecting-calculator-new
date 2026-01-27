@@ -424,6 +424,12 @@ fetch("./minerals.json")
     rarityFilter.addEventListener("change", () => {
       const selected = rarityFilter.value;
 
+      console.log("Selected rarity:", JSON.stringify(selected));
+      console.log(
+        "Mineral rarities:",
+        [...new Set(minerals.map(m => JSON.stringify(m.rarity)))]
+      );
+
       filteredMinerals =
         selected === "(all)"
           ? [...minerals]

@@ -352,35 +352,20 @@ const locationFilter  = document.getElementById("locationFilter");
 const luckInput       = document.getElementById("luckInput");
 const capacityInput   = document.getElementById("capacityInput");
 
+const LUCK_EFFICIENCY = 0.65; // empirical constant
+
 function rarityColor(r){
   const key = (r || "").toLowerCase();
   const map = {
-    common:    "#a3a3a3",
-    uncommon:  "#22c55e",
-    rare:      "#3b82f6",
-    epic:      "#a855f7",
+    common: "#a3a3a3",
+    uncommon: "#22c55e",
+    rare: "#3b82f6",
+    epic: "#a855f7",
     legendary: "#f59e0b",
-    mythic:    "#cf0064",
-    exotic:    "#ff0011"
+    mythic: "#cf0064",
+    exotic: "#ff0011"
   };
   return map[key] || "#7c8cff";
-}
-
-// --- Luck scaling ---
-// This is the *only* place to change the behavior.
-// It returns an "effective rolls multiplier" (>= 1).
-// Diminishing returns but still grows with very high luck.
-function effectiveRollsMultiplierFromLuck(luck){
-  luck = Math.max(0, Number(luck) || 0);
-
-  // Tuned diminishing returns curve:
-  // mult = 1 + A * ((luck+1)^B - 1)
-  // Keeps luck=0 -> 1x
-  // Feel free to tweak A/B later if you want it closer/further.
-  const A = 0.03642909081134837;
-  const B = 0.9270712415412325;
-
-  return 1 + A * (Math.pow(luck + 1, B) - 1);
 }
 
 function fmtPct(x, digits=5){
@@ -391,18 +376,10 @@ function fmtOneInFromProb(p){
   if (!isFinite(p) || p <= 0) return "∞";
   return Math.round(1 / p).toLocaleString();
 }
-function fmtOneInFromPct(chancePercent){
-  // chancePercent is already a percent value (e.g. 0.00002574)
-  const p = Number(chancePercent) / 100;
-  return fmtOneInFromProb(p);
-}
 function attemptsForTarget(pAttempt, target){
-  // P(success within n attempts) = 1 - (1-pAttempt)^n >= target
-  // n >= ln(1-target) / ln(1-pAttempt)
   if (!isFinite(pAttempt) || pAttempt <= 0) return Infinity;
   if (pAttempt >= 1) return 1;
-  const n = Math.log(1 - target) / Math.log(1 - pAttempt);
-  return n;
+  return Math.log(1 - target) / Math.log(1 - pAttempt);
 }
 
 fetch("./minerals.json?v=" + Date.now())
@@ -412,7 +389,6 @@ fetch("./minerals.json?v=" + Date.now())
       a.mineral.localeCompare(b.mineral, "en", { sensitivity:"base" })
     );
 
-    // build rarity + location lists
     for (const m of minerals){
       if (m.rarity) raritySet.add(m.rarity);
       for (const loc of (m.locations || [])){
@@ -420,26 +396,6 @@ fetch("./minerals.json?v=" + Date.now())
       }
     }
 
-    // rarity dropdown
-    rarityFilter.addEventListener("change", () => {
-      const selected = rarityFilter.value;
-
-      console.log("Selected rarity:", JSON.stringify(selected));
-      console.log(
-        "Mineral rarities:",
-        [...new Set(minerals.map(m => JSON.stringify(m.rarity)))]
-      );
-
-      filteredMinerals =
-        selected === "(all)"
-          ? [...minerals]
-          : minerals.filter(m => m.rarity === selected);
-
-      populateMinerals();
-      calculate();
-    });
-
-    // location filter dropdown
     const locs = [...allLocationNames].sort((a,b)=> a.localeCompare(b));
     for (const name of locs){
       const opt = document.createElement("option");
@@ -459,15 +415,11 @@ fetch("./minerals.json?v=" + Date.now())
   }));
 
 rarityFilter.addEventListener("change", () => populateMinerals(false));
-
-mineralSearch.addEventListener("input", () => {
-  populateMinerals(false);
-});
+mineralSearch.addEventListener("input", () => populateMinerals(false));
 
 function populateMinerals(keepSelection){
   const q = (mineralSearch.value || "").toLowerCase();
   const r = rarityFilter.value;
-
   const prev = keepSelection ? mineralSelect.value : null;
 
   filtered = minerals.filter(m => {
@@ -484,7 +436,6 @@ function populateMinerals(keepSelection){
     mineralSelect.appendChild(opt);
   }
 
-  // restore selection if possible
   if (prev && filtered.some(m => m.mineral === prev)){
     mineralSelect.value = prev;
   }
@@ -493,29 +444,29 @@ function populateMinerals(keepSelection){
 }
 
 function populateLocations(){
-  const m = filtered.find(x => x.mineral === mineralSelect.value) || minerals.find(x => x.mineral === mineralSelect.value);
+  const m = filtered.find(x => x.mineral === mineralSelect.value) ||
+            minerals.find(x => x.mineral === mineralSelect.value);
   if (!m){
     locationSelect.innerHTML = "";
     calculate();
     return;
   }
 
-  // Keep current location if it exists
-  const prevLoc = locationSelect.options.length ? locationSelect.options[locationSelect.selectedIndex]?.textContent : null;
+  const prevLoc = locationSelect.options.length
+    ? locationSelect.options[locationSelect.selectedIndex]?.textContent
+    : null;
 
   locationSelect.innerHTML = "";
   for (const l of (m.locations || [])){
     const opt = document.createElement("option");
-    opt.value = String(l.chance_percent); // percent value
+    opt.value = String(l.chance_percent);
     opt.textContent = l.location;
     locationSelect.appendChild(opt);
   }
 
-  // restore previous location if still present
   if (prevLoc){
     const idx = [...locationSelect.options].findIndex(o => o.textContent === prevLoc);
-    if (idx >= 0) locationSelect.selectedIndex = idx;
-    else locationSelect.selectedIndex = 0;
+    locationSelect.selectedIndex = idx >= 0 ? idx : 0;
   } else {
     locationSelect.selectedIndex = 0;
   }
@@ -524,19 +475,21 @@ function populateLocations(){
 }
 
 function calculate(){
-  const m = minerals.find(x => x.mineral === mineralSelect.value) || filtered.find(x => x.mineral === mineralSelect.value);
+  const m = minerals.find(x => x.mineral === mineralSelect.value) ||
+            filtered.find(x => x.mineral === mineralSelect.value);
   if (!m || !locationSelect.value) return;
 
   const luck = Math.max(0, Number(luckInput.value) || 0);
   const capacity = Math.max(1, Number(capacityInput.value) || 1);
 
-  const mult = effectiveRollsMultiplierFromLuck(luck);
-  const rollsPerAttempt = capacity * mult;
+  // --- EMPIRICAL MODEL ---
+// rolls per pan = luck × √capacity × 0.65
+  const rollsPerAttempt = luck * Math.sqrt(capacity) * LUCK_EFFICIENCY;
 
   document.getElementById("rollsNote").textContent =
-    `Luck uses diminishing returns. Effective rolls per attempt: ${rollsPerAttempt.toFixed(1)} (Capacity ${capacity} × ${mult.toFixed(2)}x)`;
+    `Effective rolls per pan: ${rollsPerAttempt.toFixed(1)} ` +
+    `(Luck ${luck} × √Capacity ${Math.sqrt(capacity).toFixed(2)} × 0.65)`;
 
-  // Header labels
   document.getElementById("mineralLabel").textContent = `Mineral: ${m.mineral}`;
   const rarity = m.rarity || "unknown";
   document.getElementById("rarityTag").textContent = rarity;
@@ -544,85 +497,58 @@ function calculate(){
   document.getElementById("rarityDot").style.background = c;
   document.getElementById("rarityDot").style.boxShadow = `0 0 0 3px ${c}22`;
 
-  // Selected location base chance per roll
-  const basePercent = Number(locationSelect.value);   // percent, e.g. 0.00002574
-  const p = basePercent / 100;                        // probability per roll
+  const basePercent = Number(locationSelect.value);
+  const p = basePercent / 100;
 
-  // chance per attempt (one full pan action)
   const pAttempt = 1 - Math.pow(1 - p, rollsPerAttempt);
-
-  // expected successes in one attempt
   const expected = rollsPerAttempt * p;
 
-  // At least one in one attempt (same as pAttempt)
-  const atLeastOne = pAttempt;
-
   document.getElementById("chanceCell").textContent = fmtPct(pAttempt, 5);
-  document.getElementById("oneInAttempt").textContent = `~1 in ${fmtOneInFromProb(pAttempt)} (attempt)`;
+  document.getElementById("oneInAttempt").textContent =
+    `~1 in ${fmtOneInFromProb(pAttempt)} (pan)`;
 
   document.getElementById("expectedCell").textContent = expected.toFixed(4);
-  document.getElementById("expectedSub").textContent = `Expected finds per attempt`;
+  document.getElementById("expectedSub").textContent = `Expected value per pan`;
 
-  document.getElementById("atLeastOneCell").textContent = fmtPct(atLeastOne, 2);
-  document.getElementById("atLeastSub").textContent = `Chance of ≥1 in one attempt`;
+  document.getElementById("atLeastOneCell").textContent = fmtPct(pAttempt, 2);
+  document.getElementById("atLeastSub").textContent = `Chance of ≥1 in one pan`;
 
-  // Fill table
   const tbody = document.getElementById("allLocationsTable");
   tbody.innerHTML = "";
-
   const locFilterVal = locationFilter.value;
 
-  // compute best location by pAttempt
   let best = { name: "—", pAttempt: -1, oneIn: "—" };
 
-  const rows = [];
   for (const l of (m.locations || [])){
     if (locFilterVal !== "all" && l.location !== locFilterVal) continue;
 
-    const bp = (Number(l.chance_percent) / 100); // probability per roll
+    const bp = Number(l.chance_percent) / 100;
     const pAtt = 1 - Math.pow(1 - bp, rollsPerAttempt);
 
     if (pAtt > best.pAttempt){
       best = { name: l.location, pAttempt: pAtt, oneIn: fmtOneInFromProb(pAtt) };
     }
 
-    const baseOneIn = fmtOneInFromProb(bp);
-    const attemptOneIn = fmtOneInFromProb(pAtt);
-
     const a50 = attemptsForTarget(pAtt, 0.50);
     const a90 = attemptsForTarget(pAtt, 0.90);
 
-    rows.push({
-      location: l.location,
-      basePercent: Number(l.chance_percent),
-      baseOneIn,
-      pAtt,
-      attemptOneIn,
-      a50,
-      a90
-    });
+    const tr = document.createElement("tr");
+    if (l.location === best.name) tr.classList.add("bestRow");
+
+    tr.innerHTML = `
+      <td>${l.location}</td>
+      <td>${Number(l.chance_percent).toFixed(8)}%</td>
+      <td>~1 in ${fmtOneInFromProb(bp)}</td>
+      <td>${fmtPct(pAtt, 5)}</td>
+      <td>~1 in ${fmtOneInFromProb(pAtt)}</td>
+      <td>${isFinite(a50) ? a50.toFixed(2) : "∞"}</td>
+      <td>${isFinite(a90) ? a90.toFixed(2) : "∞"}</td>
+    `;
+    tbody.appendChild(tr);
   }
 
   document.getElementById("bestLocation").textContent =
     best.pAttempt > 0 ? `${best.name} (~1 in ${best.oneIn})` : "—";
-
-  for (const r of rows){
-    const tr = document.createElement("tr");
-
-    // highlight best row
-    if (r.location === best.name) tr.classList.add("bestRow");
-
-    tr.innerHTML = `
-      <td>${r.location}</td>
-      <td>${r.basePercent.toFixed(8)}%</td>
-      <td>~1 in ${r.baseOneIn}</td>
-      <td>${fmtPct(r.pAtt, 5)}</td>
-      <td>~1 in ${r.attemptOneIn}</td>
-      <td>${isFinite(r.a50) ? r.a50.toFixed(2) : "∞"}</td>
-      <td>${isFinite(r.a90) ? r.a90.toFixed(2) : "∞"}</td>
-    `;
-    tbody.appendChild(tr);
-  }
 }
 </script>
 </body>

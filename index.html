@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Prospecting Chance Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<style>
+:root{
+  --bg-main:#0b0d17;
+  --bg-panel:#14172a;
+  --bg-panel-soft:#101226;
+  --border:rgba(255,255,255,0.08);
+  --text-main:#f2f3ff;
+  --text-muted:#9aa0d1;
+  --accent:#7c8cff;
+  --shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+
+body{
+  margin:0;
+  padding:28px;
+  background: radial-gradient(1200px 600px at 15% 0%, rgba(124,140,255,0.18), transparent 60%),
+              radial-gradient(900px 500px at 90% 10%, rgba(34,197,94,0.10), transparent 55%),
+              linear-gradient(180deg, #0b0d17, #070812);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color:var(--text-main);
+}
+
+h1{
+  margin:0 0 18px 0;
+  font-size: 1.7rem;
+  font-weight: 650;
+  letter-spacing: 0.2px;
+}
+
+.layout{
+  max-width: 1500px;
+  margin: 0 auto;
+  display:grid;
+  grid-template-columns: 430px 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.panel{
+  background: rgba(20,23,42,0.92);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+
+.panel h2{
+  margin:0 0 14px 0;
+  font-size:0.72rem;
+  font-weight:650;
+  text-transform:uppercase;
+  letter-spacing:0.10em;
+  color:var(--text-muted);
+}
+
+.control{ margin-bottom: 14px; }
+.control label{
+  display:block;
+  margin:0 0 6px 0;
+  font-size:0.82rem;
+  color:var(--text-muted);
+}
+
+.control input, .control select{
+  width:100%;
+  padding:10px 12px;
+  background: rgba(16,18,38,0.95);
+  border:1px solid var(--border);
+  border-radius:12px;
+  color:var(--text-main);
+  font-size:0.92rem;
+}
+
+.control input:focus, .control select:focus{
+  outline:none;
+  border-color: rgba(124,140,255,0.9);
+  box-shadow: 0 0 0 3px rgba(124,140,255,0.12);
+}
+
+.row2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.note{
+  margin-top: 10px;
+  font-size:0.78rem;
+  color:var(--text-muted);
+  line-height: 1.35;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(0,0,0,0.18);
+  font-size: 0.82rem;
+  color: var(--text-main);
+}
+
+.dot{
+  width:9px;
+  height:9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px rgba(124,140,255,0.12);
+}
+
+.metrics{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.metric{
+  background: rgba(16,18,38,0.75);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  min-height: 92px;
+}
+
+.metric .k{
+  font-size:0.70rem;
+  letter-spacing:0.10em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+}
+
+.metric .v{
+  margin-top: 10px;
+  font-size: 1.55rem;
+  font-weight: 700;
+}
+
+.metric .s{
+  margin-top: 6px;
+  font-size: 0.80rem;
+  color: var(--text-muted);
+}
+
+.bigPanel{
+  max-width: 1500px;
+  margin: 18px auto 0 auto;
+}
+
+.tableWrap{
+  overflow:auto;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(16,18,38,0.55);
+}
+
+.table{
+  width:100%;
+  border-collapse: collapse;
+  min-width: 980px;
+}
+
+.table th, .table td{
+  padding: 12px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.90rem;
+}
+
+.table th{
+  position: sticky;
+  top: 0;
+  background: rgba(16,18,38,0.92);
+  text-align:left;
+  font-size:0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  z-index: 1;
+}
+
+.table tr:hover{
+  background: rgba(255,255,255,0.03);
+}
+
+.bestRow{
+  background: rgba(34,197,94,0.10);
+}
+
+.muted{ color: var(--text-muted); }
+
+.rarityTag{
+  margin-left: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.15);
+  color: var(--text-main);
+}
+
+@media (max-width: 1100px){
+  body{ padding: 18px; }
+  .layout{ grid-template-columns: 1fr; }
+  .metrics{ grid-template-columns: 1fr; }
+  .row2{ grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+<h1>Prospecting Chance Calculator</h1>
+
+<div class="layout">
+  <!-- LEFT -->
+  <div class="panel">
+    <h2>Pan Setup</h2>
+
+    <div class="control">
+      <label>Search mineral</label>
+      <input id="mineralSearch" placeholder="Type part of the name…" />
+    </div>
+
+    <div class="row2">
+      <div class="control">
+        <label>Filter by rarity</label>
+        <select id="rarityFilter">
+          <option value="all">(all)</option>
+        </select>
+      </div>
+
+      <div class="control">
+        <label>Select mineral</label>
+        <select id="mineralSelect"></select>
+      </div>
+    </div>
+
+    <div class="control">
+      <label>Luck (in-game)</label>
+      <input type="number" id="luckInput" min="0" value="0" />
+    </div>
+
+    <div class="control">
+      <label>Pan Capacity (rolls per attempt)</label>
+      <input type="number" id="capacityInput" min="1" value="100" />
+    </div>
+
+    <div class="note" id="rollsNote">—</div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="panel">
+    <h2>Selected Location</h2>
+
+    <div class="row2" style="grid-template-columns: 1fr 1fr;">
+      <div class="control">
+        <label>Filter locations in table</label>
+        <select id="locationFilter">
+          <option value="all">(all)</option>
+        </select>
+      </div>
+      <div class="control">
+        <label>Location</label>
+        <select id="locationSelect"></select>
+      </div>
+    </div>
+
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+      <div class="badge">
+        <span class="dot" id="rarityDot"></span>
+        <span id="mineralLabel">Mineral: —</span>
+        <span class="rarityTag" id="rarityTag">—</span>
+      </div>
+      <div class="badge">
+        Best location: <b id="bestLocation">—</b>
+      </div>
+    </div>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="k">Chance per attempt</div>
+        <div class="v" id="chanceCell">—</div>
+        <div class="s muted" id="oneInAttempt">—</div>
+      </div>
+      <div class="metric">
+        <div class="k">Expected finds</div>
+        <div class="v" id="expectedCell">—</div>
+        <div class="s muted" id="expectedSub">—</div>
+      </div>
+      <div class="metric">
+        <div class="k">At least one</div>
+        <div class="v" id="atLeastOneCell">—</div>
+        <div class="s muted" id="atLeastSub">—</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel bigPanel">
+  <h2>All Locations Overview</h2>
+  <div class="tableWrap">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Location</th>
+          <th>Base chance (per roll)</th>
+          <th>~1 in (per roll)</th>
+          <th>Chance per attempt</th>
+          <th>~1 in (attempt)</th>
+          <th>Attempts for 50%</th>
+          <th>Attempts for 90%</th>
+        </tr>
+      </thead>
+      <tbody id="allLocationsTable"></tbody>
+    </table>
+  </div>
+  <div class="note">
+    “Attempt” = one full pan action (Capacity rolls) with Luck applied as extra effective rolls per pan.
+  </div>
+</div>
+
+<script>
+let minerals = [];
+let filtered = [];
+let raritySet = new Set();
+let allLocationNames = new Set();
+
+const mineralSelect   = document.getElementById("mineralSelect");
+const mineralSearch   = document.getElementById("mineralSearch");
+const rarityFilter    = document.getElementById("rarityFilter");
+const locationSelect  = document.getElementById("locationSelect");
+const locationFilter  = document.getElementById("locationFilter");
+const luckInput       = document.getElementById("luckInput");
+const capacityInput   = document.getElementById("capacityInput");
+
+function rarityColor(r){
+  const key = (r || "").toLowerCase();
+  const map = {
+    common:    "#a3a3a3",
+    uncommon:  "#22c55e",
+    rare:      "#3b82f6",
+    epic:      "#a855f7",
+    legendary: "#f59e0b",
+    mythic:    "#ef4444",
+    exotic:    "#06b6d4"
+  };
+  return map[key] || "#7c8cff";
+}
+
+// --- Luck scaling ---
+// This is the *only* place to change the behavior.
+// It returns an "effective rolls multiplier" (>= 1).
+// Diminishing returns but still grows with very high luck.
+function effectiveRollsMultiplierFromLuck(luck){
+  luck = Math.max(0, Number(luck) || 0);
+
+  // Tuned diminishing returns curve:
+  // mult = 1 + A * ((luck+1)^B - 1)
+  // Keeps luck=0 -> 1x
+  // Feel free to tweak A/B later if you want it closer/further.
+  const A = 0.03642909081134837;
+  const B = 0.9270712415412325;
+
+  return 1 + A * (Math.pow(luck + 1, B) - 1);
+}
+
+function fmtPct(x, digits=5){
+  if (!isFinite(x)) return "—";
+  return (x * 100).toFixed(digits) + "%";
+}
+function fmtOneInFromProb(p){
+  if (!isFinite(p) || p <= 0) return "∞";
+  return Math.round(1 / p).toLocaleString();
+}
+function fmtOneInFromPct(chancePercent){
+  // chancePercent is already a percent value (e.g. 0.00002574)
+  const p = Number(chancePercent) / 100;
+  return fmtOneInFromProb(p);
+}
+function attemptsForTarget(pAttempt, target){
+  // P(success within n attempts) = 1 - (1-pAttempt)^n >= target
+  // n >= ln(1-target) / ln(1-pAttempt)
+  if (!isFinite(pAttempt) || pAttempt <= 0) return Infinity;
+  if (pAttempt >= 1) return 1;
+  const n = Math.log(1 - target) / Math.log(1 - pAttempt);
+  return n;
+}
+
+fetch("./minerals.json")
+  .then(r => r.json())
+  .then(d => {
+    minerals = (d.minerals || []).slice().sort((a,b) =>
+      a.mineral.localeCompare(b.mineral, "en", { sensitivity:"base" })
+    );
+
+    // build rarity + location lists
+    for (const m of minerals){
+      if (m.rarity) raritySet.add(m.rarity);
+      for (const loc of (m.locations || [])){
+        allLocationNames.add(loc.location);
+      }
+    }
+
+    // rarity dropdown
+    const rarities = [...raritySet].sort((a,b)=> a.localeCompare(b));
+    for (const r of rarities){
+      const opt = document.createElement("option");
+      opt.value = r;
+      opt.textContent = r;
+      rarityFilter.appendChild(opt);
+    }
+
+    // location filter dropdown
+    const locs = [...allLocationNames].sort((a,b)=> a.localeCompare(b));
+    for (const name of locs){
+      const opt = document.createElement("option");
+      opt.value = name;
+      opt.textContent = name;
+      locationFilter.appendChild(opt);
+    }
+
+    filtered = minerals.slice();
+    populateMinerals(true);
+  });
+
+[mineralSelect, locationSelect, luckInput, capacityInput, locationFilter]
+  .forEach(el => el.addEventListener("input", () => {
+    if (el === mineralSelect) populateLocations();
+    calculate();
+  }));
+
+rarityFilter.addEventListener("change", () => populateMinerals(false));
+
+mineralSearch.addEventListener("input", () => {
+  populateMinerals(false);
+});
+
+function populateMinerals(keepSelection){
+  const q = (mineralSearch.value || "").toLowerCase();
+  const r = rarityFilter.value;
+
+  const prev = keepSelection ? mineralSelect.value : null;
+
+  filtered = minerals.filter(m => {
+    const okName = m.mineral.toLowerCase().includes(q);
+    const okRarity = (r === "all") ? true : ((m.rarity || "") === r);
+    return okName && okRarity;
+  });
+
+  mineralSelect.innerHTML = "";
+  for (const m of filtered){
+    const opt = document.createElement("option");
+    opt.value = m.mineral;
+    opt.textContent = m.mineral;
+    mineralSelect.appendChild(opt);
+  }
+
+  // restore selection if possible
+  if (prev && filtered.some(m => m.mineral === prev)){
+    mineralSelect.value = prev;
+  }
+
+  populateLocations();
+}
+
+function populateLocations(){
+  const m = filtered.find(x => x.mineral === mineralSelect.value) || minerals.find(x => x.mineral === mineralSelect.value);
+  if (!m){
+    locationSelect.innerHTML = "";
+    calculate();
+    return;
+  }
+
+  // Keep current location if it exists
+  const prevLoc = locationSelect.options.length ? locationSelect.options[locationSelect.selectedIndex]?.textContent : null;
+
+  locationSelect.innerHTML = "";
+  for (const l of (m.locations || [])){
+    const opt = document.createElement("option");
+    opt.value = String(l.chance_percent); // percent value
+    opt.textContent = l.location;
+    locationSelect.appendChild(opt);
+  }
+
+  // restore previous location if still present
+  if (prevLoc){
+    const idx = [...locationSelect.options].findIndex(o => o.textContent === prevLoc);
+    if (idx >= 0) locationSelect.selectedIndex = idx;
+    else locationSelect.selectedIndex = 0;
+  } else {
+    locationSelect.selectedIndex = 0;
+  }
+
+  calculate();
+}
+
+function calculate(){
+  const m = minerals.find(x => x.mineral === mineralSelect.value) || filtered.find(x => x.mineral === mineralSelect.value);
+  if (!m || !locationSelect.value) return;
+
+  const luck = Math.max(0, Number(luckInput.value) || 0);
+  const capacity = Math.max(1, Number(capacityInput.value) || 1);
+
+  const mult = effectiveRollsMultiplierFromLuck(luck);
+  const rollsPerAttempt = capacity * mult;
+
+  document.getElementById("rollsNote").textContent =
+    `Luck uses diminishing returns. Effective rolls per attempt: ${rollsPerAttempt.toFixed(1)} (Capacity ${capacity} × ${mult.toFixed(2)}x)`;
+
+  // Header labels
+  document.getElementById("mineralLabel").textContent = `Mineral: ${m.mineral}`;
+  const rarity = m.rarity || "unknown";
+  document.getElementById("rarityTag").textContent = rarity;
+  const c = rarityColor(rarity);
+  document.getElementById("rarityDot").style.background = c;
+  document.getElementById("rarityDot").style.boxShadow = `0 0 0 3px ${c}22`;
+
+  // Selected location base chance per roll
+  const basePercent = Number(locationSelect.value);   // percent, e.g. 0.00002574
+  const p = basePercent / 100;                        // probability per roll
+
+  // chance per attempt (one full pan action)
+  const pAttempt = 1 - Math.pow(1 - p, rollsPerAttempt);
+
+  // expected successes in one attempt
+  const expected = rollsPerAttempt * p;
+
+  // At least one in one attempt (same as pAttempt)
+  const atLeastOne = pAttempt;
+
+  document.getElementById("chanceCell").textContent = fmtPct(pAttempt, 5);
+  document.getElementById("oneInAttempt").textContent = `~1 in ${fmtOneInFromProb(pAttempt)} (attempt)`;
+
+  document.getElementById("expectedCell").textContent = expected.toFixed(4);
+  document.getElementById("expectedSub").textContent = `Expected finds per attempt`;
+
+  document.getElementById("atLeastOneCell").textContent = fmtPct(atLeastOne, 2);
+  document.getElementById("atLeastSub").textContent = `Chance of ≥1 in one attempt`;
+
+  // Fill table
+  const tbody = document.getElementById("allLocationsTable");
+  tbody.innerHTML = "";
+
+  const locFilterVal = locationFilter.value;
+
+  // compute best location by pAttempt
+  let best = { name: "—", pAttempt: -1, oneIn: "—" };
+
+  const rows = [];
+  for (const l of (m.locations || [])){
+    if (locFilterVal !== "all" && l.location !== locFilterVal) continue;
+
+    const bp = (Number(l.chance_percent) / 100); // probability per roll
+    const pAtt = 1 - Math.pow(1 - bp, rollsPerAttempt);
+
+    if (pAtt > best.pAttempt){
+      best = { name: l.location, pAttempt: pAtt, oneIn: fmtOneInFromProb(pAtt) };
+    }
+
+    const baseOneIn = fmtOneInFromProb(bp);
+    const attemptOneIn = fmtOneInFromProb(pAtt);
+
+    const a50 = attemptsForTarget(pAtt, 0.50);
+    const a90 = attemptsForTarget(pAtt, 0.90);
+
+    rows.push({
+      location: l.location,
+      basePercent: Number(l.chance_percent),
+      baseOneIn,
+      pAtt,
+      attemptOneIn,
+      a50,
+      a90
+    });
+  }
+
+  document.getElementById("bestLocation").textContent =
+    best.pAttempt > 0 ? `${best.name} (~1 in ${best.oneIn})` : "—";
+
+  for (const r of rows){
+    const tr = document.createElement("tr");
+
+    // highlight best row
+    if (r.location === best.name) tr.classList.add("bestRow");
+
+    tr.innerHTML = `
+      <td>${r.location}</td>
+      <td>${r.basePercent.toFixed(8)}%</td>
+      <td>~1 in ${r.baseOneIn}</td>
+      <td>${fmtPct(r.pAtt, 5)}</td>
+      <td>~1 in ${r.attemptOneIn}</td>
+      <td>${isFinite(r.a50) ? r.a50.toFixed(2) : "∞"}</td>
+      <td>${isFinite(r.a90) ? r.a90.toFixed(2) : "∞"}</td>
+    `;
+    tbody.appendChild(tr);
+  }
+}
+</script>
+</body>
+</html>

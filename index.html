@@ -405,7 +405,7 @@ function attemptsForTarget(pAttempt, target){
   return n;
 }
 
-fetch("./minerals.json")
+fetch("./minerals.json?v=" + Date.now())
   .then(r => r.json())
   .then(d => {
     minerals = (d.minerals || []).slice().sort((a,b) =>

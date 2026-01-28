@@ -677,7 +677,7 @@ function fmtDuration(seconds){
 }
 
 /**
- * Time model (from your screenshots):
+ * Time model:
  * Sandshaking:
  *   cycleSeconds = C/(r*s) + 2.5
  * Autopan/Macro:
@@ -912,7 +912,7 @@ function calculate(){
 const overlay = document.getElementById("graphOverlay");
 const closeGraph = document.getElementById("closeGraph");
 
-/* ✅ OPEN (delegated — works even if <a> is dynamic) */
+/* OPEN (delegated — works even if <a> is dynamic) */
 document.addEventListener("click", e => {
   const link = e.target.closest("#openGraph");
   if (!link) return;
@@ -922,13 +922,13 @@ document.addEventListener("click", e => {
   overlay.setAttribute("aria-hidden", "false");
 });
 
-/* ✅ CLOSE via X button */
+/* CLOSE via X button */
 closeGraph?.addEventListener("click", () => {
   overlay.classList.remove("active");
   overlay.setAttribute("aria-hidden", "true");
 });
 
-/* ✅ Click outside closes modal */
+/* Click outside closes modal */
 overlay?.addEventListener("click", e => {
   if (e.target === overlay) {
     overlay.classList.remove("active");
@@ -936,7 +936,7 @@ overlay?.addEventListener("click", e => {
   }
 });
 
-/* ✅ ESC closes modal */
+/* ESC closes modal */
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") {
     overlay.classList.remove("active");

@@ -2742,7 +2742,7 @@
       "locations": [
         {
           "location": "Fungal Marsh",
-          "chance_percent": 4.339e-10
+          "chance_percent": 4.339e-8
         },
         {
           "location": "Timelocked Sanctuary",

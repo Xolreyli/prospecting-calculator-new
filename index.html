@@ -635,6 +635,8 @@ const nInput = document.getElementById("nInput");
 const dInput = document.getElementById("dInput");
 const autopanExtras = document.getElementById("autopanExtras");
 
+const LUCK_EFFICIENCY = 0.65;
+
 function rarityColor(r){
   const key = (r || "").toLowerCase();
   const map = {
@@ -807,17 +809,15 @@ function calculate(){
   const luck = Math.max(0, Number(luckInput.value) || 0);
   const C = Math.max(1, Number(capacityInput.value) || 1);
 
-  // --- Your existing probability model stays the same ---
-  // (If you later want to swap in a different rolls-per-attempt model, we can.)
-  // Here we treat "attempt" as C rolls (capacity rolls per attempt).
-  const rollsPerAttempt = C;
+  const rollsPerAttempt = luck * Math.sqrt(C) * LUCK_EFFICIENCY;
 
   // Time model
   const cycleSeconds = getCycleSeconds(C);
   const pansPerMinute = (isFinite(cycleSeconds) && cycleSeconds > 0) ? (60 / cycleSeconds) : 0;
 
   document.getElementById("rollsNote").textContent =
-    `Rolls per attempt: ${rollsPerAttempt.toFixed(1)} · ` +
+    `Effective rolls per pan: ${rollsPerAttempt.toFixed(1)} ` +
+    `(Luck ${luck} × √Capacity ${Math.sqrt(C).toFixed(2)} × 0.65) · ` +
     `Cycle time: ${isFinite(cycleSeconds) ? cycleSeconds.toFixed(2) + "s" : "∞"} · ` +
     `Pans/min: ${pansPerMinute ? pansPerMinute.toFixed(2) : "—"}`;
 

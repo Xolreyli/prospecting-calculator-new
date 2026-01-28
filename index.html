@@ -18,33 +18,56 @@
 }
 
 *{ box-sizing:border-box; }
-html,body{ height:100%; }
+html,body{ min-height:100%; }
 
 body{
   margin:0;
-  padding:28px;
-  background: radial-gradient(1200px 600px at 15% 0%, rgba(124,140,255,0.18), transparent 60%),
-              radial-gradient(900px 500px at 90% 10%, rgba(34,197,94,0.10), transparent 55%),
-              linear-gradient(180deg, #0b0d17, #070812);
+  padding:16px;
+  background:
+    radial-gradient(1200px 600px at 15% 0%, rgba(124,140,255,0.18), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(34,197,94,0.10), transparent 55%),
+    linear-gradient(180deg, #0b0d17, #070812);
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   color:var(--text-main);
+}
+
+.version{
+  margin-left: 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  opacity: 0.85;
 }
 
 h1{
   margin:0 0 18px 0;
   font-size: 1.7rem;
   font-weight: 650;
-  letter-spacing: 0.2px;
 }
 
+/* =======================
+   MAIN LAYOUT
+======================= */
+
 .layout{
-  max-width: 1500px;
+  max-width: 1700px;
   margin: 0 auto;
   display:grid;
-  grid-template-columns: 430px 1fr;
-  gap: 22px;
+  grid-template-columns: minmax(440px, 500px) minmax(780px, 1fr);
+  gap: 24px;
   align-items: start;
 }
+
+/* Right column stack */
+.rightStack{
+  display:grid;
+  grid-template-rows: auto 1fr;
+  gap:22px;
+}
+
+/* =======================
+   PANELS
+======================= */
 
 .panel{
   background: rgba(20,23,42,0.92);
@@ -64,7 +87,12 @@ h1{
   color:var(--text-muted);
 }
 
+/* =======================
+   FORM CONTROLS
+======================= */
+
 .control{ margin-bottom: 14px; }
+
 .control label{
   display:block;
   margin:0 0 6px 0;
@@ -72,7 +100,8 @@ h1{
   color:var(--text-muted);
 }
 
-.control input, .control select{
+.control input,
+.control select{
   width:100%;
   padding:10px 12px;
   background: rgba(16,18,38,0.95);
@@ -82,7 +111,8 @@ h1{
   font-size:0.92rem;
 }
 
-.control input:focus, .control select:focus{
+.control input:focus,
+.control select:focus{
   outline:none;
   border-color: rgba(124,140,255,0.9);
   box-shadow: 0 0 0 3px rgba(124,140,255,0.12);
@@ -101,6 +131,10 @@ h1{
   line-height: 1.35;
 }
 
+/* =======================
+   BADGES / METRICS
+======================= */
+
 .badge{
   display:inline-flex;
   align-items:center;
@@ -110,7 +144,6 @@ h1{
   border: 1px solid var(--border);
   background: rgba(0,0,0,0.18);
   font-size: 0.82rem;
-  color: var(--text-main);
 }
 
 .dot{
@@ -155,13 +188,16 @@ h1{
   color: var(--text-muted);
 }
 
-.bigPanel{
-  max-width: 1500px;
-  margin: 18px auto 0 auto;
+/* =======================
+   TABLE (RIGHT COLUMN)
+======================= */
+
+.tablePanel{
+  padding:16px;
 }
 
 .tableWrap{
-  overflow:auto;
+  overflow-x:auto;
   border-radius: 16px;
   border: 1px solid var(--border);
   background: rgba(16,18,38,0.55);
@@ -170,11 +206,12 @@ h1{
 .table{
   width:100%;
   border-collapse: collapse;
-  min-width: 980px;
+  min-width: 1180px;
 }
 
-.table th, .table td{
-  padding: 12px 12px;
+.table th,
+.table td{
+  padding: 12px;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   font-size: 0.90rem;
 }
@@ -183,47 +220,211 @@ h1{
   position: sticky;
   top: 0;
   background: rgba(16,18,38,0.92);
-  text-align:left;
   font-size:0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--text-muted);
-  z-index: 1;
 }
 
 .table tr:hover{
   background: rgba(255,255,255,0.03);
 }
 
-.bestRow{
-  background: rgba(34,197,94,0.10);
+/* =======================
+   RESPONSIVE FALLBACK
+======================= */
+
+@media (max-width: 1350px){
+
+  /* Page padding */
+  body{
+    padding: 14px;
+  }
+
+  /* Force true vertical layout */
+  .layout{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+  }
+
+  /* Right stack also vertical */
+  .rightStack{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    align-items: center;
+  }
+
+  /* Panels behave like mobile cards */
+  .panel{
+    width: 100%;
+    max-width: 560px;
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  /* Inputs stack */
+  .row2{
+    grid-template-columns: 1fr;
+  }
+
+  /* Metrics stack */
+  .metrics{
+    grid-template-columns: 1fr;
+  }
+
+  .tablePanel{
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .tableWrap{
+    overflow-x: auto;
+  }
+
+  .table{
+    min-width: 900px;
+  }
+
+  /* Disable sticky on mobile */
+  .layout > .panel:first-child{
+    position: static;
+  }
 }
 
-.muted{ color: var(--text-muted); }
+/* =======================
+   GRAPH MODAL
+======================= */
 
-.rarityTag{
-  margin-left: 10px;
-  padding: 4px 10px;
+/* ===== Overlay ===== */
+.graphOverlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(5,7,18,0.65);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.graphOverlay.active{
+  display: flex;
+}
+
+/* ===== Modal ===== */
+.graphModal{
+  position: relative;
+  background: rgba(20,23,42,0.95);
+  border: 1px solid var(--border);
+
+  /* IMPORTANT: single source of truth for size */
+  width: min(72vw, 720px);
+  height: min(72vh, 720px);
+
+  padding: 14px;
+  border-radius: 20px 18px 22px 17px;
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.05),
+    inset 0 -8px 16px rgba(0,0,0,0.28);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+/* ===== Inner frame (soft separation) ===== */
+.graphFrame{
+  width: 100%;
+  height: 100%;
+  padding: 14px;
+
+  background: rgba(255,255,255,0.04);
+  border-radius: 16px;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.06),
+    inset 0 -6px 12px rgba(0,0,0,0.25);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Image ===== */
+.graphImage{
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+
+  display: block;
+  border-radius: 10px;
+}
+
+/* ===== Outside Close Button ===== */
+.graphCloseOutside{
+  position: fixed;
+  top: 24px;
+  right: 28px;
+  z-index: 1100;
+
+  width: 44px;
+  height: 44px;
+
+  background: rgba(20,23,42,0.9);
+  border: 1px solid var(--border);
   border-radius: 999px;
-  font-size: 0.78rem;
-  border: 1px solid rgba(255,255,255,0.10);
-  background: rgba(0,0,0,0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+
   color: var(--text-main);
+  cursor: pointer;
+
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+
+  opacity: 0.9;
 }
 
-@media (max-width: 1100px){
-  body{ padding: 18px; }
-  .layout{ grid-template-columns: 1fr; }
-  .metrics{ grid-template-columns: 1fr; }
-  .row2{ grid-template-columns: 1fr; }
+.graphCloseOutside:hover{
+  opacity: 1;
+  transform: scale(1.05);
 }
+
+/* ===== Mobile tuning ===== */
+@media (max-width: 600px){
+  .graphModal{
+    width: min(92vw, 92vh);
+    height: min(92vw, 92vh);
+  }
+
+  .graphCloseOutside{
+    top: 14px;
+    right: 14px;
+  }
+}
+
 </style>
-</head>
 
 <body>
-<h1>Prospecting Chance Calculator</h1>
+<h1>Prospecting Chance Calculator <span class="version">v1.2.0</span></h1>
 
 <div class="layout">
+
   <!-- LEFT -->
   <div class="panel">
     <h2>Pan Setup</h2>
@@ -260,88 +461,162 @@ h1{
     </div>
 
     <div class="control">
-      <label>Pan Capacity (rolls per attempt)</label>
+      <label>Pan Capacity (C)</label>
       <input type="number" id="capacityInput" min="1" value="50" />
     </div>
 
-    <div class="note" id="rollsNote">—</div>
+    <div class="note" id="rollsNote">—</div><br><br>
+
+    <!-- NEW: time method + params -->
+    <div class="control">
+      <label>Time method</label>
+      <select id="timeMethod">
+        <option value="sand">Sandshaking</option>
+        <option value="autopan">Autopan / Macro</option>
+      </select>
+    </div>
+
+    <div class="row2">
+      <div class="control">
+        <label>r = shakes per second</label>
+        <input type="number" id="rInput" min="0" step="0.01" value="6" />
+      </div>
+      <div class="control">
+        <label>s = shake strength</label>
+        <input type="number" id="sInput" min="0" step="0.01" value="1" />
+      </div>
+    </div>
+
+    <div class="row2" id="autopanExtras" style="display:none;">
+      <div class="control">
+        <label>n = digs to fill</label>
+        <input type="number" id="nInput" min="0" step="1" value="3" />
+      </div>
+      <div class="control">
+        <label>d = dig speed %</label>
+        <input type="number" id="dInput" min="0.01" step="0.01" value="100" />
+      </div>
+    </div>
+
+    <div class="note">
+        <b>How to fill these values</b><br><br>
+        
+        <b>Common Values</b><br>
+        • <b>r (shakes per second):</b> please refer to the graph by clicking <a href="./imgs/shake-speed.jpg" id="openGraph">here</a></b><br>
+        • <b>s (shake strength):</b> you'll find this in the stats menu<br><br>
+
+        <b>Manual (Sandshaking)</b><br>
+        Use these values if you are shaking the pan yourself.<br>
+        • Only <b>r</b> and <b>s</b> are used<br>
+        • Dig inputs are <b>not used</b> for manual shaking<br><br>
+
+        <b>Autopan / Macro</b><br>
+        Use these values if a macro or autopan is shaking for you.<br>
+        • Refer to common values for <b>r</b> and <b>s</b><br>
+        • <b>n (digs to fill):</b> how many digs are needed to fill a pan<br>
+        • <b>d (dig speed %):</b> your dig speed from gear/upgrades<br><br>
+
+        <b>Important:</b><br>
+        Luck and Capacity affect <b>drop chance</b>.<br>
+        Shaking speed and dig speed affect <b>time only</b>.<br>
+        Faster pans do not increase RNG - they just reach it sooner.
+    </div>
   </div>
 
   <!-- RIGHT -->
-  <div class="panel">
-    <h2>Selected Location</h2>
+  <div class="rightStack">
 
-    <div class="row2" style="grid-template-columns: 1fr 1fr;">
-      <div class="control">
-        <label>Filter locations in table</label>
-        <select id="locationFilter">
-          <option value="all">(all)</option>
-        </select>
-      </div>
-      <div class="control">
-        <label>Location</label>
-        <select id="locationSelect"></select>
-      </div>
+    <!-- TOP RIGHT -->
+    <div class="panel">
+        <div class="row2" style="grid-template-columns: 1fr 1fr;">
+        <div class="control">
+            <label>Filter locations in table</label>
+            <select id="locationFilter">
+            <option value="all">(all)</option>
+            </select>
+        </div>
+        <div class="control">
+            <label>Location</label>
+            <select id="locationSelect"></select>
+        </div>
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+        <div class="badge">
+            <span class="dot" id="rarityDot"></span>
+            <span id="mineralLabel">Mineral: —</span>
+            <span class="rarityTag" id="rarityTag">—</span>
+        </div>
+        <div class="badge">
+            Best location: <b id="bestLocation">—</b>
+        </div>
+        </div>
+
+        <div class="metrics">
+        <div class="metric">
+            <div class="k">Chance per attempt</div>
+            <div class="v" id="chanceCell">—</div>
+            <div class="s muted" id="oneInAttempt">—</div>
+        </div>
+        <div class="metric">
+            <div class="k">Expected finds</div>
+            <div class="v" id="expectedCell">—</div>
+            <div class="s muted" id="expectedSub">—</div>
+        </div>
+        <div class="metric">
+            <div class="k">At least one</div>
+            <div class="v" id="atLeastOneCell">—</div>
+            <div class="s muted" id="atLeastSub">—</div>
+        </div>
+        </div>
     </div>
 
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
-      <div class="badge">
-        <span class="dot" id="rarityDot"></span>
-        <span id="mineralLabel">Mineral: —</span>
-        <span class="rarityTag" id="rarityTag">—</span>
-      </div>
-      <div class="badge">
-        Best location: <b id="bestLocation">—</b>
-      </div>
-    </div>
+    <!-- TABLE IN GAP -->
+    <div class="panel tablePanel">
+      <h2>All Locations Overview</h2>
 
-    <div class="metrics">
-      <div class="metric">
-        <div class="k">Chance per attempt</div>
-        <div class="v" id="chanceCell">—</div>
-        <div class="s muted" id="oneInAttempt">—</div>
+      <div class="tableWrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Base chance (per roll)</th>
+              <th>~1 in (per roll)</th>
+              <th>Chance per attempt</th>
+              <th>~1 in (attempt)</th>
+              <th>Attempts for 50%</th>
+              <th>Attempts for 90%</th>
+              <th>Time for 50%</th>
+              <th>Time for 90%</th>
+            </tr>
+          </thead>
+          <tbody id="allLocationsTable"></tbody>
+        </table>
       </div>
-      <div class="metric">
-        <div class="k">Expected finds</div>
-        <div class="v" id="expectedCell">—</div>
-        <div class="s muted" id="expectedSub">—</div>
-      </div>
-      <div class="metric">
-        <div class="k">At least one</div>
-        <div class="v" id="atLeastOneCell">—</div>
-        <div class="s muted" id="atLeastSub">—</div>
+
+      <div class="note">
+        “Attempt” = one full pan action. Time columns use the selected method’s cycle time (seconds per pan).
       </div>
     </div>
   </div>
+
+<div class="graphOverlay" id="graphOverlay">
+
+  <!-- BIG CLOSE BUTTON (outside modal) -->
+  <button class="graphCloseOutside" id="closeGraph" aria-label="Close graph">×</button>
+
+  <div class="graphModal">
+    <img src="./imgs/shake-speed.jpg" class="graphImage">
+  </div>
+
 </div>
 
-<div class="panel bigPanel">
-  <h2>All Locations Overview</h2>
-  <div class="tableWrap">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Location</th>
-          <th>Base chance (per roll)</th>
-          <th>~1 in (per roll)</th>
-          <th>Chance per attempt</th>
-          <th>~1 in (attempt)</th>
-          <th>Attempts for 50%</th>
-          <th>Attempts for 90%</th>
-        </tr>
-      </thead>
-      <tbody id="allLocationsTable"></tbody>
-    </table>
-  </div>
-  <div class="note">
-    “Attempt” = one full pan action (Capacity rolls) with Luck applied as extra effective rolls per pan.
-  </div>
 </div>
+</body>
 
 <script>
 let minerals = [];
 let filtered = [];
-let raritySet = new Set();
 let allLocationNames = new Set();
 
 const mineralSelect   = document.getElementById("mineralSelect");
@@ -352,7 +627,13 @@ const locationFilter  = document.getElementById("locationFilter");
 const luckInput       = document.getElementById("luckInput");
 const capacityInput   = document.getElementById("capacityInput");
 
-const LUCK_EFFICIENCY = 0.65; // empirical constant
+// NEW time inputs
+const timeMethod = document.getElementById("timeMethod");
+const rInput = document.getElementById("rInput");
+const sInput = document.getElementById("sInput");
+const nInput = document.getElementById("nInput");
+const dInput = document.getElementById("dInput");
+const autopanExtras = document.getElementById("autopanExtras");
 
 function rarityColor(r){
   const key = (r || "").toLowerCase();
@@ -381,6 +662,46 @@ function attemptsForTarget(pAttempt, target){
   if (pAttempt >= 1) return 1;
   return Math.log(1 - target) / Math.log(1 - pAttempt);
 }
+function fmtDuration(seconds){
+  if (!isFinite(seconds) || seconds < 0) return "—";
+  if (seconds === Infinity) return "∞";
+  const s = Math.round(seconds);
+  const h = Math.floor(s / 3600);
+  const m = Math.floor((s % 3600) / 60);
+  const sec = s % 60;
+  if (h > 0) return `${h}h ${m}m`;
+  if (m > 0) return `${m}m ${sec}s`;
+  return `${sec}s`;
+}
+
+/**
+ * Time model (from your screenshots):
+ * Sandshaking:
+ *   cycleSeconds = C/(r*s) + 2.5
+ * Autopan/Macro:
+ *   cycleSeconds = C/(r*s) + 3 + 190n/d
+ */
+function getCycleSeconds(C){
+  const r = Math.max(0, Number(rInput.value) || 0);
+  const s = Math.max(0, Number(sInput.value) || 0);
+  const rs = r * s;
+
+  // If rs is 0, you can't progress; avoid divide-by-zero.
+  if (rs <= 0) return Infinity;
+
+  const base = C / rs;
+  if (timeMethod.value === "autopan"){
+    const n = Math.max(0, Number(nInput.value) || 0);
+    const d = Math.max(0.0001, Number(dInput.value) || 0.0001);
+    return base + 3 + (190 * n / d);
+  }
+  return base + 2.5;
+}
+
+// Toggle autopan extra inputs
+function syncAutopanUI(){
+  autopanExtras.style.display = (timeMethod.value === "autopan") ? "" : "none";
+}
 
 fetch("./minerals.json?v=" + Date.now())
   .then(r => r.json())
@@ -390,7 +711,6 @@ fetch("./minerals.json?v=" + Date.now())
     );
 
     for (const m of minerals){
-      if (m.rarity) raritySet.add(m.rarity);
       for (const loc of (m.locations || [])){
         allLocationNames.add(loc.location);
       }
@@ -408,14 +728,19 @@ fetch("./minerals.json?v=" + Date.now())
     populateMinerals(true);
   });
 
-[mineralSelect, locationSelect, luckInput, capacityInput, locationFilter]
-  .forEach(el => el.addEventListener("input", () => {
-    if (el === mineralSelect) populateLocations();
-    calculate();
-  }));
+[
+  mineralSelect, locationSelect, luckInput, capacityInput, locationFilter,
+  timeMethod, rInput, sInput, nInput, dInput
+].forEach(el => el.addEventListener("input", () => {
+  if (el === mineralSelect) populateLocations();
+  if (el === timeMethod) syncAutopanUI();
+  calculate();
+}));
 
 rarityFilter.addEventListener("change", () => populateMinerals(false));
 mineralSearch.addEventListener("input", () => populateMinerals(false));
+
+syncAutopanUI();
 
 function populateMinerals(keepSelection){
   const q = (mineralSearch.value || "").toLowerCase();
@@ -423,7 +748,7 @@ function populateMinerals(keepSelection){
   const prev = keepSelection ? mineralSelect.value : null;
 
   filtered = minerals.filter(m => {
-    const okName = m.mineral.toLowerCase().includes(q);
+    const okName = (m.mineral || "").toLowerCase().includes(q);
     const okRarity = (r === "all") ? true : ((m.rarity || "") === r);
     return okName && okRarity;
   });
@@ -480,16 +805,23 @@ function calculate(){
   if (!m || !locationSelect.value) return;
 
   const luck = Math.max(0, Number(luckInput.value) || 0);
-  const capacity = Math.max(1, Number(capacityInput.value) || 1);
+  const C = Math.max(1, Number(capacityInput.value) || 1);
 
-  // --- EMPIRICAL MODEL ---
-// rolls per pan = luck × √capacity × 0.65
-  const rollsPerAttempt = luck * Math.sqrt(capacity) * LUCK_EFFICIENCY;
+  // --- Your existing probability model stays the same ---
+  // (If you later want to swap in a different rolls-per-attempt model, we can.)
+  // Here we treat "attempt" as C rolls (capacity rolls per attempt).
+  const rollsPerAttempt = C;
+
+  // Time model
+  const cycleSeconds = getCycleSeconds(C);
+  const pansPerMinute = (isFinite(cycleSeconds) && cycleSeconds > 0) ? (60 / cycleSeconds) : 0;
 
   document.getElementById("rollsNote").textContent =
-    `Effective rolls per pan: ${rollsPerAttempt.toFixed(1)} ` +
-    `(Luck ${luck} × √Capacity ${Math.sqrt(capacity).toFixed(2)} × 0.65)`;
+    `Rolls per attempt: ${rollsPerAttempt.toFixed(1)} · ` +
+    `Cycle time: ${isFinite(cycleSeconds) ? cycleSeconds.toFixed(2) + "s" : "∞"} · ` +
+    `Pans/min: ${pansPerMinute ? pansPerMinute.toFixed(2) : "—"}`;
 
+  // Header labels
   document.getElementById("mineralLabel").textContent = `Mineral: ${m.mineral}`;
   const rarity = m.rarity || "unknown";
   document.getElementById("rarityTag").textContent = rarity;
@@ -497,32 +829,37 @@ function calculate(){
   document.getElementById("rarityDot").style.background = c;
   document.getElementById("rarityDot").style.boxShadow = `0 0 0 3px ${c}22`;
 
-  const basePercent = Number(locationSelect.value);
-  const p = basePercent / 100;
+  // Selected location base chance per roll
+  const basePercent = Number(locationSelect.value); // percent
+  const p = basePercent / 100;                      // probability per roll
 
+  // chance per attempt (one pan) = at least one success in rollsPerAttempt rolls
   const pAttempt = 1 - Math.pow(1 - p, rollsPerAttempt);
   const expected = rollsPerAttempt * p;
 
   document.getElementById("chanceCell").textContent = fmtPct(pAttempt, 5);
-  document.getElementById("oneInAttempt").textContent =
-    `~1 in ${fmtOneInFromProb(pAttempt)} (pan)`;
+  document.getElementById("oneInAttempt").textContent = `~1 in ${fmtOneInFromProb(pAttempt)} (attempt)`;
 
   document.getElementById("expectedCell").textContent = expected.toFixed(4);
-  document.getElementById("expectedSub").textContent = `Expected value per pan`;
+  document.getElementById("expectedSub").textContent = `Expected finds per attempt`;
 
   document.getElementById("atLeastOneCell").textContent = fmtPct(pAttempt, 2);
-  document.getElementById("atLeastSub").textContent = `Chance of ≥1 in one pan`;
+  document.getElementById("atLeastSub").textContent = `Chance of ≥1 in one attempt`;
 
+  // Fill table
   const tbody = document.getElementById("allLocationsTable");
   tbody.innerHTML = "";
+
   const locFilterVal = locationFilter.value;
 
+  // compute best location by pAttempt
   let best = { name: "—", pAttempt: -1, oneIn: "—" };
+  const rows = [];
 
   for (const l of (m.locations || [])){
     if (locFilterVal !== "all" && l.location !== locFilterVal) continue;
 
-    const bp = Number(l.chance_percent) / 100;
+    const bp = (Number(l.chance_percent) / 100); // probability per roll
     const pAtt = 1 - Math.pow(1 - bp, rollsPerAttempt);
 
     if (pAtt > best.pAttempt){
@@ -532,24 +869,80 @@ function calculate(){
     const a50 = attemptsForTarget(pAtt, 0.50);
     const a90 = attemptsForTarget(pAtt, 0.90);
 
-    const tr = document.createElement("tr");
-    if (l.location === best.name) tr.classList.add("bestRow");
+    const t50 = (isFinite(a50) && isFinite(cycleSeconds)) ? (a50 * cycleSeconds) : Infinity;
+    const t90 = (isFinite(a90) && isFinite(cycleSeconds)) ? (a90 * cycleSeconds) : Infinity;
 
-    tr.innerHTML = `
-      <td>${l.location}</td>
-      <td>${Number(l.chance_percent).toFixed(8)}%</td>
-      <td>~1 in ${fmtOneInFromProb(bp)}</td>
-      <td>${fmtPct(pAtt, 5)}</td>
-      <td>~1 in ${fmtOneInFromProb(pAtt)}</td>
-      <td>${isFinite(a50) ? a50.toFixed(2) : "∞"}</td>
-      <td>${isFinite(a90) ? a90.toFixed(2) : "∞"}</td>
-    `;
-    tbody.appendChild(tr);
+    rows.push({
+      location: l.location,
+      basePercent: Number(l.chance_percent),
+      baseOneIn: fmtOneInFromProb(bp),
+      pAtt,
+      attemptOneIn: fmtOneInFromProb(pAtt),
+      a50,
+      a90,
+      t50,
+      t90
+    });
   }
 
   document.getElementById("bestLocation").textContent =
     best.pAttempt > 0 ? `${best.name} (~1 in ${best.oneIn})` : "—";
+
+  for (const r of rows){
+    const tr = document.createElement("tr");
+    if (r.location === best.name) tr.classList.add("bestRow");
+
+    tr.innerHTML = `
+      <td>${r.location}</td>
+      <td>${r.basePercent.toFixed(8)}%</td>
+      <td>~1 in ${r.baseOneIn}</td>
+      <td>${fmtPct(r.pAtt, 5)}</td>
+      <td>~1 in ${r.attemptOneIn}</td>
+      <td>${isFinite(r.a50) ? r.a50.toFixed(2) : "∞"}</td>
+      <td>${isFinite(r.a90) ? r.a90.toFixed(2) : "∞"}</td>
+      <td>${fmtDuration(r.t50)}</td>
+      <td>${fmtDuration(r.t90)}</td>
+    `;
+    tbody.appendChild(tr);
+  }
 }
+</script>
+
+<script>
+const overlay = document.getElementById("graphOverlay");
+const closeGraph = document.getElementById("closeGraph");
+
+/* ✅ OPEN (delegated — works even if <a> is dynamic) */
+document.addEventListener("click", e => {
+  const link = e.target.closest("#openGraph");
+  if (!link) return;
+
+  e.preventDefault();
+  overlay.classList.add("active");
+  overlay.setAttribute("aria-hidden", "false");
+});
+
+/* ✅ CLOSE via X button */
+closeGraph?.addEventListener("click", () => {
+  overlay.classList.remove("active");
+  overlay.setAttribute("aria-hidden", "true");
+});
+
+/* ✅ Click outside closes modal */
+overlay?.addEventListener("click", e => {
+  if (e.target === overlay) {
+    overlay.classList.remove("active");
+    overlay.setAttribute("aria-hidden", "true");
+  }
+});
+
+/* ✅ ESC closes modal */
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    overlay.classList.remove("active");
+    overlay.setAttribute("aria-hidden", "true");
+  }
+});
 </script>
 </body>
 </html>

@@ -2741,6 +2741,10 @@
       "rarity": "exotic",
       "locations": [
         {
+          "location": "Fungal Marsh",
+          "chance_percent": 4.339e-10
+        },
+        {
           "location": "Timelocked Sanctuary",
           "chance_percent": 4.34e-8
         }

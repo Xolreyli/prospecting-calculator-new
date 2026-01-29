@@ -1,0 +1,4014 @@
+{
+  "equipment": [
+    {
+      "name": "Gold Ring",
+      "rarity": "common",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/b/bc/Gold_Ring.png/63px-Gold_Ring.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 5,
+            "item": "Gold"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 0.3,
+            "max": 0.8
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 0.3,
+            "max": 0.9
+          }
+        }
+      },
+      "cost": {
+        "amount": 500,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Garden Glove",
+      "rarity": "common",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/d/de/Garden_Glove.png/64px-Garden_Glove.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Titanium"
+          },
+          {
+            "amount": 5,
+            "item": "Gold"
+          },
+          {
+            "amount": 5,
+            "item": "Pyrite"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "dig_strength": {
+            "min": 0.2,
+            "max": 1
+          },
+          "capacity": {
+            "min": 0,
+            "max": 5
+          },
+          "inventory_size": {
+            "min": 10,
+            "max": 50
+          }
+        },
+        "star6": {
+          "dig_strength": {
+            "min": 0.2,
+            "max": 1.1
+          },
+          "capacity": {
+            "min": 0,
+            "max": 5.5
+          },
+          "inventory_size": {
+            "min": 10,
+            "max": 55
+          }
+        }
+      },
+      "cost": {
+        "amount": 4000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Amethyst Pendant",
+      "rarity": "common",
+      "availability": "normal",
+      "slot": "Necklace",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/c/cc/Amethyst_Pendant.png/64px-Amethyst_Pendant.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 8,
+            "item": "Platinum"
+          },
+          {
+            "amount": 2,
+            "item": "Amethyst"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 1,
+            "max": 2.5
+          },
+          "sell_boost": {
+            "min": 0,
+            "max": 15
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 0.5,
+            "max": 2.2
+          },
+          "sell_boost": {
+            "min": 0,
+            "max": 18
+          }
+        }
+      },
+      "cost": {
+        "amount": 5000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Titanium Ring",
+      "rarity": "common",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/0/09/Titanium_Ring.png/64px-Titanium_Ring.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 5,
+            "item": "Titanium"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "capacity": {
+            "min": 1,
+            "max": 13
+          }
+        },
+        "star6": {
+          "capacity": {
+            "min": 1,
+            "max": 15
+          }
+        }
+      },
+      "cost": {
+        "amount": 10000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Smoke Ring",
+      "rarity": "uncommon",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/3/39/Smoke_Ring.png/59px-Smoke_Ring.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 4,
+            "item": "Smoky Quartz"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "inventory_size": {
+            "min": 10,
+            "max": 40
+          },
+          "modifier_boost": {
+            "min": 5,
+            "max": 15
+          }
+        },
+        "star6": {
+          "inventory_size": {
+            "min": 10,
+            "max": 45
+          },
+          "modifier_boost": {
+            "min": 5,
+            "max": 16
+          }
+        }
+      },
+      "cost": {
+        "amount": 20000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Pearl Necklace",
+      "rarity": "uncommon",
+      "availability": "normal",
+      "slot": "Necklace",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/c/cf/Pearl_Necklace.png/64px-Pearl_Necklace.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 8,
+            "item": "Pearl",
+            "min_size": 0.1
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 2,
+            "max": 5
+          },
+          "dig_strength": {
+            "min": 0,
+            "max": 4
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 2,
+            "max": 5.5
+          },
+          "dig_strength": {
+            "min": 0,
+            "max": 4.5
+          }
+        }
+      },
+      "cost": {
+        "amount": 22000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Jade Armband",
+      "rarity": "uncommon",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/0/09/Jade_Armband.png/56px-Jade_Armband.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 4,
+            "item": "Jade"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 2,
+            "max": 9
+          },
+          "capacity": {
+            "min": 1,
+            "max": 10
+          },
+          "inventory_size": {
+            "min": 10,
+            "max": 70
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 2,
+            "max": 10
+          },
+          "capacity": {
+            "min": 1,
+            "max": 11
+          },
+          "inventory_size": {
+            "min": 10,
+            "max": 80
+          }
+        }
+      },
+      "cost": {
+        "amount": 50000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Topaz Necklace",
+      "rarity": "uncommon",
+      "availability": "normal",
+      "slot": "Necklace",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/5/55/Topaz_Necklace.png/63px-Topaz_Necklace.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 3,
+            "item": "Titanium"
+          },
+          {
+            "amount": 1,
+            "item": "Topaz"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 1,
+            "max": 5
+          },
+          "dig_strength": {
+            "min": 1,
+            "max": 4
+          },
+          "shake_strength": {
+            "min": 0.2,
+            "max": 1
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 1,
+            "max": 5.5
+          },
+          "dig_strength": {
+            "min": 1,
+            "max": 4.5
+          },
+          "shake_strength": {
+            "min": 0.2,
+            "max": 1.1
+          }
+        }
+      },
+      "cost": {
+        "amount": 60000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Ruby Ring",
+      "rarity": "rare",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/d/d3/Ruby_Ring.png/64px-Ruby_Ring.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 5,
+            "item": "Platinum",
+            "min_size": 0.25
+          },
+          {
+            "amount": 1,
+            "item": "Ruby"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 2,
+            "max": 6
+          },
+          "size_boost": {
+            "min": 0,
+            "max": 18
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 2,
+            "max": 6.4
+          },
+          "size_boost": {
+            "min": 0,
+            "max": 20
+          }
+        }
+      },
+      "cost": {
+        "amount": 45000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Lapis Armband",
+      "rarity": "rare",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/6/6e/Lapis_Armband.png/64px-Lapis_Armband.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 2,
+            "item": "Lapis Lazuli"
+          },
+          {
+            "amount": 4,
+            "item": "Gold",
+            "min_size": 0.5
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 3,
+            "max": 10
+          },
+          "dig_speed": {
+            "min": 0,
+            "max": 40
+          },
+          "shake_speed": {
+            "min": 0,
+            "max": 40
+          },
+          "inventory_size": {
+            "min": 10,
+            "max": 70
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 3,
+            "max": 11
+          },
+          "dig_speed": {
+            "min": 0,
+            "max": 45
+          },
+          "shake_speed": {
+            "min": 0,
+            "max": 45
+          },
+          "inventory_size": {
+            "min": 10,
+            "max": 80
+          }
+        }
+      },
+      "cost": {
+        "amount": 111000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Speed Coil",
+      "rarity": "rare",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/6/64/Speed_Coil.png/40px-Speed_Coil.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Meteoric Iron"
+          },
+          {
+            "amount": 3,
+            "item": "Neodymium"
+          },
+          {
+            "amount": 5,
+            "item": "Titanium"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "dig_speed": {
+            "min": 0,
+            "max": 70
+          },
+          "shake_speed": {
+            "min": 0,
+            "max": 70
+          }
+        },
+        "star6": {
+          "dig_speed": {
+            "min": 0,
+            "max": 80
+          },
+          "shake_speed": {
+            "min": 0,
+            "max": 80
+          }
+        }
+      },
+      "cost": {
+        "amount": 120000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Meteor Ring",
+      "rarity": "rare",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/d/dd/Meteor_Ring.png/64px-Meteor_Ring.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 3,
+            "item": "Meteoric Iron"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "dig_strength": {
+            "min": 0.5,
+            "max": 3
+          },
+          "shake_strength": {
+            "min": 0,
+            "max": 1
+          },
+          "inventory_size": {
+            "min": 10,
+            "max": 50
+          }
+        },
+        "star6": {
+          "dig_strength": {
+            "min": 0.5,
+            "max": 3.2
+          },
+          "shake_strength": {
+            "min": 0,
+            "max": 1.1
+          },
+          "inventory_size": {
+            "min": 10,
+            "max": 55
+          }
+        }
+      },
+      "cost": {
+        "amount": 150000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Opal Amulet",
+      "rarity": "epic",
+      "availability": "normal",
+      "slot": "Necklace",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/4/45/Opal_Amulet.png/64px-Opal_Amulet.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Opal"
+          },
+          {
+            "amount": 1,
+            "item": "Jade",
+            "min_size": 0.3
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 5,
+            "max": 16
+          },
+          "inventory_size": {
+            "min": 10,
+            "max": 80
+          },
+          "modifier_boost": {
+            "min": 0,
+            "max": 90
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 5,
+            "max": 18
+          },
+          "inventory_size": {
+            "min": 10,
+            "max": 90
+          },
+          "modifier_boost": {
+            "min": 0,
+            "max": 100
+          }
+        }
+      },
+      "cost": {
+        "amount": 400000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Moon Ring",
+      "rarity": "epic",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/2/27/Moon_Ring.png/64px-Moon_Ring.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Moonstone",
+            "min_size": 0.4
+          },
+          {
+            "amount": 1,
+            "item": "Iridium",
+            "min_size": 0.4
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 1,
+            "max": 7
+          },
+          "dig_speed": {
+            "min": 10,
+            "max": 40
+          },
+          "shake_speed": {
+            "min": 10,
+            "max": 40
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 1,
+            "max": 8
+          },
+          "dig_speed": {
+            "min": 10,
+            "max": 45
+          },
+          "shake_speed": {
+            "min": 10,
+            "max": 45
+          }
+        }
+      },
+      "cost": {
+        "amount": 500000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Gravity Coil",
+      "rarity": "epic",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/6/6e/Gravity_Coil.png/39px-Gravity_Coil.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Aurorite"
+          },
+          {
+            "amount": 1,
+            "item": "Moonstone"
+          },
+          {
+            "amount": 1,
+            "item": "Osmium"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "capacity": {
+            "min": 10,
+            "max": 140
+          },
+          "inventory_size": {
+            "min": 10,
+            "max": 250
+          }
+        },
+        "star6": {
+          "capacity": {
+            "min": 10,
+            "max": 160
+          },
+          "inventory_size": {
+            "min": 10,
+            "max": 275
+          }
+        }
+      },
+      "cost": {
+        "amount": 1000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Heart of the Ocean",
+      "rarity": "epic",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/2/25/Heart_of_the_Ocean.png/64px-Heart_of_the_Ocean.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 10,
+            "item": "Coral"
+          },
+          {
+            "amount": 5,
+            "item": "Silver Clamshell"
+          },
+          {
+            "amount": 3,
+            "item": "Golden Pearl"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 3,
+            "max": 10
+          },
+          "shake_speed": {
+            "min": 0,
+            "max": 20
+          },
+          "sell_boost": {
+            "min": 10,
+            "max": 20
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 3,
+            "max": 11
+          },
+          "shake_speed": {
+            "min": 0,
+            "max": 22
+          },
+          "sell_boost": {
+            "min": 10,
+            "max": 22
+          }
+        }
+      },
+      "cost": {
+        "amount": 1000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Lava Lantern",
+      "rarity": "epic",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/7/71/Lava_lantern.png/61px-Lava_lantern.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 5,
+            "item": "Peridot"
+          },
+          {
+            "amount": 5,
+            "item": "Onyx"
+          },
+          {
+            "amount": 3,
+            "item": "Pyronium"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 5,
+            "max": 22
+          },
+          "capacity": {
+            "min": 10,
+            "max": 40
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 5,
+            "max": 25
+          },
+          "capacity": {
+            "min": 10,
+            "max": 45
+          }
+        }
+      },
+      "cost": {
+        "amount": 1500000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Guiding Light",
+      "rarity": "legendary",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/3/37/Guiding_Light.png/64px-Guiding_Light.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Catseye"
+          },
+          {
+            "amount": 2,
+            "item": "Golden Pearl"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 5,
+            "max": 20
+          },
+          "capacity": {
+            "min": 10,
+            "max": 40
+          },
+          "inventory_size": {
+            "min": 50,
+            "max": 200
+          },
+          "modifier_boost": {
+            "min": 0,
+            "max": 45
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 5,
+            "max": 22
+          },
+          "capacity": {
+            "min": 10,
+            "max": 45
+          },
+          "inventory_size": {
+            "min": 50,
+            "max": 225
+          },
+          "modifier_boost": {
+            "min": 0,
+            "max": 50
+          }
+        }
+      },
+      "cost": {
+        "amount": 1500000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Lightkeeper's Ring",
+      "rarity": "legendary",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/6/66/Lightkeeper%27s_Ring.png/58px-Lightkeeper%27s_Ring.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 2,
+            "item": "Opal"
+          },
+          {
+            "amount": 1,
+            "item": "Luminum"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "dig_speed": {
+            "min": 5,
+            "max": 25
+          },
+          "inventory_size": {
+            "min": 30,
+            "max": 100
+          },
+          "sell_boost": {
+            "min": 5,
+            "max": 25
+          },
+          "modifier_boost": {
+            "min": 5,
+            "max": 25
+          }
+        },
+        "star6": {
+          "dig_speed": {
+            "min": 5,
+            "max": 27
+          },
+          "inventory_size": {
+            "min": 30,
+            "max": 110
+          },
+          "sell_boost": {
+            "min": 5,
+            "max": 27
+          },
+          "modifier_boost": {
+            "min": 5,
+            "max": 27
+          }
+        }
+      },
+      "cost": {
+        "amount": 2000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Mass Accumulator",
+      "rarity": "legendary",
+      "availability": "normal",
+      "slot": "Necklace",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/0/08/Mass_Accumulator.png/64px-Mass_Accumulator.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Aurorite"
+          },
+          {
+            "amount": 1,
+            "item": "Uranium"
+          },
+          {
+            "amount": 2,
+            "item": "Osmium"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "capacity": {
+            "min": 20,
+            "max": 60
+          },
+          "inventory_size": {
+            "min": 150,
+            "max": 400
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 80
+          }
+        },
+        "star6": {
+          "capacity": {
+            "min": 20,
+            "max": 65
+          },
+          "inventory_size": {
+            "min": 150,
+            "max": 450
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 90
+          }
+        }
+      },
+      "cost": {
+        "amount": 3000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Crown",
+      "rarity": "legendary",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/f/f3/Crown.png/64px-Crown.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 3,
+            "item": "Ruby",
+            "min_size": 0.25
+          },
+          {
+            "amount": 8,
+            "item": "Gold",
+            "min_size": 1
+          },
+          {
+            "amount": 2,
+            "item": "Emerald",
+            "min_size": 0.2
+          },
+          {
+            "amount": 1,
+            "item": "Diamond"
+          },
+          {
+            "amount": 3,
+            "item": "Sapphire",
+            "min_size": 0.25
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 5,
+            "max": 30
+          },
+          "size_boost": {
+            "min": 0,
+            "max": 45
+          },
+          "sell_boost": {
+            "min": 0,
+            "max": 90
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 5,
+            "max": 35
+          },
+          "size_boost": {
+            "min": 0,
+            "max": 50
+          },
+          "sell_boost": {
+            "min": 0,
+            "max": 100
+          }
+        }
+      },
+      "cost": {
+        "amount": 5000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Dragon Claw",
+      "rarity": "legendary",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/9/98/Dragon_Claw.png/57px-Dragon_Claw.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 5,
+            "item": "Ammonite Fossil"
+          },
+          {
+            "amount": 2,
+            "item": "Dragon Bone"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "dig_strength": {
+            "min": 10,
+            "max": 30
+          },
+          "shake_strength": {
+            "min": 1,
+            "max": 8
+          },
+          "inventory_size": {
+            "min": 100,
+            "max": 400
+          }
+        },
+        "star6": {
+          "dig_strength": {
+            "min": 10,
+            "max": 32
+          },
+          "shake_strength": {
+            "min": 1,
+            "max": 9
+          },
+          "inventory_size": {
+            "min": 100,
+            "max": 450
+          }
+        }
+      },
+      "cost": {
+        "amount": 10000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Eye of Fire",
+      "rarity": "legendary",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/8/86/Eye_of_fire.png/56px-Eye_of_fire.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Cinnabar"
+          },
+          {
+            "amount": 1,
+            "item": "Fire Opal"
+          },
+          {
+            "amount": 10,
+            "item": "Pyrelith"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 4,
+            "max": 24
+          },
+          "dig_speed": {
+            "min": 0,
+            "max": 20
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 20
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 4,
+            "max": 28
+          },
+          "dig_speed": {
+            "min": 0,
+            "max": 22
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 22
+          }
+        }
+      },
+      "cost": {
+        "amount": 4000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Ring of Harvest",
+      "rarity": "legendary",
+      "availability": "limited",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/9/91/Ringofharvest.webp/64px-Ringofharvest.webp.png",
+      
+      "unlock": {
+        "type": "event",
+        "blueprint": "Ring of Harvest Blueprint",
+        "event": {
+            "name": "Halloween Event",
+            "note": "Limited-time event reward"
+        }
+        },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 5,
+            "item": "Lapis Lazuli"
+          },
+          {
+            "amount": 3,
+            "item": "Bone"
+          },
+          {
+            "amount": 10,
+            "item": "Rock Candy"
+          },
+          {
+            "amount": 1,
+            "item": "Lost Soul"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 5,
+            "max": 18
+          },
+          "capacity": {
+            "min": 10,
+            "max": 30
+          },
+          "inventory_size": {
+            "min": 10,
+            "max": 40
+          },
+          "walkspeed": {
+            "min": 0.5,
+            "max": 1
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 5,
+            "max": 20
+          },
+          "capacity": {
+            "min": 10,
+            "max": 32
+          },
+          "inventory_size": {
+            "min": 10,
+            "max": 45
+          },
+          "walkspeed": {
+            "min": 0.5,
+            "max": 1
+          }
+        }
+      },
+      "cost": {
+        "amount": 5000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Spider Bowtie",
+      "rarity": "legendary",
+      "availability": "limited",
+      "slot": "Necklace",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/e/ec/Spiderbowtie.webp/64px-Spiderbowtie.webp.png",
+      
+      "unlock": {
+        "type": "event",
+        "blueprint": "Spider Bowtie Blueprint",
+        "event": {
+            "name": "Halloween Event",
+            "note": "Limited-time event reward"
+        }
+        },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 3,
+            "item": "Emerald"
+          },
+          {
+            "amount": 2,
+            "item": "Diamond"
+          },
+          {
+            "amount": 5,
+            "item": "Bone"
+          },
+          {
+            "amount": 1,
+            "item": "Catseye"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 10,
+            "max": 80
+          },
+          "capacity": {
+            "min": 40,
+            "max": 100
+          },
+          "sell_boost": {
+            "min": 20,
+            "max": 50
+          },
+          "modifier_boost": {
+            "min": 20,
+            "max": 50
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 10,
+            "max": 85
+          },
+          "capacity": {
+            "min": 40,
+            "max": 110
+          },
+          "sell_boost": {
+            "min": 20,
+            "max": 55
+          },
+          "modifier_boost": {
+            "min": 20,
+            "max": 55
+          }
+        }
+      },
+      "cost": {
+        "amount": 300,
+        "currency": "candies"
+        }
+    },
+    {
+      "name": "5 Gold Rings",
+      "rarity": "legendary",
+      "availability": "limited",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/d/de/5_gold_rings.jpg/64px-5_gold_rings.jpg",
+      
+      "unlock": {
+        "type": "event",
+        "blueprint": "5 Gold Rings Blueprint",
+        "event": {
+            "name": "Christmas Event",
+            "note": "Limited-time event reward"
+        }
+        },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 7,
+            "item": "Candy Cane"
+          },
+          {
+            "amount": 2,
+            "item": "Peppermint Prism"
+          },
+          {
+            "amount": 20,
+            "item": "Gold"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 5,
+            "max": 20
+          },
+          "capacity": {
+            "min": 5,
+            "max": 20
+          },
+          "shake_speed": {
+            "min": 0,
+            "max": 20
+          },
+          "sell_boost": {
+            "min": 0,
+            "max": 20
+          }
+        },
+        "star6": {
+          "luck": {
+            "value": 22
+          },
+          "capacity": {
+            "value": 45
+          },
+          "shake_speed": {
+            "value": 22
+          },
+          "sell_boost": {
+            "value": 22
+          }
+        }
+      },
+      "cost": {
+        "amount": 500,
+        "currency": "ornaments"
+        }
+    },
+    {
+      "name": "Helm of the Round",
+      "rarity": "mythical",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/d/da/Helm.PNG/58px-Helm.PNG",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Helm of the Round Blueprint",
+        "quest": {
+            "name": "Legacy of the Round Table",
+            "giver": {
+            "name": "Ruins Archaeologist",
+            "location": "Enchanted Ruins"
+            },
+            "stages": [
+            {
+                "title": "Legacy of the Round Table [1]",
+                "tasks": [
+                "Collect 500 Gold",
+                "Collect 250 Silver",
+                "Collect 25 Luminum",
+                "Collect 1 Radiant Gold",
+                "Collect 1 Mythril"
+                ]
+            },
+            {
+                "title": "Legacy of the Round Table [2]",
+                "tasks": [
+                "Talk to the Ruins Archaeologist"
+                ]
+            },
+            {
+                "title": "Legacy of the Round Table [3]",
+                "tasks": [
+                "Bring 1 Amulet of Life to the Ruins Archaeologist"
+                ]
+            }
+            ]
+        }
+      },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 5,
+            "item": "Rose Gold",
+            "min_size": 2.5
+          },
+          {
+            "amount": 1,
+            "item": "Mythril",
+            "min_size": 1.25
+          },
+          {
+            "amount": 1,
+            "item": "Radiant Gold"
+          },
+          {
+            "amount": 5,
+            "item": "Gold",
+            "min_size": 5
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 15,
+            "max": 90
+          },
+          "capacity": {
+            "min": 15,
+            "max": 90
+          },
+          "size_boost": {
+            "min": 50,
+            "max": 150
+          },
+          "walkspeed": {
+            "min": -4,
+            "max": -0.75
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 15,
+            "max": 100
+          },
+          "capacity": {
+            "min": 15,
+            "max": 100
+          },
+          "size_boost": {
+            "min": 50,
+            "max": 160
+          },
+          "walkspeed": {
+            "min": -4,
+            "max": -0.75
+          }
+        }
+      },
+      "cost": {
+        "amount": 15000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Royal Federation Crown",
+      "rarity": "mythical",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/3/3e/Royal_Federation_Crown.png/64px-Royal_Federation_Crown.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 3,
+            "item": "Rose Gold",
+            "min_size": 0.4
+          },
+          {
+            "amount": 5,
+            "item": "Golden Pearl",
+            "min_size": 0.2
+          },
+          {
+            "amount": 1,
+            "item": "Pink Diamond"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 10,
+            "max": 90
+          },
+          "size_boost": {
+            "min": 0,
+            "max": 90
+          },
+          "sell_boost": {
+            "min": 0,
+            "max": 180
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 10,
+            "max": 100
+          },
+          "size_boost": {
+            "min": 0,
+            "max": 100
+          },
+          "sell_boost": {
+            "min": 0,
+            "max": 200
+          }
+        }
+      },
+      "cost": {
+        "amount": 30000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Phoenix Heart",
+      "rarity": "mythical",
+      "availability": "normal",
+      "slot": "Necklace",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/a/a7/Phoenix_Heart.png/54px-Phoenix_Heart.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 3,
+            "item": "Uranium"
+          },
+          {
+            "amount": 1,
+            "item": "Inferlume"
+          },
+          {
+            "amount": 2,
+            "item": "Starshine"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 100,
+            "max": 300
+          },
+          "inventory_size": {
+            "min": 100,
+            "max": 400
+          },
+          "size_boost": {
+            "min": -70,
+            "max": -40
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 100,
+            "max": 325
+          },
+          "inventory_size": {
+            "min": 100,
+            "max": 450
+          },
+          "size_boost": {
+            "min": -70,
+            "max": -35
+          }
+        }
+      },
+      "cost": {
+        "amount": 40000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Celestial Rings",
+      "rarity": "mythical",
+      "availability": "normal",
+      "slot": "Necklace",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/7/70/Celestial_Rings.png/64px-Celestial_Rings.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Vortessence"
+          },
+          {
+            "amount": 8,
+            "item": "Meteoric Iron",
+            "min_size": 0.3
+          },
+          {
+            "amount": 5,
+            "item": "Moonstone",
+            "min_size": 0.3
+          },
+          {
+            "amount": 2,
+            "item": "Catseye"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 30,
+            "max": 90
+          },
+          "capacity": {
+            "min": 50,
+            "max": 250
+          },
+          "size_boost": {
+            "min": 0,
+            "max": 45
+          },
+          "modifier_boost": {
+            "min": 20,
+            "max": 140
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 30,
+            "max": 100
+          },
+          "capacity": {
+            "min": 50,
+            "max": 275
+          },
+          "size_boost": {
+            "min": 0,
+            "max": 50
+          },
+          "modifier_boost": {
+            "min": 20,
+            "max": 150
+          }
+        }
+      },
+      "cost": {
+        "amount": 50000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Apocalypse Bringer",
+      "rarity": "mythical",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/4/4d/Apocalypse_Bringer.png/64px-Apocalypse_Bringer.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 4,
+            "item": "Ashvein"
+          },
+          {
+            "amount": 10,
+            "item": "Ruby"
+          },
+          {
+            "amount": 2,
+            "item": "Palladium"
+          },
+          {
+            "amount": 1,
+            "item": "Painite"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "dig_strength": {
+            "min": 5,
+            "max": 20
+          },
+          "luck": {
+            "min": 10,
+            "max": 40
+          },
+          "shake_strength": {
+            "min": 2,
+            "max": 5
+          },
+          "sell_boost": {
+            "min": 10,
+            "max": 40
+          }
+        },
+        "star6": {
+          "dig_strength": {
+            "min": 5,
+            "max": 22
+          },
+          "luck": {
+            "min": 10,
+            "max": 45
+          },
+          "shake_strength": {
+            "min": 2,
+            "max": 5.5
+          },
+          "sell_boost": {
+            "min": 10,
+            "max": 45
+          }
+        }
+      },
+      "cost": {
+        "amount": 50000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Mythril Ring",
+      "rarity": "mythical",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/7/71/Mythril_Ring.png/64px-Mythril_Ring.png",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Mythril Ring Blueprint",
+        "quest": {
+          "name": "Finding Mythril",
+          "giver": {
+            "name": "The Apprentice",
+            "location": "Frostbite River"
+          },
+          "tasks": [
+            "Collect 1 Mythril"
+          ]
+        }
+      },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 2,
+            "item": "Tourmaline"
+          },
+          {
+            "amount": 2,
+            "item": "Cinnabar"
+          },
+          {
+            "amount": 1,
+            "item": "Starshine"
+          },
+          {
+            "amount": 1,
+            "item": "Mythril"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 20,
+            "max": 80
+          },
+          "dig_speed": {
+            "min": 20,
+            "max": 40
+          },
+          "shake_speed": {
+            "min": 20,
+            "max": 40
+          },
+          "sell_boost": {
+            "min": 5,
+            "max": 24
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 20,
+            "max": 90
+          },
+          "dig_speed": {
+            "min": 20,
+            "max": 42
+          },
+          "shake_speed": {
+            "min": 20,
+            "max": 42
+          },
+          "sell_boost": {
+            "min": 5,
+            "max": 26
+          }
+        }
+      },
+      "cost": {
+        "amount": 60000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Phoenix Wings",
+      "rarity": "mythical",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/5/51/Phoenix_Wings.png/64px-Phoenix_Wings.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Flarebloom"
+          },
+          {
+            "amount": 2,
+            "item": "Cinnabar"
+          },
+          {
+            "amount": 2,
+            "item": "Fire Opal"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 100,
+            "max": 300
+          },
+          "capacity": {
+            "min": -80,
+            "max": -40
+          },
+          "inventory_size": {
+            "min": 100,
+            "max": 400
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 100,
+            "max": 325
+          },
+          "capacity": {
+            "min": -80,
+            "max": -35
+          },
+          "inventory_size": {
+            "min": 100,
+            "max": 450
+          }
+        }
+      },
+      "cost": {
+        "amount": 65000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Prismatic Star",
+      "rarity": "mythical",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/4/43/Prismatic_Star.png/64px-Prismatic_Star.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Diamond"
+          },
+          {
+            "amount": 1,
+            "item": "Prismara"
+          },
+          {
+            "amount": 1,
+            "item": "Pink Diamond"
+          },
+          {
+            "amount": 5,
+            "item": "Borealite"
+          },
+          {
+            "amount": 1,
+            "item": "Luminum"
+          },
+          {
+            "amount": 1,
+            "item": "Starshine"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 5,
+            "max": 20
+          },
+          "dig_strength": {
+            "min": 2,
+            "max": 10
+          },
+          "capacity": {
+            "min": 10,
+            "max": 40
+          },
+          "dig_speed": {
+            "min": 5,
+            "max": 20
+          },
+          "shake_strength": {
+            "min": 1,
+            "max": 3
+          },
+          "inventory_size": {
+            "min": 15,
+            "max": 50
+          },
+          "shake_speed": {
+            "min": 5,
+            "max": 20
+          },
+          "sell_boost": {
+            "min": 10,
+            "max": 20
+          },
+          "size_boost": {
+            "min": 5,
+            "max": 20
+          },
+          "modifier_boost": {
+            "min": 5,
+            "max": 20
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 5,
+            "max": 22
+          },
+          "dig_strength": {
+            "min": 2,
+            "max": 11
+          },
+          "capacity": {
+            "min": 10,
+            "max": 45
+          },
+          "dig_speed": {
+            "min": 5,
+            "max": 22
+          },
+          "shake_strength": {
+            "min": 1,
+            "max": 3.2
+          },
+          "inventory_size": {
+            "min": 15,
+            "max": 55
+          },
+          "shake_speed": {
+            "min": 5,
+            "max": 22
+          },
+          "sell_boost": {
+            "min": 10,
+            "max": 22
+          },
+          "size_boost": {
+            "min": 5,
+            "max": 22
+          },
+          "modifier_boost": {
+            "min": 5,
+            "max": 22
+          }
+        }
+      },
+      "cost": {
+        "amount": 75000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Cryogenic Preserver",
+      "rarity": "mythical",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/0/08/Cryogenic_Preserver.png/64px-Cryogenic_Preserver.png",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Cryogenic Preserver Blueprint",
+        "quest": {
+          "name": "Repairing the Bridge",
+          "giver": {
+            "name": "Builder",
+            "location": "Snowy Shores"
+          },
+          "tasks": [
+            "Collect 250 Blue Ice",
+            "Collect 200 Titanium",
+            "Collect 100 Glacial Quartz",
+            "Collect 50 Cobalt"
+          ]
+        }
+      },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 5,
+            "item": "Borealite"
+          },
+          {
+            "amount": 1,
+            "item": "Frostshard"
+          },
+          {
+            "amount": 3,
+            "item": "Aetherite"
+          },
+          {
+            "amount": 1,
+            "item": "Mythril"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 100,
+            "max": 250
+          },
+          "shake_strength": {
+            "min": 10,
+            "max": 40
+          },
+          "shake_speed": {
+            "min": -40,
+            "max": -20
+          },
+          "sell_boost": {
+            "min": 0,
+            "max": 50
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 100,
+            "max": 275
+          },
+          "shake_strength": {
+            "min": 10,
+            "max": 45
+          },
+          "shake_speed": {
+            "min": -40,
+            "max": -18
+          },
+          "sell_boost": {
+            "min": 0,
+            "max": 55
+          }
+        }
+      },
+      "cost": {
+        "amount": 75000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Ring of Thorns",
+      "rarity": "mythical",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/3/31/Ring_of_Thorns.png/64px-Ring_of_Thorns.png",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Ring of Thorns Blueprint",
+        "quest": {
+          "name": "To Boldly Go",
+          "giver": {
+            "name": "Disgruntled Explorer",
+            "location": "Overgrown Grotto"
+          },
+          "tasks": [
+            "Collect 500 Amber",
+            "Collect 15 Luminum",
+            "Collect 3 Radiant Gold"
+          ]
+        }
+      },
+
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Chrysoberyl"
+          },
+          {
+            "amount": 2,
+            "item": "Painite"
+          },
+          {
+            "amount": 5,
+            "item": "Lightshard"
+          },
+          {
+            "amount": 5,
+            "item": "Glowmoss"
+          },
+          {
+            "amount": 5,
+            "item": "Firefly Stone"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 20,
+            "max": 100
+          },
+          "dig_strength": {
+            "min": 5,
+            "max": 40
+          },
+          "inventory_size": {
+            "min": 40,
+            "max": 150
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 30
+          },
+          "modifier_boost": {
+            "min": 20,
+            "max": 60
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 20,
+            "max": 110
+          },
+          "dig_strength": {
+            "min": 5,
+            "max": 45
+          },
+          "inventory_size": {
+            "min": 40,
+            "max": 170
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 32
+          },
+          "modifier_boost": {
+            "min": 20,
+            "max": 65
+          }
+        }
+      },
+      "cost": {
+        "amount": 75000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Purifying Ring",
+      "rarity": "mythical",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/0/0e/PurifyingRing.png/64px-PurifyingRing.png",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Purifying Ring Blueprint",
+        "quest": {
+          "name": "Murky Waters",
+          "giver": {
+            "name": "Fisherman's Friend",
+            "location": "Rotwood Swamp"
+          },
+          "tasks": [
+            "Collect 450 Mercury"
+          ]
+        }
+      },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 5,
+            "item": "Diamond"
+          },
+          {
+            "amount": 1,
+            "item": "Chrysoberyl"
+          },
+          {
+            "amount": 10,
+            "item": "Diopside"
+          },
+          {
+            "amount": 1,
+            "item": "Bismuth"
+          },
+          {
+            "amount": 5,
+            "item": "Mercury"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 20,
+            "max": 80
+          },
+          "dig_strength": {
+            "min": 10,
+            "max": 80
+          },
+          "capacity": {
+            "min": 20,
+            "max": 100
+          },
+          "shake_strength": {
+            "min": 5,
+            "max": 27
+          },
+          "inventory_size": {
+            "min": 20,
+            "max": 80
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 20,
+            "max": 90
+          },
+          "dig_strength": {
+            "min": 10,
+            "max": 90
+          },
+          "capacity": {
+            "min": 20,
+            "max": 110
+          },
+          "shake_strength": {
+            "min": 5,
+            "max": 30
+          },
+          "inventory_size": {
+            "min": 20,
+            "max": 90
+          }
+        }
+      },
+      "cost": {
+        "amount": 80000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Solar Ring",
+      "rarity": "mythical",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/0/0e/Solar_Ring.png/60px-Solar_Ring.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Vortessence"
+          },
+          {
+            "amount": 2,
+            "item": "Fire Opal"
+          },
+          {
+            "amount": 1,
+            "item": "Volcanic Core"
+          },
+          {
+            "amount": 10,
+            "item": "Pyronium"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 20,
+            "max": 100
+          },
+          "dig_strength": {
+            "min": 2,
+            "max": 8
+          },
+          "dig_speed": {
+            "min": -30,
+            "max": -10
+          },
+          "shake_strength": {
+            "min": 0,
+            "max": 2
+          },
+          "shake_speed": {
+            "min": -30,
+            "max": -10
+          },
+          "modifier_boost": {
+            "min": 5,
+            "max": 20
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 20,
+            "max": 110
+          },
+          "dig_strength": {
+            "min": 2,
+            "max": 9
+          },
+          "dig_speed": {
+            "min": -30,
+            "max": -8
+          },
+          "shake_strength": {
+            "min": 0,
+            "max": 2.2
+          },
+          "shake_speed": {
+            "min": -30,
+            "max": -8
+          },
+          "modifier_boost": {
+            "min": 5,
+            "max": 22
+          }
+        }
+      },
+      "cost": {
+        "amount": 90000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Amulet of Life",
+      "rarity": "mythical",
+      "availability": "normal",
+      "slot": "Necklace",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/d/df/Amulet_of_Life.png/64px-Amulet_of_Life.png",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Amulet of Life Blueprint",
+        "quest": {
+          "name": "Terra Incognita",
+          "giver": {
+            "name": "The Professor",
+            "location": "Overgrown Grotto"
+          },
+          "tasks": [
+            "Collect 150 Glowmoss",
+            "Collect 25 Specterite",
+            "Collect 5 Starshine"
+          ]
+        }
+      },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 5,
+            "item": "Specterite"
+          },
+          {
+            "amount": 1,
+            "item": "Chrysoberyl"
+          },
+          {
+            "amount": 1,
+            "item": "Prismara"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 200,
+            "max": 400
+          },
+          "modifier_boost": {
+            "min": 50,
+            "max": 150
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 100,
+            "max": 425
+          },
+          "modifier_boost": {
+            "min": 50,
+            "max": 160
+          }
+        }
+      },
+      "cost": {
+        "amount": 150000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Amulet of Spirits",
+      "rarity": "mythical",
+      "availability": "limited",
+      "slot": "Necklace",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/3/38/Amuletofspirits.webp/55px-Amuletofspirits.webp.png",
+      
+      "unlock": {
+        "type": "event",
+        "blueprint": "Amulet of Spirits Blueprint",
+        "event": {
+            "name": "Halloween Event",
+            "note": "Limited-time event reward"
+        }
+        },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Vortessence"
+          },
+          {
+            "amount": 1,
+            "item": "Painite"
+          },
+          {
+            "amount": 10,
+            "item": "Bone"
+          },
+          {
+            "amount": 5,
+            "item": "Lost Soul"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 50,
+            "max": 140
+          },
+          "dig_speed": {
+            "min": 20,
+            "max": 40
+          },
+          "shake_speed": {
+            "min": 20,
+            "max": 40
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 30
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 50,
+            "max": 150
+          },
+          "dig_speed": {
+            "min": 20,
+            "max": 42
+          },
+          "shake_speed": {
+            "min": 20,
+            "max": 42
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 32
+          }
+        }
+      },
+      "cost": {
+        "amount": 50000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Candy Sack",
+      "rarity": "mythical",
+      "availability": "limited",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/3/33/Candysack.webp/55px-Candysack.webp.png",
+      
+      "unlock": {
+        "type": "event",
+        "blueprint": "Candy Sack Blueprint",
+        "event": {
+            "name": "Halloween Event",
+            "note": "Limited-time event reward"
+        }
+        },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 2,
+            "item": "Vortessence"
+          },
+          {
+            "amount": 5,
+            "item": "Cinnabar"
+          },
+          {
+            "amount": 10,
+            "item": "Lost Soul"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 30,
+            "max": 100
+          },
+          "capacity": {
+            "min": 100,
+            "max": 300
+          },
+          "inventory_size": {
+            "min": 300,
+            "max": 1000
+          },
+          "size_boost": {
+            "min": 30,
+            "max": 70
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 30,
+            "max": 110
+          },
+          "capacity": {
+            "min": 100,
+            "max": 325
+          },
+          "inventory_size": {
+            "min": 300,
+            "max": 1100
+          },
+          "size_boost": {
+            "min": 30,
+            "max": 75
+          }
+        }
+      },
+      "cost": {
+        "amount": 600,
+        "currency": "candies"
+        }
+    },
+    {
+      "name": "Santa Hat",
+      "rarity": "mythical",
+      "availability": "limited",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/4/47/Santa_hat.png/64px-Santa_hat.png",
+      
+      "unlock": {
+        "type": "event",
+        "blueprint": "Santa Hat Blueprint",
+        "event": {
+            "name": "Christmas Event",
+            "note": "Limited-time event reward"
+        }
+        },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Frostshard"
+          },
+          {
+            "amount": 8,
+            "item": "Candy Cane"
+          },
+          {
+            "amount": 4,
+            "item": "Peppermint Prism"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 5,
+            "max": 140
+          },
+          "capacity": {
+            "min": 50,
+            "max": 200
+          },
+          "shake_strength": {
+            "min": 2,
+            "max": 8
+          },
+          "walkspeed": {
+            "min": 0.5,
+            "max": 2
+          }
+        },
+        "star6": {
+          "luck": {
+            "value": 150
+          },
+          "capacity": {
+            "value": 225
+          },
+          "shake_strength": {
+            "value": 9
+          },
+          "walkspeed": {
+            "value": 2.2
+          }
+        }
+      },
+      "cost": {
+        "amount": 1000,
+        "currency": "ornaments"
+        }
+    },
+    {
+      "name": "Fossilized Crown",
+      "rarity": "exotic",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/b/b9/Fossilized_Crown.png/64px-Fossilized_Crown.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Dinosaur Skull"
+          },
+          {
+            "amount": 5,
+            "item": "Cinnabar"
+          },
+          {
+            "amount": 1,
+            "item": "Volcanic Core"
+          },
+          {
+            "amount": 5,
+            "item": "Dragon Bone"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 100,
+            "max": 250
+          },
+          "capacity": {
+            "min": 50,
+            "max": 200
+          },
+          "shake_speed": {
+            "min": 10,
+            "max": 30
+          },
+          "size_boost": {
+            "min": 0,
+            "max": 50
+          },
+          "sell_boost": {
+            "min": 0,
+            "max": 100
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 100,
+            "max": 260
+          },
+          "capacity": {
+            "min": 50,
+            "max": 225
+          },
+          "shake_speed": {
+            "min": 10,
+            "max": 32
+          },
+          "size_boost": {
+            "min": 0,
+            "max": 55
+          },
+          "sell_boost": {
+            "min": 0,
+            "max": 110
+          }
+        }
+      },
+      "cost": {
+        "amount": 100000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Frostthorn Pendant",
+      "rarity": "exotic",
+      "availability": "normal",
+      "slot": "Necklace",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/8/81/Frostthorn_Pendant.png/64px-Frostthorn_Pendant.png",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Helm of the Round Blueprint",
+        "quest": {
+            "name": "Clearing the Path",
+            "giver": {
+            "name": "Mountain Surveyor",
+            "location": "Ancient Hall"
+            },
+            "stages": [
+            {
+                "title": "Clearing the Path [1]",
+                "tasks": [
+                "Collect 500 Blue Ice",
+                "Collect 200 Glacial Quartz",
+                "Collect 20 Aquamarine",
+                "Collect 20 Tourmaline"
+                ]
+            },
+            {
+                "title": "Clearing the Path [2]",
+                "tasks": [
+                "Bring 1 Volcanic Core to the Surveyor",
+                "Bring 1 Vortessence to the Surveyor"
+                ]
+            }
+            ]
+        
+        }
+      }, 
+      "crafting": {
+        "materials": [
+          {
+            "amount": 5,
+            "item": "Tourmaline"
+          },
+          {
+            "amount": 10,
+            "item": "Cobalt"
+          },
+          {
+            "amount": 2,
+            "item": "Frostshard"
+          },
+          {
+            "amount": 5,
+            "item": "Aquamarine"
+          },
+          {
+            "amount": 1,
+            "item": "Cryonic Artifact"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 100,
+            "max": 400
+          },
+          "dig_strength": {
+            "min": 100,
+            "max": 200
+          },
+          "capacity": {
+            "min": 50,
+            "max": 200
+          },
+          "dig_speed": {
+            "min": -50,
+            "max": -30
+          },
+          "size_boost": {
+            "min": 30,
+            "max": 100
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 100,
+            "max": 450
+          },
+          "dig_strength": {
+            "min": 100,
+            "max": 215
+          },
+          "capacity": {
+            "min": 50,
+            "max": 225
+          },
+          "dig_speed": {
+            "min": -50,
+            "max": -28
+          },
+          "size_boost": {
+            "min": 30,
+            "max": 110
+          }
+        }
+      },
+      "cost": {
+        "amount": 200000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Antlers of Life",
+      "rarity": "exotic",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/c/ce/Antlers_of_Life.png/64px-Antlers_of_Life.png",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Antlers of Life Blueprint",
+        "quest": {
+          "name": "Spirits of the Grotto",
+          "giver": {
+            "name": "The Druid",
+            "location": "Deeproot Spring"
+          },
+          "tasks": [
+            "Bring 1 Vineheart to the Druid",
+            "Bring 1 Chrysoberyl to the Druid"
+          ]
+        }
+      },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 3,
+            "item": "Chrysoberyl"
+          },
+          {
+            "amount": 1,
+            "item": "Vineheart"
+          },
+          {
+            "amount": 2,
+            "item": "Radiant Gold"
+          },
+          {
+            "amount": 10,
+            "item": "Firefly Stone"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "dig_speed": {
+            "min": 10,
+            "max": 40
+          },
+          "luck": {
+            "min": 100,
+            "max": 580
+          },
+          "size_boost": {
+            "min": 20,
+            "max": 60
+          },
+          "modifier_boost": {
+            "min": 50,
+            "max": 200
+          }
+        },
+        "star6": {
+          "dig_speed": {
+            "min": 10,
+            "max": 44
+          },
+          "luck": {
+            "min": 100,
+            "max": 640
+          },
+          "size_boost": {
+            "min": 20,
+            "max": 65
+          },
+          "modifier_boost": {
+            "min": 50,
+            "max": 220
+          }
+        }
+      },
+      "cost": {
+        "amount": 300000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Vortex Ring",
+      "rarity": "exotic",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/2/2c/Vortex_Ring.png/64px-Vortex_Ring.png",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Vortex Ring Blueprint",
+        "quest": {
+          "name": "Void Searcher",
+          "giver": {
+            "name": "Interdimensional Traveler",
+            "location": "The Void"
+          },
+          "tasks": [
+            "Collect 400 Voidtorn items"
+          ]
+        }
+      },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Voidstone"
+          },
+          {
+            "amount": 2,
+            "item": "Prismara"
+          },
+          {
+            "amount": 3,
+            "item": "Vortessence"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "dig_strength": {
+            "min": 20,
+            "max": 80
+          },
+          "luck": {
+            "min": 50,
+            "max": 140
+          },
+          "capacity": {
+            "min": 100,
+            "max": 300
+          },
+          "shake_strength": {
+            "min": 3,
+            "max": 10
+          }
+        },
+        "star6": {
+          "dig_strength": {
+            "min": 20,
+            "max": 90
+          },
+          "luck": {
+            "min": 50,
+            "max": 155
+          },
+          "capacity": {
+            "min": 100,
+            "max": 325
+          },
+          "shake_strength": {
+            "min": 3,
+            "max": 11
+          }
+        }
+      },
+      "cost": {
+        "amount": 333000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Umbrite Ring",
+      "rarity": "exotic",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/f/f6/UmbriteRing.png/64px-UmbriteRing.png",
+      
+      "unlock": {
+        "type": "npc",
+        "blueprint": "Umbrite Ring Blueprint",
+        "npc": {
+            "name": "Dead Skeleton",
+            "location": "Abyssal Depths Maze"
+        }
+        },
+
+      "crafting": {
+        "materials": [
+          {
+            "amount": 3,
+            "item": "Chrysoberyl"
+          },
+          {
+            "amount": 3,
+            "item": "Painite"
+          },
+          {
+            "amount": 1,
+            "item": "Dinosaur Skull"
+          },
+          {
+            "amount": 5,
+            "item": "Specterite"
+          },
+          {
+            "amount": 1,
+            "item": "Umbrite"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 50,
+            "max": 220
+          },
+          "dig_strength": {
+            "min": 5,
+            "max": 40
+          },
+          "capacity": {
+            "min": 10,
+            "max": 100
+          },
+          "shake_strength": {
+            "min": 2,
+            "max": 10
+          },
+          "size_boost": {
+            "min": 5,
+            "max": 15
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 50,
+            "max": 245
+          },
+          "dig_strength": {
+            "min": 5,
+            "max": 45
+          },
+          "capacity": {
+            "min": 10,
+            "max": 110
+          },
+          "shake_strength": {
+            "min": 2,
+            "max": 11
+          },
+          "size_boost": {
+            "min": 5,
+            "max": 16
+          }
+        }
+      },
+      "cost": {
+        "amount": 400000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Otherworldly Ring",
+      "rarity": "exotic",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/2/28/Otherwordlyring.png/64px-Otherwordlyring.png",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Otherworldly Ring Blueprint",
+        "quest": {
+          "name": "Mushroom Mania",
+          "giver": {
+            "name": "Mushroom Man",
+            "location": "Fungal Marsh"
+          },
+          "tasks": [
+            "Collect 1 Astral Spore",
+            "Collect 5 Red Beryl",
+            "Collect 100 Mythic materials from the Swamp",
+            "Collect 250 Gloomcap"
+          ]
+        }
+      },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Astral Spore"
+          },
+          {
+            "amount": 1,
+            "item": "Vineheart"
+          },
+          {
+            "amount": 3,
+            "item": "Red Beryl"
+          },
+          {
+            "amount": 10,
+            "item": "Gloomcap"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 150,
+            "max": 350
+          },
+          "dig_speed": {
+            "min": 0,
+            "max": 20
+          },
+          "shake_speed": {
+            "min": 0,
+            "max": 20
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 25
+          },
+          "sell_boost": {
+            "min": 10,
+            "max": 30
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 150,
+            "max": 375
+          },
+          "dig_speed": {
+            "min": 0,
+            "max": 22
+          },
+          "shake_speed": {
+            "min": 0,
+            "max": 22
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 26
+          },
+          "sell_boost": {
+            "min": 10,
+            "max": 32
+          }
+        }
+      },
+      "cost": {
+        "amount": 400000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Venomshank",
+      "rarity": "exotic",
+      "availability": "normal",
+      "slot": "Necklace",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/7/7e/Venomshank.png/50px-Venomshank.png",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Venomshank Blueprint",
+        "quest": {
+          "name": "Ominous Stones",
+          "giver": {
+            "name": "Swamp Man",
+            "location": "Rotwood Swamp"
+          },
+          "tasks": [
+            "Collect 2 Bloodstones"
+          ]
+        }
+      },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 3,
+            "item": "Star Garnet"
+          },
+          {
+            "amount": 10,
+            "item": "Bismuth"
+          },
+          {
+            "amount": 3,
+            "item": "Mythril"
+          },
+          {
+            "amount": 1,
+            "item": "Bloodstone"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 600,
+            "max": 1200
+          },
+          "dig_strength": {
+            "min": -100,
+            "max": -50
+          },
+          "dig_speed": {
+            "min": -60,
+            "max": -40
+          },
+          "inventory_size": {
+            "min": 100,
+            "max": 300
+          },
+          "size_boost": {
+            "min": 20,
+            "max": 50
+          },
+          "sell_boost": {
+            "min": 20,
+            "max": 50
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 600,
+            "max": 1300
+          },
+          "dig_strength": {
+            "min": -100,
+            "max": -45
+          },
+          "dig_speed": {
+            "min": -60,
+            "max": -38
+          },
+          "inventory_size": {
+            "min": 100,
+            "max": 325
+          },
+          "size_boost": {
+            "min": 20,
+            "max": 55
+          },
+          "sell_boost": {
+            "min": 20,
+            "max": 55
+          }
+        }
+      },
+      "cost": {
+        "amount": 500000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Excalibur",
+      "rarity": "exotic",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/4/4b/Excal.png/58px-Excal.png",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Excalibur Blueprint",
+        "quest": {
+            "name": "Caliburn's Rest",
+            "giver": {
+            "name": "Ancient Sword",
+            "location": "Enchanted Ruins"
+            },
+            "stages": [
+            {
+                "title": "Caliburn's Rest [1]",
+                "tasks": [
+                "Collect 250 Gold",
+                "Collect 250 Rose Gold",
+                "Collect 100 Luminum",
+                "Collect 10 Radiant Gold",
+                "Collect 10 Mythril"
+                ]
+            },
+            {
+                "title": "Caliburn's Rest [2-7] - each bullet point is the next task",
+                "tasks": [
+                "Return to the Ancient Sword [2]",
+                "Bring 1 Volcanic Core to the Ancient Sword [3]",
+                "Bring 1 Frostshard to the Ancient Sword [4]",
+                "Bring 1 Chrysoberyl to the Ancient Sword [5]",
+                "Collect 1 Adamantine [6]",
+                "Pull the Sword [7]"
+                ]
+            }
+           ]
+        }
+        },
+      "crafting": {
+        "materials": [
+          {
+            "amount": 2,
+            "item": "Prismara"
+          },
+          {
+            "amount": 1,
+            "item": "Adamantine"
+          },
+          {
+            "amount": 10,
+            "item": "Radiant Gold",
+            "min_size": 0.5
+          },
+          {
+            "amount": 5,
+            "item": "Mythril",
+            "min_size": 0.5
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 100,
+            "max": 500
+          },
+          "dig_strength": {
+            "min": 75,
+            "max": 300
+          },
+          "treasure_map_chance": {
+            "min": 50,
+            "max": 160
+          },
+          "modifier_boost": {
+            "min": 50,
+            "max": 150
+          },
+          "walkspeed": {
+            "min": 1,
+            "max": 5
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 100,
+            "max": 550
+          },
+          "dig_strength": {
+            "min": 75,
+            "max": 325
+          },
+          "treasure_map_chance": {
+            "min": 50,
+            "max": 175
+          },
+          "modifier_boost": {
+            "min": 50,
+            "max": 160
+          },
+          "walkspeed": {
+            "min": 1,
+            "max": 5.5
+          }
+        }
+      },
+      "cost": {
+        "amount": 650000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Timelocked Soul",
+      "rarity": "exotic",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/3/37/Lockedsoul.png/64px-Lockedsoul.png",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Timelocked Soul Blueprint",
+        "quest": {
+          "name": "Lost in Time",
+          "giver": {
+            "name": "Timelocked Spirit",
+            "location": "Timelocked Sanctuary"
+          },
+          "tasks": [
+          "Collect 1 Eternium",
+          "Collect 111 Mythic Materials from the Timelocked Sanctuary",
+          "Collect 222 Legendary Materials from the Timelocked Sanctuary",
+          "Collect 333 Epic Materials from the Timelocked Sanctuary"
+          ]
+        }
+      },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Eternium"
+          },
+          {
+            "amount": 1,
+            "item": "Astral Spore"
+          },
+          {
+            "amount": 3,
+            "item": "Red Beryl"
+          },
+          {
+            "amount": 5,
+            "item": "Radiant Gold"
+          },
+          {
+            "amount": 1,
+            "item": "Umbrite"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 222,
+            "max": 888
+          },
+          "dig_speed": {
+            "min": 30,
+            "max": 100
+          },
+          "inventory_size": {
+            "min": 100,
+            "max": 450
+          },
+          "shake_speed": {
+            "min": 30,
+            "max": 100
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 50
+          }
+        },
+        "star6": {
+          "luck": {
+            "value": 999
+          },
+          "dig_speed": {
+            "value": 110
+          },
+          "inventory_size": {
+            "value": 500
+          },
+          "shake_speed": {
+            "value": 110
+          },
+          "size_boost": {
+            "value": 55
+          }
+        }
+      },
+      "cost": {
+        "amount": 1000000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Ring of Champions",
+      "rarity": "exotic",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/4/4c/Ringofchampions.png/64px-Ringofchampions.png",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Ring of Champions Blueprint",
+        "quest": {
+            "name": "The Grand Challenge",
+            "giver": {
+            "name": "The GREATEST Prospector",
+            "location": "Fungal Marsh"
+            },
+            "stages": [
+            {
+                "title": "The Grand Challenge [1]",
+                "tasks": [
+                "Collect 100 Exotic Minerals from the Swamp",
+                "Collect 100 Exotic Minerals from the Overgrown Caves",
+                "Collect 100 Exotic Minerals from the Snowy Mountain",
+                "Collect 100 Exotic Minerals from Caldera Island"
+                ]
+            },
+            {
+                "title": "The Grand Challenge [2]",
+                "tasks": [
+                "Bring a 25kg+ Eternium to the GREATEST Prospector",
+                "Bring a 50kg+ Umbrite to the GREATEST Prospector",
+                "Bring a 25kg+ Cryonic Artifact to the GREATEST Prospector"
+                ]
+            }
+            ]
+        }
+        },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Dinosaur Skull"
+          },
+          {
+            "amount": 1,
+            "item": "Eternium"
+          },
+          {
+            "amount": 1,
+            "item": "Cryonic Artifact"
+          },
+          {
+            "amount": 1,
+            "item": "Astral Spore"
+          },
+          {
+            "amount": 1,
+            "item": "Vineheart"
+          },
+          {
+            "amount": 1,
+            "item": "Umbrite"
+          },
+          {
+            "amount": 1,
+            "item": "Bloodstone"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 100,
+            "max": 500
+          },
+          "dig_strength": {
+            "min": 20,
+            "max": 160
+          },
+          "capacity": {
+            "min": 100,
+            "max": 400
+          },
+          "dig_speed": {
+            "min": 20,
+            "max": 90
+          },
+          "shake_strength": {
+            "min": 10,
+            "max": 50
+          },
+          "shake_speed": {
+            "min": 20,
+            "max": 90
+          },
+          "sell_boost": {
+            "min": 50,
+            "max": 150
+          },
+          "size_boost": {
+            "min": 50,
+            "max": 150
+          },
+          "modifier_boost": {
+            "min": 50,
+            "max": 150
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 100,
+            "max": 550
+          },
+          "dig_strength": {
+            "min": 20,
+            "max": 180
+          },
+          "capacity": {
+            "min": 100,
+            "max": 450
+          },
+          "dig_speed": {
+            "min": 20,
+            "max": 100
+          },
+          "shake_strength": {
+            "min": 10,
+            "max": 55
+          },
+          "shake_speed": {
+            "min": 20,
+            "max": 100
+          },
+          "sell_boost": {
+            "min": 50,
+            "max": 160
+          },
+          "size_boost": {
+            "min": 50,
+            "max": 160
+          },
+          "modifier_boost": {
+            "min": 50,
+            "max": 160
+          }
+        }
+      },
+      "cost": {
+        "amount": 5000000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Pumpkin Lord",
+      "rarity": "exotic",
+      "availability": "limited",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/e/ec/Pumpkinlord.webp/64px-Pumpkinlord.webp.png",
+      
+      "unlock": {
+        "type": "event",
+        "blueprint": "Pumpkin Lord Blueprint",
+        "event": {
+            "name": "Halloween Event",
+            "note": "Limited-time event reward"
+        }
+        },
+
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Pumpkin Soul"
+          },
+          {
+            "amount": 1,
+            "item": "Radiant Gold"
+          },
+          {
+            "amount": 10,
+            "item": "Lost Soul"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "dig_strength": {
+            "min": 80,
+            "max": 200
+          },
+          "shake_strength": {
+            "min": 20,
+            "max": 50
+          },
+          "inventory_size": {
+            "min": 200,
+            "max": 500
+          },
+          "size_boost": {
+            "min": 30,
+            "max": 180
+          },
+          "walkspeed": {
+            "min": 1,
+            "max": 4
+          }
+        },
+        "star6": {
+          "dig_strength": {
+            "min": 80,
+            "max": 220
+          },
+          "shake_strength": {
+            "min": 20,
+            "max": 54
+          },
+          "inventory_size": {
+            "min": 200,
+            "max": 550
+          },
+          "size_boost": {
+            "min": 50,
+            "max": 220
+          },
+          "walkspeed": {
+            "min": 1,
+            "max": 4.5
+          }
+        }
+      },
+      "cost": {
+        "amount": 220000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Witch Hat",
+      "rarity": "exotic",
+      "availability": "limited",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/3/39/Witchhat.webp/64px-Witchhat.webp.png",
+      
+      "unlock": {
+        "type": "event",
+        "blueprint": "Witch Hat Blueprint",
+        "event": {
+            "name": "Halloween Event",
+            "note": "Limited-time event reward"
+        }
+        },
+
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Pumpkin Soul"
+          },
+          {
+            "amount": 1,
+            "item": "Volcanic Core"
+          },
+          {
+            "amount": 1,
+            "item": "Inferlume"
+          },
+          {
+            "amount": 1,
+            "item": "Prismara"
+          },
+          {
+            "amount": 1,
+            "item": "Cryonic Artifact"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 400,
+            "max": 1000
+          },
+          "inventory_size": {
+            "min": 100,
+            "max": 400
+          },
+          "modifier_boost": {
+            "min": 40,
+            "max": 100
+          },
+          "walkspeed": {
+            "min": 1,
+            "max": 5
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 400,
+            "max": 1100
+          },
+          "inventory_size": {
+            "min": 100,
+            "max": 450
+          },
+          "modifier_boost": {
+            "min": 40,
+            "max": 110
+          },
+          "walkspeed": {
+            "min": 1,
+            "max": 5.5
+          }
+        }
+      },
+      "cost": {
+        "amount": 1000,
+        "currency": "candies"
+        }
+    },
+    {
+      "name": "Santa's Bag",
+      "rarity": "exotic",
+      "availability": "limited",
+      "slot": "Necklace",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/0/06/Santa_bag.png/54px-Santa_bag.png",
+      
+      "unlock": {
+        "type": "event",
+        "blueprint": "Santa's Bag Blueprint",
+        "event": {
+            "name": "Christmas Event",
+            "note": "Limited-time event reward"
+        }
+        },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "North Star"
+          },
+          {
+            "amount": 2,
+            "item": "Frostshard"
+          },
+          {
+            "amount": 6,
+            "item": "Peppermint Prism"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 200,
+            "max": 600
+          },
+          "capacity": {
+            "min": 200,
+            "max": 500
+          },
+          "inventory_size": {
+            "min": 100,
+            "max": 500
+          },
+          "size_boost": {
+            "min": 20,
+            "max": 80
+          },
+          "status_timer_speed": {
+            "min": -50,
+            "max": -50
+          }
+        },
+        "star6": {
+          "luck": {
+            "value": 675
+          },
+          "capacity": {
+            "value": 550
+          },
+          "inventory_size": {
+            "value": 550
+          },
+          "size_boost": {
+            "value": 90
+          },
+          "status_timer_speed": {
+            "value": -50
+          }
+        }
+      },
+      "cost": {
+        "amount": 2000,
+        "currency": "ornaments"
+        }
+    }
+  ]
+}

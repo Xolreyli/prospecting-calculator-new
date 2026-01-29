@@ -5,6 +5,13 @@
 <title>Prospecting Chance Calculator</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prospecting Tools</title>
+
 <style>
 :root{
   --bg-main:#0b0d17;
@@ -18,7 +25,7 @@
 }
 
 *{ box-sizing:border-box; }
-html,body{ min-height:100%; }
+html,body{ min-height: 100svh; }
 
 body{
   margin:0;
@@ -27,6 +34,7 @@ body{
     radial-gradient(1200px 600px at 15% 0%, rgba(124,140,255,0.18), transparent 60%),
     radial-gradient(900px 500px at 90% 10%, rgba(34,197,94,0.10), transparent 55%),
     linear-gradient(180deg, #0b0d17, #070812);
+  background-attachment: fixed;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   color:var(--text-main);
 }
@@ -154,6 +162,16 @@ h1{
   box-shadow: 0 0 0 3px rgba(124,140,255,0.12);
 }
 
+.rarityTag{
+  padding:4px 8px;
+  border-radius:999px;
+  font-size:0.72rem;
+  font-weight:600;
+  background: rgba(0,0,0,0.35);
+  border:1px solid var(--border);
+  text-transform:capitalize;
+}
+
 .metrics{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -214,6 +232,8 @@ h1{
   padding: 12px;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   font-size: 0.90rem;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .table th{
@@ -236,12 +256,10 @@ h1{
 
 @media (max-width: 1350px){
 
-  /* Page padding */
   body{
     padding: 14px;
   }
 
-  /* Force true vertical layout */
   .layout{
     display: flex;
     flex-direction: column;
@@ -249,7 +267,6 @@ h1{
     align-items: center;
   }
 
-  /* Right stack also vertical */
   .rightStack{
     display: flex;
     flex-direction: column;
@@ -258,7 +275,6 @@ h1{
     align-items: center;
   }
 
-  /* Panels behave like mobile cards */
   .panel{
     width: 100%;
     max-width: 560px;
@@ -266,12 +282,10 @@ h1{
     border-radius: 20px;
   }
 
-  /* Inputs stack */
   .row2{
     grid-template-columns: 1fr;
   }
 
-  /* Metrics stack */
   .metrics{
     grid-template-columns: 1fr;
   }
@@ -289,7 +303,6 @@ h1{
     min-width: 900px;
   }
 
-  /* Disable sticky on mobile */
   .layout > .panel:first-child{
     position: static;
   }
@@ -299,7 +312,6 @@ h1{
    GRAPH MODAL
 ======================= */
 
-/* ===== Overlay ===== */
 .graphOverlay{
   position: fixed;
   inset: 0;
@@ -309,22 +321,19 @@ h1{
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  overflow: hidden;
 }
 
 .graphOverlay.active{
   display: flex;
 }
 
-/* ===== Modal ===== */
 .graphModal{
   position: relative;
   background: rgba(20,23,42,0.95);
   border: 1px solid var(--border);
-
-  /* IMPORTANT: single source of truth for size */
   width: min(72vw, 720px);
   height: min(72vh, 720px);
-
   padding: 14px;
   border-radius: 20px 18px 22px 17px;
 
@@ -336,16 +345,13 @@ h1{
   display: flex;
   align-items: center;
   justify-content: center;
-
   overflow: hidden;
 }
 
-/* ===== Inner frame (soft separation) ===== */
 .graphFrame{
   width: 100%;
   height: 100%;
   padding: 14px;
-
   background: rgba(255,255,255,0.04);
   border-radius: 16px;
 
@@ -358,24 +364,20 @@ h1{
   justify-content: center;
 }
 
-/* ===== Image ===== */
 .graphImage{
   max-width: 100%;
   max-height: 100%;
   width: auto;
   height: auto;
-
   display: block;
   border-radius: 10px;
 }
 
-/* ===== Outside Close Button ===== */
 .graphCloseOutside{
   position: fixed;
   top: 24px;
   right: 28px;
   z-index: 1100;
-
   width: 44px;
   height: 44px;
 
@@ -396,7 +398,6 @@ h1{
 
   box-shadow: var(--shadow);
   backdrop-filter: blur(6px);
-
   opacity: 0.9;
 }
 
@@ -405,23 +406,169 @@ h1{
   transform: scale(1.05);
 }
 
-/* ===== Mobile tuning ===== */
 @media (max-width: 600px){
   .graphModal{
     width: min(92vw, 92vh);
     height: min(92vw, 92vh);
   }
-
   .graphCloseOutside{
     top: 14px;
     right: 14px;
   }
 }
 
+/* =======================
+   SECTION DIVIDER + CRAFTING SECTION
+======================= */
+
+.sectionDivider{
+  max-width: 1700px;
+  margin: 44px auto 34px;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(124,140,255,0.30),
+    transparent
+  );
+  opacity: 0.9;
+}
+
+.toolsSection{
+  max-width: 1700px;
+  margin: 0 auto 80px;
+}
+
+.toolsHeader{
+  display:flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 0 0 16px 0;
+}
+
+.toolsHeader h2{
+  margin:0;
+  font-size: 1.25rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.toolsHeader p{
+  margin:0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Mirrors calculator layout */
+.toolsLayout{
+  display:grid;
+  grid-template-columns: minmax(440px, 500px) minmax(780px, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+/* =======================
+   STATS PANEL (CRAFTING)
+======================= */
+
+.statsPanel{
+  margin-top: 18px;
+  background: rgba(16,18,38,0.6);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.statsHeader{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom: 12px;
+}
+
+.statsHeader h2{
+  margin:0;
+  font-size:0.72rem;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:var(--text-muted);
+}
+
+.statsToggle{
+  display:flex;
+  gap:6px;
+}
+
+.statsBtn{
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  background: rgba(0,0,0,0.25);
+  color:var(--text-muted);
+  font-size:0.8rem;
+  cursor:pointer;
+  transition: all 0.18s ease;
+}
+
+.statsBtn.active{
+  background: rgba(124,140,255,0.25);
+  border-color: rgba(124,140,255,0.6);
+  color: var(--text-main);
+  box-shadow: 0 0 0 3px rgba(124,140,255,0.15);
+}
+
+.statsGrid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap:10px;
+}
+
+.statItem{
+  background: rgba(20,23,42,0.75);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.statLabel{
+  font-size:0.75rem;
+  color:var(--text-muted);
+}
+
+.statValue{
+  margin-top:4px;
+  font-weight:650;
+}
+
+/* Stat colors (JSON-safe keys) */
+.stat-luck{ color:#35ef88; }
+.stat-dig_speed{ color:#89d6ff; }
+.stat-dig_strength{ color:#ffb68a; }
+.stat-capacity{ color:#ffe7a3; }
+.stat-size_boost{ color:#ff6b6b; }
+.stat-modifier_boost{ color:#6bff82; }
+.stat-sell_boost{ color:#ffe066; }
+.stat-walkspeed,
+.stat-walk_speed{ color:#ffffff; }
+.stat-inventory_size{ color:#d88565; }
+.stat-shake_strength{ color:#ffffff; }
+.stat-shake_speed{ color:#ffffff; }
+.stat-treasure_map_chance{ color:#35ef88; }
+
+/* Match mobile collapse for crafting too */
+@media (max-width: 1350px){
+  .toolsLayout{
+    display:flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+  }
+}
 </style>
+</head>
 
 <body>
-<h1>Prospecting Chance Calculator <span class="version">v1.2.0</span></h1>
+<h1>Prospecting Chance Calculator <span class="version">v1.3.0</span></h1>
 
 <div class="layout">
 
@@ -500,7 +647,7 @@ h1{
 
     <div class="note">
         <b>How to fill these values</b><br><br>
-        
+
         <b>Common Values</b><br>
         • <b>r (shakes per second):</b> please refer to the graph by clicking <a href="./imgs/shake-speed.jpg" id="openGraph">here</a></b><br>
         • <b>s (shake strength):</b> you'll find this in the stats menu<br><br>
@@ -600,19 +747,116 @@ h1{
     </div>
   </div>
 
-<div class="graphOverlay" id="graphOverlay">
+  <div class="graphOverlay" id="graphOverlay">
+    <!-- BIG CLOSE BUTTON (outside modal) -->
+    <button class="graphCloseOutside" id="closeGraph" aria-label="Close graph">×</button>
 
-  <!-- BIG CLOSE BUTTON (outside modal) -->
-  <button class="graphCloseOutside" id="closeGraph" aria-label="Close graph">×</button>
-
-  <div class="graphModal">
-    <img src="./imgs/shake-speed.jpg" class="graphImage">
+    <div class="graphModal">
+      <img src="./imgs/shake-speed.jpg" class="graphImage">
+    </div>
   </div>
 
-</div>
+</div> <!-- / .layout -->
 
-</div>
-</body>
+
+<!-- =======================
+     NEW SECTION: CRAFTING
+======================= -->
+
+<div class="sectionDivider"></div>
+
+<section class="toolsSection" id="craftingSection">
+
+  <div class="toolsHeader">
+    <h2>Equipment Crafting & Unlocks</h2>
+    <p>Pick an equipment piece to see materials, stats, and unlock details.</p>
+  </div>
+
+  <div class="toolsLayout">
+
+    <!-- LEFT -->
+    <div class="panel">
+      <h2>Equipment Finder</h2>
+
+      <div class="control">
+        <label>Search equipment</label>
+        <input id="equipSearch" placeholder="Type part of the name…" />
+      </div>
+
+      <div class="control">
+        <label>Filter by rarity</label>
+        <select id="equipRarityFilter">
+          <option value="all">(all)</option>
+          <option value="common">Common</option>
+          <option value="uncommon">Uncommon</option>
+          <option value="rare">Rare</option>
+          <option value="epic">Epic</option>
+          <option value="legendary">Legendary</option>
+          <option value="mythical">Mythical</option>
+          <option value="exotic">Exotic</option>
+        </select>
+      </div>
+
+      <div class="control">
+        <label>Select equipment</label>
+        <select id="equipSelect"></select>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="panel">
+      <h2>Details</h2>
+
+      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <div class="badge">
+          <span class="dot" id="equipRarityDot"></span>
+          <span id="equipLabel">Equipment: —</span>
+          <span class="rarityTag" id="equipRarityTag">—</span>
+        </div>
+        <div class="badge">
+          Availability: <b id="equipAvailability">—</b>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <div class="metric">
+          <div class="k">Materials</div>
+          <div class="v" id="equipMaterialsCount">—</div>
+          <div class="s" id="equipMaterialsHint">—</div>
+        </div>
+
+        <div class="metric">
+          <div class="k">Unlock</div>
+          <div class="v" id="equipUnlockType">—</div>
+          <div class="s" id="equipUnlockHint">—</div>
+        </div>
+
+        <div class="metric">
+          <div class="k">Cost</div>
+          <div class="v" id="equipCost">—</div>
+          <div class="s" id="equipSlot">—</div>
+        </div>
+      </div>
+
+      <!-- STATS -->
+      <div class="statsPanel">
+        <div class="statsHeader">
+          <h2>Stats</h2>
+          <div class="statsToggle">
+            <button id="statsBaseBtn" class="statsBtn active">Base</button>
+            <button id="statsStarBtn" class="statsBtn">6★</button>
+          </div>
+        </div>
+
+        <div id="statsGrid" class="statsGrid">
+          <div class="note">Select an item to view stats</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
 <script>
 let minerals = [];
@@ -636,20 +880,6 @@ const dInput = document.getElementById("dInput");
 const autopanExtras = document.getElementById("autopanExtras");
 
 const LUCK_EFFICIENCY = 0.65;
-
-function rarityColor(r){
-  const key = (r || "").toLowerCase();
-  const map = {
-    common: "#a3a3a3",
-    uncommon: "#22c55e",
-    rare: "#3b82f6",
-    epic: "#a855f7",
-    legendary: "#f59e0b",
-    mythic: "#cf0064",
-    exotic: "#ff0011"
-  };
-  return map[key] || "#7c8cff";
-}
 
 function fmtPct(x, digits=5){
   if (!isFinite(x)) return "—";
@@ -943,6 +1173,314 @@ document.addEventListener("keydown", e => {
     overlay.setAttribute("aria-hidden", "true");
   }
 });
+</script>
+
+<script>
+let equipment = [];
+let filteredEquipment = [];
+let currentItem = null;
+let activeStatsMode = "base";
+
+/* -------------------------
+   STAT METADATA
+------------------------- */
+
+const PERCENT_STATS = new Set([
+  "dig_speed",
+  "shake_speed",
+  "sell_boost",
+  "size_boost",
+  "modifier_boost",
+  "treasure_map_chance"
+]);
+
+/* -------------------------
+   DOM ELEMENTS
+------------------------- */
+
+const equipSearch = document.getElementById("equipSearch");
+const equipRarityFilter = document.getElementById("equipRarityFilter");
+const equipSelect = document.getElementById("equipSelect");
+
+const equipLabel = document.getElementById("equipLabel");
+const equipRarityTag = document.getElementById("equipRarityTag");
+const equipRarityDot = document.getElementById("equipRarityDot");
+const equipAvailability = document.getElementById("equipAvailability");
+
+const equipMaterialsCount = document.getElementById("equipMaterialsCount");
+const equipMaterialsHint = document.getElementById("equipMaterialsHint");
+const equipUnlockType = document.getElementById("equipUnlockType");
+const equipUnlockHint = document.getElementById("equipUnlockHint");
+const equipCost = document.getElementById("equipCost");
+const equipSlot = document.getElementById("equipSlot");
+
+/* -------------------------
+   LOAD DATA
+------------------------- */
+
+fetch("./crafting.json")
+  .then(r => r.json())
+  .then(data => {
+    equipment = data.equipment || [];
+    filteredEquipment = [...equipment];
+    populateEquipmentDropdown();
+  })
+  .catch(err => console.error("Failed to load crafting.json", err));
+
+/* -------------------------
+   STATS RENDERING
+------------------------- */
+
+function renderStats(){
+  const grid = document.getElementById("statsGrid");
+  if (!grid || !currentItem) return;
+
+  const stats = currentItem.stats?.[activeStatsMode];
+  if (!stats || Object.keys(stats).length === 0){
+    grid.innerHTML = `<div class="note">No stats available</div>`;
+    return;
+  }
+
+  grid.innerHTML = Object.entries(stats).map(([key, val]) => {
+    const cls = `stat-${key}`;
+    let display = "—";
+
+    if (typeof val === "object") {
+      if ("min" in val && "max" in val) {
+        display = `${val.min} – ${val.max}`;
+      } else if ("value" in val) {
+        display = val.value;
+      }
+    } else {
+      display = val;
+    }
+
+    if (PERCENT_STATS.has(key)) {
+      display += "%";
+    }
+
+    return `
+      <div class="statItem">
+        <div class="statLabel">${prettyStat(key)}</div>
+        <div class="statValue ${cls}">${display}</div>
+      </div>
+    `;
+  }).join("");
+}
+
+/* -------------------------
+   DROPDOWN POPULATION
+------------------------- */
+
+function populateEquipmentDropdown(){
+  equipSelect.innerHTML = "";
+
+  filteredEquipment.forEach(item => {
+    const opt = document.createElement("option");
+    opt.value = item.name;
+    opt.textContent = item.name;
+    equipSelect.appendChild(opt);
+  });
+
+  if (filteredEquipment.length){
+    equipSelect.value = filteredEquipment[0].name;
+    updateEquipmentDetails(filteredEquipment[0]);
+  }
+}
+
+/* -------------------------
+   FILTERING
+------------------------- */
+
+function applyEquipmentFilters(){
+  const search = equipSearch.value.toLowerCase();
+  const rarity = equipRarityFilter.value;
+
+  filteredEquipment = equipment.filter(e => {
+    const matchesSearch = !search || e.name.toLowerCase().includes(search);
+    const matchesRarity = rarity === "all" || e.rarity === rarity;
+    return matchesSearch && matchesRarity;
+  });
+
+  populateEquipmentDropdown();
+}
+
+equipSearch.addEventListener("input", applyEquipmentFilters);
+equipRarityFilter.addEventListener("change", applyEquipmentFilters);
+
+/* -------------------------
+   SELECTION
+------------------------- */
+
+equipSelect.addEventListener("change", () => {
+  const selected = equipment.find(e => e.name === equipSelect.value);
+  if (selected) updateEquipmentDetails(selected);
+});
+
+/* -------------------------
+   DETAILS PANEL
+------------------------- */
+
+function updateEquipmentDetails(item){
+  currentItem = item;
+
+  /* Header */
+  equipLabel.textContent = `Equipment: ${item.name}`;
+  equipRarityTag.textContent = item.rarity ?? "—";
+  equipAvailability.textContent = item.availability ?? "normal";
+  equipRarityDot.style.background = rarityColor(item.rarity);
+
+  /* Cost */
+  equipCost.textContent = formatCost(item);
+
+  /* Slot */
+  equipSlot.textContent = item.slot ? `Slot: ${item.slot}` : "—";
+
+  /* Materials */
+  const mats = item.crafting?.materials ?? [];
+  equipMaterialsCount.textContent = mats.length || "0";
+
+  equipMaterialsHint.textContent = mats.length
+    ? mats.map(m =>
+        `${m.amount} ${m.item}${m.min_size ? ` (≥ ${m.min_size}kg)` : ""}`
+      ).join(", ")
+    : "No crafting required";
+
+  renderStats();
+  renderUnlock(item);
+}
+
+function renderUnlock(item){
+  const unlock = item.unlock;
+
+  if (!unlock || unlock.type === "craft"){
+    equipUnlockType.textContent = "Craft Only";
+    equipUnlockHint.innerHTML = "No blueprint required";
+    return;
+  }
+
+  if (unlock.type === "quest"){
+    equipUnlockType.textContent = "Quest";
+
+    const q = unlock.quest;
+    let html = `<strong>${q.name}</strong>`;
+
+    if (q.giver){
+      html += `<br><span class="muted">
+        From ${q.giver.name}${q.giver.location ? " — " + q.giver.location : ""}
+      </span>`;
+    }
+
+    /* MULTI-STAGE QUEST */
+    if (Array.isArray(q.stages)){
+      q.stages.forEach(stage => {
+        html += `
+          <div class="questStage">
+            <div class="questStageTitle">${stage.title}</div>
+            <ul class="questList">
+              ${stage.tasks.map(t => `<li>${t}</li>`).join("")}
+            </ul>
+          </div>
+        `;
+      });
+    }
+
+    /* SINGLE-STAGE QUEST */
+    else if (Array.isArray(q.tasks)){
+      html += `
+        <ul class="questList">
+          ${q.tasks.map(t => `<li>${t}</li>`).join("")}
+        </ul>
+      `;
+    }
+
+    equipUnlockHint.innerHTML = html;
+    return;
+  }
+
+  if (unlock.type === "npc"){
+    equipUnlockType.textContent = "NPC Blueprint";
+    equipUnlockHint.innerHTML = `
+      <strong>${unlock.npc.name}</strong><br>
+      <span class="muted">${unlock.npc.location ?? ""}</span>
+    `;
+    return;
+  }
+
+  if (unlock.type === "event"){
+    equipUnlockType.textContent = "Event";
+    equipUnlockHint.innerHTML = `
+      <strong>${unlock.event.name}</strong><br>
+      <span class="muted">${unlock.event.note ?? ""}</span>
+    `;
+  }
+}
+
+/* -------------------------
+   HELPERS
+------------------------- */
+
+function rarityColor(r){
+  switch(r){
+    case "common": return "#a3a3a3";
+    case "uncommon": return "#22c55e";
+    case "rare": return "#3b82f6";
+    case "epic": return "#a855f7";
+    case "legendary": return "#f59e0b";
+    case "mythic": return "#cf0064";
+    case "mythical": return "#cf0064";
+    case "exotic": return "#ff0011";
+    default: return "#7c8cff";
+  }
+}
+
+function prettyStat(key){
+  return key
+    .replace(/_/g, " ")
+    .replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function formatCost(item){
+  const cost = item.cost;
+  if (!cost || cost.amount == null) return "—";
+
+  const amount = cost.amount.toLocaleString();
+
+  switch (cost.currency){
+    case "candies":
+      return `${amount} Candies`;
+
+    case "ornaments":
+      return `${amount} Ornaments`;
+
+    case "money":
+    default:
+      return `$${amount}`;
+  }
+}
+
+/* -------------------------
+   STATS TOGGLE
+------------------------- */
+
+document.getElementById("statsBaseBtn").onclick = () => {
+  activeStatsMode = "base";
+  setStatsToggle(true);
+  renderStats();
+};
+
+document.getElementById("statsStarBtn").onclick = () => {
+  activeStatsMode = "star6";
+  setStatsToggle(false);
+  renderStats();
+};
+
+function setStatsToggle(baseActive){
+  document.getElementById("statsBaseBtn")
+    .classList.toggle("active", baseActive);
+  document.getElementById("statsStarBtn")
+    .classList.toggle("active", !baseActive);
+}
 </script>
 </body>
 </html>

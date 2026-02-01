@@ -2069,6 +2069,10 @@
       "rarity": "legendary",
       "locations": [
         {
+          "location": "Fungal Marsh",
+          "chance_percent": 0.0002712
+        },
+        {
           "location": "The Void",
           "chance_percent": 0.0001811
         }

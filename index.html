@@ -555,6 +555,41 @@ h1{
 .stat-shake_speed{ color:#ffffff; }
 .stat-treasure_map_chance{ color:#35ef88; }
 
+.statsBlock {
+  margin-top: 16px;
+}
+
+.statsSubheading {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}
+
+.mutationGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.mutationCol {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.mutationLabel {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.75;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.statsGrid.small .statValue {
+  font-size: 0.85rem;
+}
+
 /* Match mobile collapse for crafting too */
 @media (max-width: 1350px){
   .toolsLayout{
@@ -568,7 +603,7 @@ h1{
 </head>
 
 <body>
-<h1>Prospecting Chance Calculator <span class="version">v1.3.0</span></h1>
+<h1>Prospecting Chance Calculator <span class="version">v1.4.0</span></h1>
 
 <div class="layout">
 
@@ -838,6 +873,7 @@ h1{
         </div>
       </div>
 
+      
       <!-- STATS -->
       <div class="statsPanel">
         <div class="statsHeader">
@@ -848,8 +884,44 @@ h1{
           </div>
         </div>
 
-        <div id="statsGrid" class="statsGrid">
-          <div class="note">Select an item to view stats</div>
+        <!-- BASE STATS -->
+        <div class="statsBlock">
+          <h4 class="statsSubheading">Base Stats</h4>
+          <div id="statsGrid" class="statsGrid">
+            <div class="note">Select an item to view stats</div>
+          </div>
+        </div>
+
+        <!-- MUTATION STATS -->
+        <div class="statsBlock">
+          <h4 class="statsSubheading">With Mutations</h4>
+
+          <div class="mutationGrid">
+            <div class="mutationCol">
+              <span class="mutationLabel">Silver</span>
+              <div id="statsGrid-m110" class="statsGrid small"></div>
+            </div>
+
+            <div class="mutationCol">
+              <span class="mutationLabel">Gold</span>
+              <div id="statsGrid-m120" class="statsGrid small"></div>
+            </div>
+
+            <div class="mutationCol">
+              <span class="mutationLabel">Diamond</span>
+              <div id="statsGrid-m135" class="statsGrid small"></div>
+            </div>
+
+            <div class="mutationCol">
+              <span class="mutationLabel">Festive</span>
+              <div id="statsGrid-m140" class="statsGrid small"></div>
+            </div>
+
+            <div class="mutationCol">
+              <span class="mutationLabel">Prismatic</span>
+              <div id="statsGrid-m160" class="statsGrid small"></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1185,13 +1257,22 @@ let activeStatsMode = "base";
    STAT METADATA
 ------------------------- */
 
+const MUTATION_MULTIPLIERS = [
+  { id: "m110", label: "Mutation ×1.1", value: 1.1 },
+  { id: "m120", label: "Mutation ×1.2", value: 1.2 },
+  { id: "m135", label: "Mutation ×1.35", value: 1.35 },
+  { id: "m140", label: "Mutation ×1.4", value: 1.4 },
+  { id: "m160", label: "Mutation ×1.6", value: 1.6 }
+];
+
 const PERCENT_STATS = new Set([
   "dig_speed",
   "shake_speed",
   "sell_boost",
   "size_boost",
   "modifier_boost",
-  "treasure_map_chance"
+  "treasure_map_chance",
+  "status_timer_speed"
 ]);
 
 /* -------------------------
@@ -1231,33 +1312,87 @@ fetch("./crafting.json")
    STATS RENDERING
 ------------------------- */
 
-function renderStats(){
-  const grid = document.getElementById("statsGrid");
-  if (!grid || !currentItem) return;
+function renderStatsToGrid(gridId, stats, multiplier, extraBonuses = null){
+  const grid = document.getElementById(gridId);
+  if (!grid) return;
 
-  const stats = currentItem.stats?.[activeStatsMode];
-  if (!stats || Object.keys(stats).length === 0){
+  const bonuses = extraBonuses || {};
+
+  // Render union: existing stat keys + bonus keys (so missing stats can be added)
+  const keys = Array.from(new Set([
+    ...Object.keys(stats || {}),
+    ...Object.keys(bonuses)
+  ]));
+
+  if (!keys.length){
     grid.innerHTML = `<div class="note">No stats available</div>`;
     return;
   }
 
-  grid.innerHTML = Object.entries(stats).map(([key, val]) => {
-    const cls = `stat-${key}`;
-    let display = "—";
+  grid.innerHTML = keys.map((key) => {
+    const val = stats ? stats[key] : undefined;
 
-    if (typeof val === "object") {
+    let baseMin, baseMax, baseVal;
+
+    if (typeof val === "object" && val !== null) {
       if ("min" in val && "max" in val) {
-        display = `${val.min} – ${val.max}`;
+        baseMin = val.min;
+        baseMax = val.max;
       } else if ("value" in val) {
-        display = val.value;
+        baseVal = val.value;
       }
-    } else {
-      display = val;
+    } else if (typeof val === "number") {
+      baseVal = val;
     }
+
+    // If stat doesn't exist but we have a bonus for it: base is 0
+    const hasBonus = typeof bonuses[key] === "number";
+    const bonus = hasBonus ? bonuses[key] : 0;
+
+    let display;
+
+    // Range stat
+    if (baseMin != null && baseMax != null) {
+      const minMult = baseMin < 0 ? (1 / multiplier) : multiplier;
+      const maxMult = baseMax < 0 ? (1 / multiplier) : multiplier;
+
+      let minVal = baseMin * minMult;
+      let maxVal = baseMax * maxMult;
+
+      // Add flat bonus AFTER multiplying
+      if (hasBonus) {
+        minVal += bonus;
+        maxVal += bonus;
+      }
+
+      display = `${roundStat(key, minVal)} – ${roundStat(key, maxVal)}`;
+    }
+
+    // Single value stat (including missing stats that only have a bonus)
+    else {
+      // if baseVal is missing and we have a bonus, baseVal becomes 0
+      if (baseVal == null && hasBonus) baseVal = 0;
+
+      // if still missing (no base value and no bonus), skip it
+      if (baseVal == null) return "";
+
+      const effectiveMultiplier = baseVal < 0 ? (1 / multiplier) : multiplier;
+
+      let finalValue = baseVal * effectiveMultiplier;
+
+      // Add flat bonus AFTER multiplying
+      if (hasBonus) finalValue += bonus;
+
+      display = roundStat(key, finalValue);
+    }
+
+    if (display === "") return "";
 
     if (PERCENT_STATS.has(key)) {
       display += "%";
     }
+
+    const cls = `stat-${key}`;
 
     return `
       <div class="statItem">
@@ -1266,6 +1401,67 @@ function renderStats(){
       </div>
     `;
   }).join("");
+}
+
+/* -------------------------
+   FLAT BONUS INJECTION (1.4x)
+------------------------- */
+
+function appendFlatBonusStat(gridId, key, value){
+  const grid = document.getElementById(gridId);
+  if (!grid) return;
+
+  const display =
+    roundStat(key, value) + (PERCENT_STATS.has(key) ? "%" : "");
+
+  grid.insertAdjacentHTML("beforeend", `
+    <div class="statItem bonusStat">
+      <div class="statLabel">${prettyStat(key)}</div>
+      <div class="statValue">+${display}</div>
+    </div>
+  `);
+}
+
+/* -------------------------
+   ROUNDING RULES
+------------------------- */
+
+function roundStat(key, value){
+  if (value == null || isNaN(value)) return value;
+
+  const abs = Math.abs(value);
+
+  if (key === "walkspeed") {
+    return Math.round(value * 10) / 10;
+  }
+
+  if (abs > 0 && abs < 1) {
+    return Math.round(value * 10) / 10;
+  }
+
+  return Math.round(value);
+}
+
+function renderStats(){
+  if (!currentItem) return;
+
+  const stats = currentItem.stats?.[activeStatsMode];
+  if (!stats) return;
+
+  // Base
+  renderStatsToGrid("statsGrid", stats, 1);
+
+  // Mutations
+  MUTATION_MULTIPLIERS.forEach(m => {
+    const gridId = `statsGrid-${m.id}`;
+
+    // Only Festive/1.4x gets the flat bonuses
+    const bonuses = (m.id === "m140")
+      ? { luck: 50, size_boost: 10 }
+      : null;
+
+    renderStatsToGrid(gridId, stats, m.value, bonuses);
+  });
 }
 
 /* -------------------------
@@ -1324,22 +1520,16 @@ equipSelect.addEventListener("change", () => {
 function updateEquipmentDetails(item){
   currentItem = item;
 
-  /* Header */
   equipLabel.textContent = `Equipment: ${item.name}`;
   equipRarityTag.textContent = item.rarity ?? "—";
   equipAvailability.textContent = item.availability ?? "normal";
   equipRarityDot.style.background = rarityColor(item.rarity);
 
-  /* Cost */
   equipCost.textContent = formatCost(item);
-
-  /* Slot */
   equipSlot.textContent = item.slot ? `Slot: ${item.slot}` : "—";
 
-  /* Materials */
   const mats = item.crafting?.materials ?? [];
   equipMaterialsCount.textContent = mats.length || "0";
-
   equipMaterialsHint.textContent = mats.length
     ? mats.map(m =>
         `${m.amount} ${m.item}${m.min_size ? ` (≥ ${m.min_size}kg)` : ""}`
@@ -1349,6 +1539,10 @@ function updateEquipmentDetails(item){
   renderStats();
   renderUnlock(item);
 }
+
+/* -------------------------
+   UNLOCK RENDERING
+------------------------- */
 
 function renderUnlock(item){
   const unlock = item.unlock;
@@ -1361,7 +1555,6 @@ function renderUnlock(item){
 
   if (unlock.type === "quest"){
     equipUnlockType.textContent = "Quest";
-
     const q = unlock.quest;
     let html = `<strong>${q.name}</strong>`;
 
@@ -1371,7 +1564,6 @@ function renderUnlock(item){
       </span>`;
     }
 
-    /* MULTI-STAGE QUEST */
     if (Array.isArray(q.stages)){
       q.stages.forEach(stage => {
         html += `
@@ -1383,10 +1575,7 @@ function renderUnlock(item){
           </div>
         `;
       });
-    }
-
-    /* SINGLE-STAGE QUEST */
-    else if (Array.isArray(q.tasks)){
+    } else if (Array.isArray(q.tasks)){
       html += `
         <ul class="questList">
           ${q.tasks.map(t => `<li>${t}</li>`).join("")}
@@ -1447,15 +1636,10 @@ function formatCost(item){
   const amount = cost.amount.toLocaleString();
 
   switch (cost.currency){
-    case "candies":
-      return `${amount} Candies`;
-
-    case "ornaments":
-      return `${amount} Ornaments`;
-
+    case "candies": return `${amount} Candies`;
+    case "ornaments": return `${amount} Ornaments`;
     case "money":
-    default:
-      return `$${amount}`;
+    default: return `$${amount}`;
   }
 }
 

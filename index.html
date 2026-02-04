@@ -309,115 +309,6 @@ h1{
 }
 
 /* =======================
-   GRAPH MODAL
-======================= */
-
-.graphOverlay{
-  position: fixed;
-  inset: 0;
-  background: rgba(5,7,18,0.65);
-  backdrop-filter: blur(6px);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  overflow: hidden;
-}
-
-.graphOverlay.active{
-  display: flex;
-}
-
-.graphModal{
-  position: relative;
-  background: rgba(20,23,42,0.95);
-  border: 1px solid var(--border);
-  width: min(72vw, 720px);
-  height: min(72vh, 720px);
-  padding: 14px;
-  border-radius: 20px 18px 22px 17px;
-
-  box-shadow:
-    0 18px 40px rgba(0,0,0,0.35),
-    inset 0 0 0 1px rgba(255,255,255,0.05),
-    inset 0 -8px 16px rgba(0,0,0,0.28);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.graphFrame{
-  width: 100%;
-  height: 100%;
-  padding: 14px;
-  background: rgba(255,255,255,0.04);
-  border-radius: 16px;
-
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,0.06),
-    inset 0 -6px 12px rgba(0,0,0,0.25);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.graphImage{
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-}
-
-.graphCloseOutside{
-  position: fixed;
-  top: 24px;
-  right: 28px;
-  z-index: 1100;
-  width: 44px;
-  height: 44px;
-
-  background: rgba(20,23,42,0.9);
-  border: 1px solid var(--border);
-  border-radius: 999px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 26px;
-  font-weight: 700;
-  line-height: 1;
-
-  color: var(--text-main);
-  cursor: pointer;
-
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(6px);
-  opacity: 0.9;
-}
-
-.graphCloseOutside:hover{
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-@media (max-width: 600px){
-  .graphModal{
-    width: min(92vw, 92vh);
-    height: min(92vw, 92vh);
-  }
-  .graphCloseOutside{
-    top: 14px;
-    right: 14px;
-  }
-}
-
-/* =======================
    SECTION DIVIDER + CRAFTING SECTION
 ======================= */
 
@@ -603,7 +494,7 @@ h1{
 </head>
 
 <body>
-<h1>Prospecting Chance Calculator <span class="version">v1.4.0</span></h1>
+<h1>Prospecting Chance Calculator <span class="version">v1.5.0</span></h1>
 
 <div class="layout">
 
@@ -660,8 +551,8 @@ h1{
 
     <div class="row2">
       <div class="control">
-        <label>r = shakes per second</label>
-        <input type="number" id="rInput" min="0" step="0.01" value="6" />
+        <label>Shake speed %</label>
+        <input type="number" id="shakeSpeedInput" min="0" step="1" value="500" />
       </div>
       <div class="control">
         <label>s = shake strength</label>
@@ -684,7 +575,6 @@ h1{
         <b>How to fill these values</b><br><br>
 
         <b>Common Values</b><br>
-        • <b>r (shakes per second):</b> please refer to the graph by clicking <a href="./imgs/shake-speed.jpg" id="openGraph">here</a></b><br>
         • <b>s (shake strength):</b> you'll find this in the stats menu<br><br>
 
         <b>Manual (Sandshaking)</b><br>
@@ -782,17 +672,7 @@ h1{
     </div>
   </div>
 
-  <div class="graphOverlay" id="graphOverlay">
-    <!-- BIG CLOSE BUTTON (outside modal) -->
-    <button class="graphCloseOutside" id="closeGraph" aria-label="Close graph">×</button>
-
-    <div class="graphModal">
-      <img src="./imgs/shake-speed.jpg" class="graphImage">
-    </div>
-  </div>
-
-</div> <!-- / .layout -->
-
+</div>
 
 <!-- =======================
      NEW SECTION: CRAFTING
@@ -944,14 +824,21 @@ const luckInput       = document.getElementById("luckInput");
 const capacityInput   = document.getElementById("capacityInput");
 
 // NEW time inputs
-const timeMethod = document.getElementById("timeMethod");
-const rInput = document.getElementById("rInput");
-const sInput = document.getElementById("sInput");
-const nInput = document.getElementById("nInput");
-const dInput = document.getElementById("dInput");
-const autopanExtras = document.getElementById("autopanExtras");
+const timeMethod      = document.getElementById("timeMethod");
+const shakeSpeedInput = document.getElementById("shakeSpeedInput"); // NEW: user enters shake speed %
+const sInput          = document.getElementById("sInput");          // shake strength
+const nInput          = document.getElementById("nInput");
+const dInput          = document.getElementById("dInput");
+const autopanExtras   = document.getElementById("autopanExtras");
 
 const LUCK_EFFICIENCY = 0.65;
+
+// Optional cap (prevents weird values if someone types 999999)
+const MAX_SHAKE = 3000;
+
+/* -------------------------
+   STAT / FORMAT HELPERS
+------------------------- */
 
 function fmtPct(x, digits=5){
   if (!isFinite(x)) return "—";
@@ -978,22 +865,46 @@ function fmtDuration(seconds){
   return `${sec}s`;
 }
 
+/* -------------------------
+   SHAKE SPEED % -> r (shakes/sec)
+   r = 4.03266e-9 x^3 - 1.68935e-5 x^2 + 0.0255557 x + 0.206594
+------------------------- */
+function shakeSpeedToR(x){
+  x = Math.max(0, Number(x) || 0);
+  x = Math.min(x, MAX_SHAKE);
+
+  const r =
+    (4.03266e-9 * Math.pow(x, 3)) -
+    (1.68935e-5 * Math.pow(x, 2)) +
+    (0.0255557 * x) +
+    0.206594;
+
+  return Math.max(0, r);
+}
+
 /**
  * Time model:
  * Sandshaking:
  *   cycleSeconds = C/(r*s) + 2.5
  * Autopan/Macro:
  *   cycleSeconds = C/(r*s) + 3 + 190n/d
+ *
+ * IMPORTANT:
+ * - user inputs shakeSpeed% and shake strength s
+ * - we derive r from shakeSpeed% using the equation
  */
 function getCycleSeconds(C){
-  const r = Math.max(0, Number(rInput.value) || 0);
+  const shakeSpeed = Math.max(0, Number(shakeSpeedInput?.value) || 0);
   const s = Math.max(0, Number(sInput.value) || 0);
+
+  const r = shakeSpeedToR(shakeSpeed);
   const rs = r * s;
 
   // If rs is 0, you can't progress; avoid divide-by-zero.
   if (rs <= 0) return Infinity;
 
   const base = C / rs;
+
   if (timeMethod.value === "autopan"){
     const n = Math.max(0, Number(nInput.value) || 0);
     const d = Math.max(0.0001, Number(dInput.value) || 0.0001);
@@ -1006,6 +917,10 @@ function getCycleSeconds(C){
 function syncAutopanUI(){
   autopanExtras.style.display = (timeMethod.value === "autopan") ? "" : "none";
 }
+
+/* -------------------------
+   DATA LOAD
+------------------------- */
 
 fetch("./minerals.json?v=" + Date.now())
   .then(r => r.json())
@@ -1032,19 +947,30 @@ fetch("./minerals.json?v=" + Date.now())
     populateMinerals(true);
   });
 
+/* -------------------------
+   EVENTS
+------------------------- */
+
 [
   mineralSelect, locationSelect, luckInput, capacityInput, locationFilter,
-  timeMethod, rInput, sInput, nInput, dInput
-].forEach(el => el.addEventListener("input", () => {
-  if (el === mineralSelect) populateLocations();
-  if (el === timeMethod) syncAutopanUI();
-  calculate();
-}));
+  timeMethod, shakeSpeedInput, sInput, nInput, dInput
+].forEach(el => {
+  if (!el) return;
+  el.addEventListener("input", () => {
+    if (el === mineralSelect) populateLocations();
+    if (el === timeMethod) syncAutopanUI();
+    calculate();
+  });
+});
 
 rarityFilter.addEventListener("change", () => populateMinerals(false));
 mineralSearch.addEventListener("input", () => populateMinerals(false));
 
 syncAutopanUI();
+
+/* -------------------------
+   DROPDOWNS
+------------------------- */
 
 function populateMinerals(keepSelection){
   const q = (mineralSearch.value || "").toLowerCase();
@@ -1103,6 +1029,10 @@ function populateLocations(){
   calculate();
 }
 
+/* -------------------------
+   MAIN CALC
+------------------------- */
+
 function calculate(){
   const m = minerals.find(x => x.mineral === mineralSelect.value) ||
             filtered.find(x => x.mineral === mineralSelect.value);
@@ -1117,9 +1047,15 @@ function calculate(){
   const cycleSeconds = getCycleSeconds(C);
   const pansPerMinute = (isFinite(cycleSeconds) && cycleSeconds > 0) ? (60 / cycleSeconds) : 0;
 
+  // Derived r (for display)
+  const shakeSpeed = Math.max(0, Number(shakeSpeedInput?.value) || 0);
+  const r = shakeSpeedToR(shakeSpeed);
+
   document.getElementById("rollsNote").textContent =
     `Effective rolls per pan: ${rollsPerAttempt.toFixed(1)} ` +
     `(Luck ${luck} × √Capacity ${Math.sqrt(C).toFixed(2)} × 0.65) · ` +
+    `Shake speed ${shakeSpeed.toFixed(0)}% ⇒ ${r.toFixed(2)} shakes/sec · ` +
+    `Strength s=${(Number(sInput.value)||0).toFixed(2)} · ` +
     `Cycle time: ${isFinite(cycleSeconds) ? cycleSeconds.toFixed(2) + "s" : "∞"} · ` +
     `Pans/min: ${pansPerMinute ? pansPerMinute.toFixed(2) : "—"}`;
 
@@ -1190,20 +1126,20 @@ function calculate(){
   document.getElementById("bestLocation").textContent =
     best.pAttempt > 0 ? `${best.name} (~1 in ${best.oneIn})` : "—";
 
-  for (const r of rows){
+  for (const rRow of rows){
     const tr = document.createElement("tr");
-    if (r.location === best.name) tr.classList.add("bestRow");
+    if (rRow.location === best.name) tr.classList.add("bestRow");
 
     tr.innerHTML = `
-      <td>${r.location}</td>
-      <td>${r.basePercent.toFixed(8)}%</td>
-      <td>~1 in ${r.baseOneIn}</td>
-      <td>${fmtPct(r.pAtt, 5)}</td>
-      <td>~1 in ${r.attemptOneIn}</td>
-      <td>${isFinite(r.a50) ? r.a50.toFixed(2) : "∞"}</td>
-      <td>${isFinite(r.a90) ? r.a90.toFixed(2) : "∞"}</td>
-      <td>${fmtDuration(r.t50)}</td>
-      <td>${fmtDuration(r.t90)}</td>
+      <td>${rRow.location}</td>
+      <td>${rRow.basePercent.toFixed(8)}%</td>
+      <td>~1 in ${rRow.baseOneIn}</td>
+      <td>${fmtPct(rRow.pAtt, 5)}</td>
+      <td>~1 in ${rRow.attemptOneIn}</td>
+      <td>${isFinite(rRow.a50) ? rRow.a50.toFixed(2) : "∞"}</td>
+      <td>${isFinite(rRow.a90) ? rRow.a90.toFixed(2) : "∞"}</td>
+      <td>${fmtDuration(rRow.t50)}</td>
+      <td>${fmtDuration(rRow.t90)}</td>
     `;
     tbody.appendChild(tr);
   }

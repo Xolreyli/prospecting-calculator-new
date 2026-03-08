@@ -3154,15 +3154,15 @@
           },
           "dig_strength": {
             "min": 5,
-            "max": 40
+            "max": 45
           },
           "capacity": {
-            "min": 10,
-            "max": 100
+            "min": 20,
+            "max": 200
           },
           "shake_strength": {
-            "min": 2,
-            "max": 10
+            "min": 4,
+            "max": 20
           },
           "size_boost": {
             "min": 5,
@@ -3176,15 +3176,15 @@
           },
           "dig_strength": {
             "min": 5,
-            "max": 45
+            "max": 50
           },
           "capacity": {
-            "min": 10,
-            "max": 110
+            "min": 20,
+            "max": 220
           },
           "shake_strength": {
-            "min": 2,
-            "max": 11
+            "min": 4,
+            "max": 22
           },
           "size_boost": {
             "min": 5,
@@ -3604,6 +3604,97 @@
       },
       "cost": {
         "amount": 1000000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Dredge Master's Ring",
+      "rarity": "exotic",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/f/f6/UmbriteRing.png/64px-UmbriteRing.png",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "",
+        "quest": {
+            "name": "",
+            "giver": {
+            "name": "N/A",
+            "location": ""
+            },
+            "stages": [
+            {
+                "title": "",
+                "tasks": [
+                "Complete 100 Dredge Master Quests"
+                ]
+            }
+            ]
+        }
+        },
+
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Umbrite"
+          },
+          {
+            "amount": 1,
+            "item": "Adamantine"
+          },
+          {
+            "amount": 3,
+            "item": "Chrysoberyl"
+          },
+          {
+            "amount": 3,
+            "item": "Prismara"
+          },
+          {
+            "amount": 5,
+            "item": "Aquamarine"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "dig_strength": {
+            "min": 20,
+            "max": 120
+          },
+          "capacity": {
+            "min": 100,
+            "max": 500
+          },
+          "shake_strength": {
+            "min": 10,
+            "max": 28
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 50
+          }
+        },
+        "star6": {
+          "dig_strength": {
+            "value": 135
+          },
+          "capacity": {
+            "value": 550
+          },
+          "shake_strength": {
+            "value": 30
+          },
+          "size_boost": {
+            "value": 55
+          }
+        }
+      },
+      "cost": {
+        "amount": 2500000000,
         "currency": "money"
         }
     },

@@ -3608,6 +3608,213 @@
         }
     },
     {
+      "name": "Starlight Wings",
+      "rarity": "exotic",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Starlight Wings Blueprint",
+        "quest": {
+            "name": "Merchant's Request",
+            "giver": {
+            "name": "Familiar Merchant",
+            "location": "Meteor Valley"
+            },
+            "tasks": [
+                "Bring 1 Starpiercer to the Familiar Merchant"
+            ]
+        }
+        },
+
+      "crafting": {
+        "materials": [
+          {
+            "amount": 5,
+            "item": "Vortessence"
+          },
+          {
+            "amount": 5,
+            "item": "Star Garnet"
+          },
+          {
+            "amount": 1,
+            "item": "Starpiercer"
+          },
+          {
+            "amount": 10,
+            "item": "Depleted Shard"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 300,
+            "max": 900
+          },
+          "dig_strength": {
+            "min": 200,
+            "max": 500
+          },
+          "shake_strength": {
+            "min": 60,
+            "max": 180
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 40
+          },
+          "walkspeed": {
+            "min": 1,
+            "max": 2
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 300,
+            "max": 1000
+          },
+          "dig_strength": {
+            "min": 200,
+            "max": 550
+          },
+          "shake_strength": {
+            "min": 60,
+            "max": 200
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 45
+          },
+          "walkspeed": {
+            "min": 1,
+            "max": 2
+          }
+        }
+      },
+      "cost": {
+        "amount": 1250000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Meteor Core",
+      "rarity": "exotic",
+      "availability": "normal",
+      "slot": "Necklace",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/4/4c/Ringofchampions.png/64px-Ringofchampions.png",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Meteor Core Blueprint",
+        "quest": {
+            "name": "Valley Anomaly",
+            "giver": {
+            "name": "Astronomer",
+            "location": "Meteor Valley"
+            },
+            "stages": [
+            {
+                "title": "Valley Anomaly [1]",
+                "tasks": [
+                "Find 1 Singularium"
+                ]
+            },
+            {
+                "title": "Valley Anomaly [2]",
+                "tasks": [
+                "Talk to the Astronomer"
+                ]
+            }
+            ]
+        }
+        },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 5,
+            "item": "Sunstone"
+          },
+          {
+            "amount": 1,
+            "item": "Astral Spore"
+          },
+          {
+            "amount": 1,
+            "item": "Singularium"
+          },
+          {
+            "amount": 10,
+            "item": "Depleted Shard"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 200,
+            "max": 800
+          },
+          "capacity": {
+            "min": 200,
+            "max": 600
+          },
+          "inventory_size": {
+            "min": 100,
+            "max": 400
+          },
+          "size_boost": {
+            "min": 20,
+            "max": 100
+          },
+          "status_timer_speed": {
+            "min": -30,
+            "max": -30
+          },
+          "modifier_boost": {
+            "min": 10,
+            "max": 40
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 200,
+            "max": 900
+          },
+          "capacity": {
+            "min": 200,
+            "max": 650
+          },
+          "inventory_size": {
+            "min": 100,
+            "max": 450
+          },
+          "size_boost": {
+            "min": 20,
+            "max": 115
+          },
+          "status_timer_speed": {
+            "min": -30,
+            "max": -30
+          },
+          "modifier_boost": {
+            "min": 10,
+            "max": 45
+          }
+        }
+      },
+      "cost": {
+        "amount": 2000000000,
+        "currency": "money"
+        }
+    },
+    {
       "name": "Dredge Master's Ring",
       "rarity": "exotic",
       "availability": "normal",

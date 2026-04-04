@@ -494,7 +494,7 @@ h1{
 </head>
 
 <body>
-<h1>Prospecting Chance Calculator <span class="version">v1.7.0</span></h1>
+<h1>Prospecting Chance Calculator <span class="version">v1.8.0</span></h1>
 
 <div class="layout">
 
@@ -1370,7 +1370,7 @@ function roundStat(key, value){
 
   const abs = Math.abs(value);
 
-  if (key === "walkspeed") {
+  if (key === "walkspeed" || key === "jump_power") {
     return Math.round(value * 10) / 10;
   }
 
@@ -1558,6 +1558,7 @@ function rarityColor(r){
     case "mythic": return "#cf0064";
     case "mythical": return "#cf0064";
     case "exotic": return "#ff0011";
+    case "ascended": return "#eceee0";
     default: return "#7c8cff";
   }
 }

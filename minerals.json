@@ -35,6 +35,10 @@
     { "id": "the_magma_furnace", "name": "The Magma Furnace", "region": "Volcanic" },
     { "id": "infernal_heart", "name": "Infernal Heart", "region": "Volcanic" },
 
+    { "id": "meteor_falls", "name": "Meteor Falls", "region": "Meteoric" },
+    { "id": "starfall_river", "name": "Starfall River", "region": "Meteoric" },
+    { "id": "astral_caverns", "name": "Astral Caverns", "region": "Meteoric" },
+
     { "id": "abyssal_depths", "name": "Abyssal Depths", "region": "Dark" },
 
     { "id": "the_void", "name": "The Void", "region": "Special" }
@@ -161,6 +165,10 @@
         {
           "location": "Fortune River Delta",
           "chance_percent": 54.716
+        },
+        {
+          "location": "Meteor Falls",
+          "chance_percent": 54.2526
         },
         {
           "location": "Timelocked Sanctuary",
@@ -307,6 +315,10 @@
       "rarity": "common",
       "locations": [
         {
+          "location": "Meteor Falls",
+          "chance_percent": 27.1268
+        },
+        {
           "location": "Rubble Creek Deposits",
           "chance_percent": 15.6389
         },
@@ -428,6 +440,10 @@
       "locations": [
         {
           "location": "Timelocked Sanctuary",
+          "chance_percent": 2.7126
+        },
+        {
+          "location": "Meteor Falls",
           "chance_percent": 2.7126
         },
         {
@@ -563,6 +579,20 @@
       ]
     },
     {
+      "mineral": "Nickel",
+      "rarity": "uncommon",
+      "locations": [
+        {
+          "location": "Meteor Falls",
+          "chance_percent": 10.8507
+        },
+        {
+          "location": "Starfall River",
+          "chance_percent": 10.8507
+        }
+      ]
+    },
+    {
       "mineral": "Rock Candy",
       "rarity": "uncommon",
       "locations": [
@@ -580,6 +610,10 @@
       "mineral": "Sapphire",
       "rarity": "uncommon",
       "locations": [
+        {
+          "location": "Meteor Falls",
+          "chance_percent": 4.3402
+        },
         {
           "location": "North Pole",
           "chance_percent": 3.3512
@@ -955,6 +989,10 @@
           "chance_percent": 0.2188
         },
         {
+          "location": "Meteor Falls",
+          "chance_percent": 0.1085
+        },
+        {
           "location": "The Void",
           "chance_percent": 0.09057
         }
@@ -964,6 +1002,10 @@
       "mineral": "Lapis Lazuli",
       "rarity": "rare",
       "locations": [
+        {
+          "location": "Meteor Falls",
+          "chance_percent": 0.5425
+        },
         {
           "location": "Rubble Creek Deposits",
           "chance_percent": 0.1303
@@ -1361,6 +1403,10 @@
           "chance_percent": 0.002335
         },
         {
+          "location": "Meteor Falls",
+          "chance_percent": 0.002170
+        },
+        {
           "location": "Rotwood Swamp",
           "chance_percent": 0.002169
         },
@@ -1537,6 +1583,10 @@
           "chance_percent": 0.005471
         },
         {
+          "location": "Meteor Falls",
+          "chance_percent": 0.004340
+        },
+        {
           "location": "The Void",
           "chance_percent": 0.003623
         }
@@ -1581,8 +1631,8 @@
       "rarity": "epic",
       "locations": [
         {
-          "location": "Timelocked Sanctuary",
-          "chance_percent": 0.001084
+          "location": "Meteor Falls",
+          "chance_percent": 0.001085
         },
         {
           "location": "Rotwood Swamp",
@@ -1591,6 +1641,10 @@
         {
           "location": "Fungal Marsh",
           "chance_percent": 0.001085
+        },
+        {
+          "location": "Timelocked Sanctuary",
+          "chance_percent": 0.001084
         },
         {
           "location": "The Void",
@@ -1613,6 +1667,10 @@
         {
           "location": "The Void",
           "chance_percent": 0.003623
+        },
+        {
+          "location": "Meteor Falls",
+          "chance_percent": 0.002712
         }
       ]
     },
@@ -1620,6 +1678,10 @@
       "mineral": "Opal",
       "rarity": "epic",
       "locations": [
+        {
+          "location": "Meteor Falls",
+          "chance_percent": 0.05425
+        },
         {
           "location": "Fortune River",
           "chance_percent": 0.002295
@@ -1929,6 +1991,16 @@
       ]
     },
     {
+      "mineral": "Depleted Shard",
+      "rarity": "legendary",
+      "locations": [
+        {
+          "location": "Meteor Falls",
+          "chance_percent": 0.000005425
+        }
+      ]
+    },
+    {
       "mineral": "Diamond",
       "rarity": "legendary",
       "locations": [
@@ -1971,6 +2043,10 @@
         {
           "location": "Haunted Creek",
           "chance_percent": 0.0004322
+        },
+        {
+          "location": "Meteor Falls",
+          "chance_percent": 0.0002712
         },
         {
           "location": "Fortune River",
@@ -2181,6 +2257,10 @@
         {
           "location": "The Void",
           "chance_percent": 0.0001811
+        },
+        {
+          "location": "Meteor Falls",
+          "chance_percent": 0.00005425
         }
       ]
     },
@@ -2657,6 +2737,10 @@
       "rarity": "mythic",
       "locations": [
         {
+          "location": "The Void",
+          "chance_percent": 0.000002536
+        },
+        {
           "location": "Timelocked Sanctuary",
           "chance_percent": 0.000001356
         },
@@ -2665,12 +2749,12 @@
           "chance_percent": 0.000001356
         },
         {
-          "location": "Rotwood Swamp",
-          "chance_percent": 0.000001084
+          "location": "Meteor Falls",
+          "chance_percent": 0.000001085
         },
         {
-          "location": "The Void",
-          "chance_percent": 0.000002536
+          "location": "Rotwood Swamp",
+          "chance_percent": 0.000001084
         }
       ]
     },
@@ -2709,6 +2793,10 @@
         {
           "location": "The Void",
           "chance_percent": 0.000002536
+        },
+        {
+          "location": "Meteor Falls",
+          "chance_percent": 0.000001627
         }
       ]
     },
@@ -2769,6 +2857,16 @@
       ]
     },
     {
+      "mineral": "Celestium",
+      "rarity": "exotic",
+      "locations": [
+        {
+          "location": "Astral Caverns",
+          "chance_percent": 5.199e-9
+        }
+      ]
+    },
+    {
       "mineral": "Cryonic Artifact",
       "rarity": "exotic",
       "locations": [
@@ -2815,6 +2913,36 @@
         {
           "location": "Haunted Creek",
           "chance_percent": 4.322e-7
+        }
+      ]
+    },
+    {
+      "mineral": "Singularium",
+      "rarity": "exotic",
+      "locations": [
+        {
+          "location": "Starfall River",
+          "chance_percent": 1.085e-8
+        }
+      ]
+    },
+    {
+      "mineral": "Starpiercer",
+      "rarity": "exotic",
+      "locations": [
+        {
+          "location": "Meteor Falls",
+          "chance_percent": 2.170e-8
+        }
+      ]
+    },
+    {
+      "mineral": "Sunstone",
+      "rarity": "exotic",
+      "locations": [
+        {
+          "location": "Meteor Falls",
+          "chance_percent": 5.425e-7
         }
       ]
     },

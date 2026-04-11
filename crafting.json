@@ -3979,29 +3979,35 @@
         },
         "star6": {
           "luck": {
-            "value": 430
+            "min": 125,
+            "max": 400
           },
           "dig_speed": {
-            "value": 52
+            "min": 20,
+            "max": 50
           },
           "shake_speed": {
-            "value": 52
+            "min": 20,
+            "max": 50
           },
           "inventory_size": {
-            "value": 105
+            "min": 25,
+            "max": 100
           },
           "modifier_boost": {
-            "value": 20
+            "min": 5,
+            "max": 16
           },
           "size_boost": {
-            "value": 16
+            "min": 5,
+            "max": 16
           }
-        }
       },
       "cost": {
         "amount": 2800000000,
         "currency": "money"
-        }
+      }
+    }
     },
     {
       "name": "Pumpkin Lord",
@@ -4408,7 +4414,7 @@
     },
     {
       "name": "Ring of the Stars",
-      "rarity": "exotic",
+      "rarity": "ascended",
       "availability": "normal",
       "slot": "Ring",
       "description": "",
@@ -4482,27 +4488,27 @@
         "star6": {
           "luck": {
             "min": 200,
-            "max": 700
+            "max": 650
           },
           "dig_speed": {
             "min": 10,
-            "max": 32
+            "max": 30
           },
           "shake_speed": {
             "min": 10,
-            "max": 32
+            "max": 30
           },
           "modifier_boost": {
             "min": 20,
-            "max": 120
+            "max": 110
           },
           "size_boost": {
             "min": 10,
-            "max": 60
+            "max": 55
           },
           "walkspeed": {
             "min": 1,
-            "max": 6
+            "max": 4
           },
           "jump_power": {
             "min": 1,

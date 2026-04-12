@@ -2759,6 +2759,16 @@
       ]
     },
     {
+      "mineral": "Sunstone",
+      "rarity": "mythic",
+      "locations": [
+        {
+          "location": "Meteor Falls",
+          "chance_percent": 5.425e-7
+        }
+      ]
+    },
+    {
       "mineral": "Vortessence",
       "rarity": "mythic",
       "locations": [
@@ -2933,16 +2943,6 @@
         {
           "location": "Meteor Falls",
           "chance_percent": 2.170e-8
-        }
-      ]
-    },
-    {
-      "mineral": "Sunstone",
-      "rarity": "exotic",
-      "locations": [
-        {
-          "location": "Meteor Falls",
-          "chance_percent": 5.425e-7
         }
       ]
     },

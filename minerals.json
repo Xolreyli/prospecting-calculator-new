@@ -2562,7 +2562,7 @@
       "locations": [
         {
           "location": "Enchanted Ruins",
-          "chance_percent": 0.00002919
+          "chance_percent": 0.000002919
         },
         {
           "location": "Fungal Marsh",

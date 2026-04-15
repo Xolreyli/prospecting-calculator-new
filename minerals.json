@@ -2690,7 +2690,7 @@
       "locations": [
         {
           "location": "Enchanted Ruins",
-          "chance_percent": 0.00001167
+          "chance_percent": 0.000001167
         },
         {
           "location": "Abyssal Depths",

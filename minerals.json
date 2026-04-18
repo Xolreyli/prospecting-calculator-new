@@ -2561,10 +2561,6 @@
       "rarity": "mythic",
       "locations": [
         {
-          "location": "Enchanted Ruins",
-          "chance_percent": 0.000002919
-        },
-        {
           "location": "Fungal Marsh",
           "chance_percent": 0.000003797
         },
@@ -2575,6 +2571,10 @@
         {
           "location": "Frozen Peak",
           "chance_percent": 0.000003218
+        },
+        {
+          "location": "Enchanted Ruins",
+          "chance_percent": 0.000002919
         },
         {
           "location": "Frostbite River",
@@ -2667,10 +2667,6 @@
       "rarity": "mythic",
       "locations": [
         {
-          "location": "Enchanted Ruins",
-          "chance_percent": 0.000007296
-        },
-        {
           "location": "Overgrown Grotto",
           "chance_percent": 0.0000028
         },
@@ -2681,6 +2677,10 @@
         {
           "location": "The Void",
           "chance_percent": 0.000002536
+        },
+        {
+          "location": "Enchanted Ruins",
+          "chance_percent": 0.0000007296
         }
       ]
     },
@@ -2689,16 +2689,16 @@
       "rarity": "mythic",
       "locations": [
         {
-          "location": "Enchanted Ruins",
-          "chance_percent": 0.000001167
-        },
-        {
           "location": "Abyssal Depths",
           "chance_percent": 0.000001454
         },
         {
           "location": "Haunted Creek",
           "chance_percent": 0.000001296
+        },
+        {
+          "location": "Enchanted Ruins",
+          "chance_percent": 0.000001167
         },
         {
           "location": "Timelocked Sanctuary",

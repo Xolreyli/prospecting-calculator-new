@@ -4413,6 +4413,100 @@
         }
     },
     {
+      "name": "Clockwork",
+      "rarity": "ascended",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Excalibur Blueprint",
+        "quest": {
+            "name": "Clockwork Coolant",
+            "giver": {
+            "name": "Clockmaker",
+            "location": "Meteor Falls (behind the waterfall)"
+            },
+            "tasks": [
+                "Bring a 75kg+ Cryonic Artifact to the Clockmaker"
+            ]
+        }
+        },
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Celestium"
+          },
+          {
+            "amount": 3,
+            "item": "Gold",
+            "min_size": 60
+          },
+          {
+            "amount": 3,
+            "item": "Dinosaur Skull"
+          },
+          {
+            "amount": 2,
+            "item": "Bloodstone"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "capacity": {
+            "min": 50,
+            "max": 200
+          },
+          "inventory_size": {
+            "min": 100,
+            "max": 300
+          },
+          "shake_speed": {
+            "min": 30,
+            "max": 80
+          },
+          "sell_boost": {
+            "min": 0,
+            "max": 100
+          },
+          "size_boost": {
+            "min": 30,
+            "max": 190
+          }
+        },
+        "star6": {
+          "capacity": {
+            "min": 50,
+            "max": 225
+          },
+          "inventory_size": {
+            "min": 100,
+            "max": 325
+          },
+          "shake_speed": {
+            "min": 30,
+            "max": 90
+          },
+          "sell_boost": {
+            "min": 0,
+            "max": 110
+          },
+          "size_boost": {
+            "min": 30,
+            "max": 210
+          }
+        }
+      },
+      "cost": {
+        "amount": 9000000000,
+        "currency": "money"
+        }
+    },
+    {
       "name": "Ring of the Stars",
       "rarity": "ascended",
       "availability": "normal",

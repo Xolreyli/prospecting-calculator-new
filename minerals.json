@@ -2844,7 +2844,7 @@
       "locations": [
         {
           "location": "Fungal Marsh",
-          "chance_percent": 4.339e-8
+          "chance_percent": 6.509e-8
         },
         {
           "location": "Timelocked Sanctuary",
@@ -2858,7 +2858,7 @@
       "locations": [
         {
           "location": "Rotwood Swamp",
-          "chance_percent": 6.509e-8
+          "chance_percent": 8.679e-8
         },
         {
           "location": "Timelocked Sanctuary",
@@ -2952,7 +2952,7 @@
       "locations": [
         {
           "location": "Abyssal Depths",
-          "chance_percent": 1.211e-7
+          "chance_percent": 1.454e-7
         }
       ]
     },

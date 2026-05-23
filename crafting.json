@@ -4457,47 +4457,55 @@
       },
       "stats": {
         "base": {
-          "capacity": {
+          "luck": {
             "min": 50,
             "max": 200
+          },
+          "capacity": {
+            "min": 100,
+            "max": 250
           },
           "inventory_size": {
             "min": 100,
             "max": 300
           },
           "shake_speed": {
-            "min": 30,
-            "max": 80
+            "min": 40,
+            "max": 90
           },
           "sell_boost": {
-            "min": 0,
-            "max": 100
-          },
-          "size_boost": {
             "min": 30,
             "max": 190
+          },
+          "size_boost": {
+            "min": 0,
+            "max": 100
           }
         },
         "star6": {
-          "capacity": {
+          "luck": {
             "min": 50,
             "max": 225
+          },
+          "capacity": {
+            "min": 100,
+            "max": 275
           },
           "inventory_size": {
             "min": 100,
             "max": 325
           },
           "shake_speed": {
-            "min": 30,
-            "max": 90
+            "min": 40,
+            "max": 100
           },
           "sell_boost": {
-            "min": 0,
-            "max": 110
-          },
-          "size_boost": {
             "min": 30,
             "max": 210
+          },
+          "size_boost": {
+            "min": 0,
+            "max": 110
           }
         }
       },

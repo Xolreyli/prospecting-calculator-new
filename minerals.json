@@ -2449,6 +2449,28 @@
       ]
     },
     {
+      "mineral": "Aetherium",
+      "rarity": "mythic",
+      "locations": [
+        {
+          "location": "Meteor Falls",
+          "chance_percent": 0.0000005425
+        },
+        {
+          "location": "Starfall River",
+          "chance_percent": 0.0000005425
+        },
+        {
+          "location": "Astral Caverns",
+          "chance_percent": 0.0000005199
+        },
+        {
+          "location": "The Void",
+          "chance_percent": 0.000002536
+        }
+      ]
+    },
+    {
       "mineral": "Chrysoberyl",
       "rarity": "mythic",
       "locations": [

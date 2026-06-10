@@ -494,7 +494,7 @@ h1{
 </head>
 
 <body>
-<h1>Prospecting Chance Calculator <span class="version">v2.3.0</span></h1>
+<h1>Prospecting Chance Calculator <span class="version">v2.4.0</span></h1>
 
 <div class="layout">
 
@@ -870,9 +870,9 @@ function fmtDuration(seconds) {
 }
 
 /* -------------------------
-   SHAKE SPEED % -> r (shakes/sec)
-   r = 4.03266e-9 x^3 - 1.68935e-5 x^2 + 0.0255557 x + 0.206594
+   SHAKE SPEED % -> r
 ------------------------- */
+
 function shakeSpeedToR(x) {
   x = Math.max(0, Number(x) || 0);
   x = Math.min(x, MAX_SHAKE);
@@ -888,15 +888,8 @@ function shakeSpeedToR(x) {
 
 /* -------------------------
    CYCLE TIME MODEL
-   Cycle time = denominator
-   Pans/min = 60 / cycle time
-
-   Autopan / Macro:
-     C/(r*s) + 1.5 + 190n/d
-
-   Sandshaking:
-     C/(r*s) + 0.75 + 190(n - 1)/d
 ------------------------- */
+
 function getCycleSeconds(C) {
   const shakeSpeed = Math.max(0, Number(shakeSpeedInput?.value) || 0);
   const s = Math.max(0, Number(sInput?.value) || 0);
@@ -918,34 +911,12 @@ function getCycleSeconds(C) {
 }
 
 /* -------------------------
-   "99%" / PITY HELPERS
-   Displayed as 99%, but uses the pity formula:
-   (5 × odds) ÷ ((1.5 × luck × √capacity) ÷ cycle time)
-
-   Since odds = 1 / baseProb:
-   pans99 = 5 × odds = 5 / baseProb
-   time99 = (5 × odds × cycleTime) / (1.5 × luck × √capacity)
+   UI
 ------------------------- */
-function pityPansFromOdds(baseProb) {
-  if (!isFinite(baseProb) || baseProb <= 0) return Infinity;
-  return 5 / baseProb;
-}
 
-function pityTimeFromFormula(baseProb, luck, C, cycleSeconds) {
-  if (!isFinite(baseProb) || baseProb <= 0) return Infinity;
-  if (!isFinite(cycleSeconds) || cycleSeconds <= 0) return Infinity;
-
-  const denom = (1.5 * Math.max(0, luck) * Math.sqrt(Math.max(1, C))) / cycleSeconds;
-  if (!isFinite(denom) || denom <= 0) return Infinity;
-
-  const odds = 1 / baseProb;
-  return (5 * odds) / denom;
-}
-
-// Toggle extra inputs visibility
 function syncAutopanUI() {
   if (!autopanExtras || !timeMethod) return;
-  autopanExtras.style.display = (timeMethod.value === "autopan") ? "" : "none";
+  autopanExtras.style.display = timeMethod.value === "autopan" ? "" : "none";
 }
 
 /* -------------------------
@@ -996,7 +967,6 @@ fetch("./minerals.json?v=" + Date.now())
 if (rarityFilter) rarityFilter.addEventListener("change", () => populateMinerals(false));
 if (mineralSearch) mineralSearch.addEventListener("input", () => populateMinerals(false));
 
-// Default mode = autopan/macro
 if (timeMethod) {
   timeMethod.value = "autopan";
 }
@@ -1013,13 +983,14 @@ function populateMinerals(keepSelection) {
 
   filtered = minerals.filter(m => {
     const okName = (m.mineral || "").toLowerCase().includes(q);
-    const okRarity = (r === "all") ? true : ((m.rarity || "") === r);
+    const okRarity = r === "all" ? true : (m.rarity || "") === r;
     return okName && okRarity;
   });
 
   if (!mineralSelect) return;
 
   mineralSelect.innerHTML = "";
+
   for (const m of filtered) {
     const opt = document.createElement("option");
     opt.value = m.mineral;
@@ -1049,6 +1020,7 @@ function populateLocations() {
     : null;
 
   locationSelect.innerHTML = "";
+
   for (const l of (m.locations || [])) {
     const opt = document.createElement("option");
     opt.value = String(l.chance_percent);
@@ -1080,12 +1052,11 @@ function calculate() {
   const luck = Math.max(0, Number(luckInput?.value) || 0);
   const C = Math.max(1, Number(capacityInput?.value) || 1);
 
-  // Full luck scaling, no old 0.65 multiplier
   const rollsPerAttempt = luck * Math.sqrt(C);
 
   const cycleSeconds = getCycleSeconds(C);
-  const pansPerMinute = (isFinite(cycleSeconds) && cycleSeconds > 0)
-    ? (60 / cycleSeconds)
+  const pansPerMinute = isFinite(cycleSeconds) && cycleSeconds > 0
+    ? 60 / cycleSeconds
     : 0;
 
   const shakeSpeed = Math.max(0, Number(shakeSpeedInput?.value) || 0);
@@ -1095,6 +1066,7 @@ function calculate() {
   const d = Math.max(0.0001, Number(dInput?.value) || 0.0001);
 
   let cycleFormulaText = "";
+
   if (timeMethod?.value === "autopan") {
     cycleFormulaText =
       `Cycle time = C/(r×s) + 1.5 + 190n/d = ` +
@@ -1117,39 +1089,35 @@ function calculate() {
       `Pans/min: ${isFinite(pansPerMinute) ? pansPerMinute.toFixed(2) : "—"}`;
   }
 
-  // Header labels
   const mineralLabel = document.getElementById("mineralLabel");
   if (mineralLabel) mineralLabel.textContent = `Mineral: ${m.mineral}`;
 
   const rarity = m.rarity || "unknown";
+
   const rarityTag = document.getElementById("rarityTag");
   if (rarityTag) rarityTag.textContent = rarity;
 
   const c = rarityColor(rarity);
   const rarityDot = document.getElementById("rarityDot");
+
   if (rarityDot) {
     rarityDot.style.background = c;
     rarityDot.style.boxShadow = `0 0 0 3px ${c}22`;
   }
 
-  // Selected location base chance per roll
   const basePercent = Number(locationSelect.value);
   const p = basePercent / 100;
 
-  // Chance per attempt
   const pAttempt = 1 - Math.pow(1 - p, rollsPerAttempt);
   const expected = rollsPerAttempt * p;
 
-  // Real 50% / 90%
   const a50 = attemptsForTarget(pAttempt, 0.50);
   const a90 = attemptsForTarget(pAttempt, 0.90);
+  const a99 = attemptsForTarget(pAttempt, 0.99);
 
-  const t50 = (isFinite(a50) && isFinite(cycleSeconds)) ? (a50 * cycleSeconds) : Infinity;
-  const t90 = (isFinite(a90) && isFinite(cycleSeconds)) ? (a90 * cycleSeconds) : Infinity;
-
-  // Displayed as 99%, but uses pity formula
-  const pans99 = pityPansFromOdds(p);
-  const time99 = pityTimeFromFormula(p, luck, C, cycleSeconds);
+  const t50 = isFinite(a50) && isFinite(cycleSeconds) ? a50 * cycleSeconds : Infinity;
+  const t90 = isFinite(a90) && isFinite(cycleSeconds) ? a90 * cycleSeconds : Infinity;
+  const t99 = isFinite(a99) && isFinite(cycleSeconds) ? a99 * cycleSeconds : Infinity;
 
   const chanceCell = document.getElementById("chanceCell");
   if (chanceCell) chanceCell.textContent = fmtPct(pAttempt, 5);
@@ -1163,7 +1131,7 @@ function calculate() {
   const expectedSub = document.getElementById("expectedSub");
   if (expectedSub) {
     expectedSub.textContent =
-      `Expected finds per attempt · 99% pans: ${isFinite(pans99) ? pans99.toFixed(2) : "∞"}`;
+      `Expected finds per attempt · 99% pans: ${isFinite(a99) ? a99.toFixed(2) : "∞"}`;
   }
 
   const atLeastOneCell = document.getElementById("atLeastOneCell");
@@ -1172,12 +1140,12 @@ function calculate() {
   const atLeastSub = document.getElementById("atLeastSub");
   if (atLeastSub) {
     atLeastSub.textContent =
-      `Chance of ≥1 in one attempt · 99% time: ${fmtDuration(time99)}`;
+      `Chance of ≥1 in one attempt · 99% time: ${fmtDuration(t99)}`;
   }
 
-  // Fill table
   const tbody = document.getElementById("allLocationsTable");
   if (!tbody) return;
+
   tbody.innerHTML = "";
 
   const locFilterVal = locationFilter?.value || "all";
@@ -1192,16 +1160,28 @@ function calculate() {
     const pAtt = 1 - Math.pow(1 - bp, rollsPerAttempt);
 
     if (pAtt > best.pAttempt) {
-      best = { name: l.location, pAttempt: pAtt, oneIn: fmtOneInFromProb(pAtt) };
+      best = {
+        name: l.location,
+        pAttempt: pAtt,
+        oneIn: fmtOneInFromProb(pAtt)
+      };
     }
 
     const row50 = attemptsForTarget(pAtt, 0.50);
     const row90 = attemptsForTarget(pAtt, 0.90);
-    const row99 = pityPansFromOdds(bp);
+    const row99 = attemptsForTarget(pAtt, 0.99);
 
-    const rowT50 = (isFinite(row50) && isFinite(cycleSeconds)) ? (row50 * cycleSeconds) : Infinity;
-    const rowT90 = (isFinite(row90) && isFinite(cycleSeconds)) ? (row90 * cycleSeconds) : Infinity;
-    const rowT99 = pityTimeFromFormula(bp, luck, C, cycleSeconds);
+    const rowT50 = isFinite(row50) && isFinite(cycleSeconds)
+      ? row50 * cycleSeconds
+      : Infinity;
+
+    const rowT90 = isFinite(row90) && isFinite(cycleSeconds)
+      ? row90 * cycleSeconds
+      : Infinity;
+
+    const rowT99 = isFinite(row99) && isFinite(cycleSeconds)
+      ? row99 * cycleSeconds
+      : Infinity;
 
     rows.push({
       location: l.location,
@@ -1226,6 +1206,7 @@ function calculate() {
 
   for (const rRow of rows) {
     const tr = document.createElement("tr");
+
     if (rRow.location === best.name) tr.classList.add("bestRow");
 
     tr.innerHTML = `
@@ -1241,6 +1222,7 @@ function calculate() {
       <td>${fmtDuration(rRow.t90)}</td>
       <td>${fmtDuration(rRow.t99)}</td>
     `;
+
     tbody.appendChild(tr);
   }
 }

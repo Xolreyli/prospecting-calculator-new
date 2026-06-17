@@ -494,7 +494,7 @@ h1{
 </head>
 
 <body>
-<h1>Prospecting Chance Calculator <span class="version">v2.4.0</span></h1>
+<h1>Prospecting Chance Calculator <span class="version">v2.5.0</span></h1>
 
 <div class="layout">
 
@@ -659,7 +659,7 @@ h1{
               <th>Attempts for 99%</th>
               <th>Time for 50%</th>
               <th>Time for 90%</th>
-              <th>Time for 99%</th>
+              <th>Time for 100%</th>
             </tr>
           </thead>
           <tbody id="allLocationsTable"></tbody>
@@ -717,7 +717,7 @@ h1{
         <select id="equipSelect"></select>
       </div>
       <div class="note">
-      
+
       </div>
     </div>
 
@@ -1620,6 +1620,8 @@ function formatCost(item){
   switch (cost.currency){
     case "candies": return `${amount} Candies`;
     case "ornaments": return `${amount} Ornaments`;
+    case "easter eggs": return `${amount} Easter Eggs`;
+    case "seashells": return `${amount} Seashells`;
     case "money":
     default: return `$${amount}`;
   }

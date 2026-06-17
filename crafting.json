@@ -2746,6 +2746,186 @@
         }
     },
     {
+      "name": "Bunny Ears",
+      "rarity": "mythical",
+      "availability": "limited",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "",
+      
+      "unlock": {
+        "type": "event",
+        "blueprint": "Bunny Ears Blueprint",
+        "event": {
+            "name": "Easter Event",
+            "note": "Limited-time event reward"
+        }
+        },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 2,
+            "item": "Flarebloom"
+          },
+          {
+            "amount": 5,
+            "item": "Catseye"
+          },
+          {
+            "amount": 5,
+            "item": "Luminum"
+          },
+          {
+            "amount": 3,
+            "item": "Pink Diamond"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 50,
+            "max": 180
+          },
+          "inventory_size": {
+            "min": 50,
+            "max": 180
+          },
+          "modifier_boost": {
+            "min": 20,
+            "max": 50
+          },
+          "walkspeed": {
+            "min": 2,
+            "max": 6
+          },
+          "jump_power": {
+            "min": 2,
+            "max": 10
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 50,
+            "max": 200
+          },
+          "inventory_size": {
+            "min": 50,
+            "max": 200
+          },
+          "modifier_boost": {
+            "min": 20,
+            "max": 55
+          },
+          "walkspeed": {
+            "min": 2,
+            "max": 6.5
+          },
+          "jump_power": {
+            "min": 2,
+            "max": 11
+          }
+        }
+      },
+      "cost": {
+        "amount": 100,
+        "currency": "easter eggs"
+        }
+    },
+    {
+      "name": "Shell Necklace",
+      "rarity": "mythical",
+      "availability": "limited",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "",
+      
+      "unlock": {
+        "type": "event",
+        "blueprint": "Shell Necklace Blueprint",
+        "event": {
+            "name": "Summer Event",
+            "note": "Limited-time event reward"
+        }
+        },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 5,
+            "item": "Ammonite Fossil"
+          },
+          {
+            "amount": 1,
+            "item": "Inferlume"
+          },
+          {
+            "amount": 5,
+            "item": "Nautilus Shell"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 100,
+            "max": 280
+          },
+          "dig_strength": {
+            "min": 5,
+            "max": 18
+          },
+          "shake_strength": {
+            "min": 1,
+            "max": 4.5
+          },
+          "inventory_size": {
+            "min": 50,
+            "max": 180
+          },
+          "modifier_boost": {
+            "min": 20,
+            "max": 90
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 45
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 100,
+            "max": 300
+          },
+          "dig_strength": {
+            "min": 5,
+            "max": 20
+          },
+          "shake_strength": {
+            "min": 1,
+            "max": 5
+          },
+          "inventory_size": {
+            "min": 50,
+            "max": 200
+          },
+          "modifier_boost": {
+            "min": 20,
+            "max": 100
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 50
+          }
+        }
+      },
+      "cost": {
+        "amount": 500,
+        "currency": "seashells"
+        }
+    },
+    {
       "name": "Fossilized Crown",
       "rarity": "exotic",
       "availability": "normal",
@@ -4256,6 +4436,110 @@
       "cost": {
         "amount": 2000,
         "currency": "ornaments"
+        }
+    },
+    {
+      "name": "Shell Necklace",
+      "rarity": "mythical",
+      "availability": "limited",
+      "slot": "Necklace",
+      "description": "",
+      "appearance": "",
+      
+      "unlock": {
+        "type": "event",
+        "blueprint": "Waverider Blueprint",
+        "event": {
+            "name": "Summer Event",
+            "note": "Limited-time event reward"
+        }
+        },
+      
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Forgotten Totem"
+          },
+          {
+            "amount": 2,
+            "item": "Painite"
+          },
+          {
+            "amount": 2,
+            "item": "Inferlume"
+          },
+          {
+            "amount": 10,
+            "item": "Nautilus Shell"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 50,
+            "max": 180
+          },
+          "dig_speed": {
+            "min": 20,
+            "max": 60
+          },
+          "shake_speed": {
+            "min": 20,
+            "max": 60
+          },
+          "modifier_boost": {
+            "min": 30,
+            "max": 140
+          },
+          "size_boost": {
+            "min": 20,
+            "max": 110
+          },
+          "walkspeed": {
+            "min": 1,
+            "max": 5
+          },
+          "jump_power": {
+            "min": 2,
+            "max": 10
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 50,
+            "max": 200
+          },
+          "dig_speed": {
+            "min": 20,
+            "max": 65
+          },
+          "shake_speed": {
+            "min": 20,
+            "max": 65
+          },
+          "modifier_boost": {
+            "min": 30,
+            "max": 150
+          },
+          "size_boost": {
+            "min": 20,
+            "max": 120
+          },
+          "walkspeed": {
+            "min": 1,
+            "max": 5.5
+          },
+          "jump_power": {
+            "min": 2,
+            "max": 11
+          }
+        }
+      },
+      "cost": {
+        "amount": 1000,
+        "currency": "seashells"
         }
     },
     {

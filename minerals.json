@@ -41,7 +41,9 @@
 
     { "id": "abyssal_depths", "name": "Abyssal Depths", "region": "Dark" },
 
-    { "id": "the_void", "name": "The Void", "region": "Special" }
+    { "id": "the_void", "name": "The Void", "region": "Special" },
+
+    { "id": "seashell_isle", "name": "Seashell Isle", "region": "Limited" }
   ],
   "minerals": [
     {
@@ -271,12 +273,16 @@
       "rarity": "common",
       "locations": [
         {
+          "location": "Windswept Beach",
+          "chance_percent": 18.0809
+        },
+        {
           "location": "Sunset Beach",
           "chance_percent": 16.9994
         },
         {
-          "location": "Windswept Beach",
-          "chance_percent": 18.0809
+          "location": "Seashell Isle",
+          "chance_percent": 16.9983
         },
         {
           "location": "Fortune River Delta",
@@ -341,6 +347,10 @@
           "chance_percent": 45.3317
         },
         {
+          "location": "Seashell Isle",
+          "chance_percent": 45.3288
+        },
+        {
           "location": "The Void",
           "chance_percent": 18.1132
         }
@@ -365,6 +375,10 @@
         {
           "location": "Enchanted Ruins",
           "chance_percent": 29.1852
+        },
+        {
+          "location": "Seashell Isle",
+          "chance_percent": 28.3305
         },
         {
           "location": "North Pole",
@@ -423,6 +437,10 @@
         {
           "location": "Sunset Beach",
           "chance_percent": 5.6664
+        },
+        {
+          "location": "Seashell Isle",
+          "chance_percent": 5.6661
         },
         {
           "location": "Fortune River Delta",
@@ -543,6 +561,10 @@
         {
           "location": "Sunset Beach",
           "chance_percent": 2.2665
+        },
+        {
+          "location": "Seashell Isle",
+          "chance_percent": 2.2664
         },
         {
           "location": "Enchanted Ruins",
@@ -670,6 +692,10 @@
         },
         {
           "location": "Sunset Beach",
+          "chance_percent": 1.1332
+        },
+        {
+          "location": "Seashell Isle",
           "chance_percent": 1.1332
         },
         {
@@ -1115,6 +1141,10 @@
           "chance_percent": 0.05666
         },
         {
+          "location": "Seashell Isle",
+          "chance_percent": 0.05666
+        },
+        {
           "location": "Fortune River Delta",
           "chance_percent": 0.05471
         },
@@ -1211,6 +1241,10 @@
           "chance_percent": 0.1808
         },
         {
+          "location": "Seashell Isle",
+          "chance_percent": 0.17
+        },
+        {
           "location": "Sunset Beach",
           "chance_percent": 0.1699
         },
@@ -1233,6 +1267,10 @@
           "chance_percent": 0.006026
         },
         {
+          "location": "Seashell Isle",
+          "chance_percent": 0.005666
+        },
+        {
           "location": "The Void",
           "chance_percent": 0.003623
         }
@@ -1244,6 +1282,10 @@
       "locations": [
         {
           "location": "Sunset Beach",
+          "chance_percent": 0.01133
+        },
+        {
+          "location": "Seashell Isle",
           "chance_percent": 0.01133
         },
         {
@@ -1537,6 +1579,10 @@
           "chance_percent": 0.02266
         },
         {
+          "location": "Seashell Isle",
+          "chance_percent": 0.02266
+        },
+        {
           "location": "Fortune River Delta",
           "chance_percent": 0.01641
         },
@@ -1661,6 +1707,10 @@
           "chance_percent": 0.005666
         },
         {
+          "location": "Seashell Isle",
+          "chance_percent": 0.005666
+        },
+        {
           "location": "Fortune River Delta",
           "chance_percent": 0.005471
         },
@@ -1688,6 +1738,10 @@
         },
         {
           "location": "Sunset Beach",
+          "chance_percent": 0.002266
+        },
+        {
+          "location": "Seashell Isle",
           "chance_percent": 0.002266
         },
         {
@@ -1847,6 +1901,10 @@
         {
           "location": "Fortune River Delta",
           "chance_percent": 0.0001367
+        },
+        {
+          "location": "Seashell Isle",
+          "chance_percent": 0.0001133
         },
         {
           "location": "Haunted Creek",
@@ -2173,6 +2231,10 @@
       "rarity": "legendary",
       "locations": [
         {
+          "location": "Seashell Isle",
+          "chance_percent": 0.0017
+        },
+        {
           "location": "Sunset Beach",
           "chance_percent": 0.0008499
         },
@@ -2199,6 +2261,16 @@
         {
           "location": "The Void",
           "chance_percent": 0.0001811
+        }
+      ]
+    },
+    {
+      "mineral": "Nautilus Shell",
+      "rarity": "legendary",
+      "locations": [
+        {
+          "location": "Seashell Isle",
+          "chance_percent": 0.0005666
         }
       ]
     },
@@ -2557,6 +2629,10 @@
           "chance_percent": 0.000008499
         },
         {
+          "location": "Seashell Isle",
+          "chance_percent": 0.000008499
+        },
+        {
           "location": "Volcanic Sands",
           "chance_percent": 0.000007807
         },
@@ -2619,6 +2695,10 @@
         {
           "location": "Sunset Beach",
           "chance_percent": 0.00002267
+        },
+        {
+          "location": "Seashell Isle",
+          "chance_percent": 0.00002266
         },
         {
           "location": "Infernal Heart",
@@ -2740,6 +2820,10 @@
       "mineral": "Red Beryl",
       "rarity": "mythic",
       "locations": [
+        {
+          "location": "Seashell Isle",
+          "chance_percent": 8.499e-7
+        },
         {
           "location": "Timelocked Sanctuary",
           "chance_percent": 8.138e-7
@@ -2925,6 +3009,16 @@
         {
           "location": "Timelocked Sanctuary",
           "chance_percent": 2.712e-8
+        }
+      ]
+    },
+    {
+      "mineral": "Forgotten Totem",
+      "rarity": "exotic",
+      "locations": [
+        {
+          "location": "Seashell Isle",
+          "chance_percent": 2.833e-7
         }
       ]
     },

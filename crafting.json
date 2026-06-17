@@ -2922,7 +2922,7 @@
       },
       "cost": {
         "amount": 500,
-        "currency": "seashells"
+        "currency": "sand dollars"
         }
     },
     {
@@ -4439,8 +4439,8 @@
         }
     },
     {
-      "name": "Shell Necklace",
-      "rarity": "mythical",
+      "name": "Waverider",
+      "rarity": "exotic",
       "availability": "limited",
       "slot": "Necklace",
       "description": "",
@@ -4539,7 +4539,7 @@
       },
       "cost": {
         "amount": 1000,
-        "currency": "seashells"
+        "currency": "sand dollars"
         }
     },
     {

@@ -10,7 +10,7 @@
       "crafting": {
         "materials": [
           {
-            "amount": 5,
+            "amount": 3,
             "item": "Gold"
           }
         ]

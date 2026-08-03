@@ -494,7 +494,7 @@ h1{
 </head>
 
 <body>
-<h1>Prospecting Chance Calculator <span class="version">v3.0.0</span></h1>
+<h1>Prospecting Chance Calculator <span class="version">v3.0.1</span></h1>
 
 <div class="layout">
 
@@ -941,18 +941,22 @@ function shakeSpeedToR(value) {
    CYCLE TIME MODEL
 ------------------------- */
 
-function getCycleSeconds() {
+function getCycleSeconds(C) {
   const shakeSpeed = Math.max(0, Number(shakeSpeedInput?.value) || 0);
-  const totalShakes = Math.max(0, Number(sInput?.value) || 0);
+  const strength = Math.max(0.0001, Number(sInput?.value) || 0.0001);
   const totalDigs = Math.max(0, Number(nInput?.value) || 0);
   const digSpeed = Math.max(0.0001, Number(dInput?.value) || 0.0001);
 
   const shakesPerSecond = shakeSpeedToR(shakeSpeed);
   if (shakesPerSecond <= 0) return Infinity;
 
-  // Shared dig-duration term used by both methods.
-  const digDuration = 143.9 * Math.pow(digSpeed, -0.9324);
+  // The input is pan strength, not total shakes.
+  // Preserve the original model: total shakes = capacity / strength.
+  const totalShakes = C / strength;
   const shakeDuration = totalShakes / shakesPerSecond;
+
+  // Shared duration of one dig, in seconds.
+  const digDuration = 143.9 * Math.pow(digSpeed, -0.9324);
 
   if (timeMethod?.value === "autopan") {
     return shakeDuration + 1.15 + (totalDigs * digDuration);
@@ -1107,16 +1111,21 @@ function calculate() {
   const luck = Math.max(0, Number(luckInput?.value) || 0);
   const C = Math.max(1, Number(capacityInput?.value) || 1);
 
-  const rollsPerAttempt = luck * Math.sqrt(C);
+  // Rolls produced by one completed pan. Keep this separate from time.
+  const rollsPerPan = luck * Math.sqrt(C);
 
-  const cycleSeconds = getCycleSeconds();
+  const cycleSeconds = getCycleSeconds(C);
+  const rollsPerSecond = isFinite(cycleSeconds) && cycleSeconds > 0
+    ? rollsPerPan / cycleSeconds
+    : 0;
   const pansPerMinute = isFinite(cycleSeconds) && cycleSeconds > 0
     ? 60 / cycleSeconds
     : 0;
 
   const shakeSpeed = Math.max(0, Number(shakeSpeedInput?.value) || 0);
   const r = shakeSpeedToR(shakeSpeed);
-  const s = Math.max(0, Number(sInput?.value) || 0);
+  const strength = Math.max(0.0001, Number(sInput?.value) || 0.0001);
+  const totalShakes = C / strength;
   const n = Math.max(0, Number(nInput?.value) || 0);
   const d = Math.max(0.0001, Number(dInput?.value) || 0.0001);
 
@@ -1125,22 +1134,24 @@ function calculate() {
 
   if (timeMethod?.value === "autopan") {
     cycleFormulaText =
-      `Autopan cycle = Ts/Ss + 1.15 + Td×(143.9×Sd^-0.9324) = ` +
-      `${s.toFixed(2)}/${r.toFixed(2)} + 1.15 + ` +
+      `Autopan cycle = (C/Strength)/Ss + 1.15 + Td×(143.9×Sd^-0.9324) = ` +
+      `(${C.toFixed(2)}/${strength.toFixed(2)})/${r.toFixed(2)} + 1.15 + ` +
       `${n.toFixed(2)}×(143.9×${d.toFixed(2)}^-0.9324)`;
 
     methodStatsText =
-      `Total shakes Ts=${s.toFixed(2)} · ` +
+      `Strength=${strength.toFixed(2)} · ` +
+      `Derived total shakes Ts=${totalShakes.toFixed(2)} · ` +
       `Total digs Td=${n.toFixed(2)} · ` +
       `Dig speed Sd=${d.toFixed(2)} · `;
   } else {
     cycleFormulaText =
-      `Sandshaking cycle = Ts/Ss + 0.75 + (Td−1)×(143.9×Sd^-0.9324) = ` +
-      `${s.toFixed(2)}/${r.toFixed(2)} + 0.75 + ` +
+      `Sandshaking cycle = (C/Strength)/Ss + 0.75 + (Td−1)×(143.9×Sd^-0.9324) = ` +
+      `(${C.toFixed(2)}/${strength.toFixed(2)})/${r.toFixed(2)} + 0.75 + ` +
       `(${n.toFixed(2)}−1)×(143.9×${d.toFixed(2)}^-0.9324)`;
 
     methodStatsText =
-      `Total shakes Ts=${s.toFixed(2)} · ` +
+      `Strength=${strength.toFixed(2)} · ` +
+      `Derived total shakes Ts=${totalShakes.toFixed(2)} · ` +
       `Total digs Td=${n.toFixed(2)} · ` +
       `Dig speed Sd=${d.toFixed(2)} · `;
   }
@@ -1148,12 +1159,13 @@ function calculate() {
   const rollsNote = document.getElementById("rollsNote");
   if (rollsNote) {
     rollsNote.textContent =
-      `Effective rolls per pan: ${rollsPerAttempt.toFixed(2)} ` +
+      `Effective rolls per pan: ${rollsPerPan.toFixed(2)} ` +
       `(Luck ${luck} × √Capacity ${Math.sqrt(C).toFixed(2)}) · ` +
       `Shake speed ${shakeSpeed.toFixed(0)}% ⇒ ${r.toFixed(2)} shakes/sec · ` +
       methodStatsText +
       `${cycleFormulaText} · ` +
       `Cycle time: ${isFinite(cycleSeconds) ? cycleSeconds.toFixed(2) + "s" : "∞"} · ` +
+      `Rolls/sec: ${isFinite(rollsPerSecond) ? rollsPerSecond.toFixed(4) : "—"} · ` +
       `Pans/min: ${isFinite(pansPerMinute) ? pansPerMinute.toFixed(2) : "—"}`;
   }
 
@@ -1176,8 +1188,8 @@ function calculate() {
   const basePercent = Number(locationSelect.value);
   const p = basePercent / 100;
 
-  const pAttempt = 1 - Math.pow(1 - p, rollsPerAttempt);
-  const expected = rollsPerAttempt * p;
+  const pAttempt = 1 - Math.pow(1 - p, rollsPerPan);
+  const expected = rollsPerPan * p;
 
   const a50 = attemptsForTarget(pAttempt, 0.50);
   const a90 = attemptsForTarget(pAttempt, 0.90);
@@ -1191,7 +1203,7 @@ function calculate() {
   if (chanceCell) chanceCell.textContent = fmtPct(pAttempt, 5);
 
   const oneInAttempt = document.getElementById("oneInAttempt");
-  if (oneInAttempt) oneInAttempt.textContent = `~1 in ${fmtOneInFromProb(pAttempt)} (attempt)`;
+  if (oneInAttempt) oneInAttempt.textContent = `~1 in ${fmtOneInFromProb(pAttempt)} (pan)`;
 
   const expectedCell = document.getElementById("expectedCell");
   if (expectedCell) expectedCell.textContent = expected.toFixed(4);
@@ -1199,7 +1211,7 @@ function calculate() {
   const expectedSub = document.getElementById("expectedSub");
   if (expectedSub) {
     expectedSub.textContent =
-      `Expected finds per attempt · 99% pans: ${isFinite(a99) ? a99.toFixed(2) : "∞"}`;
+      `Expected finds per pan · 99% pans: ${isFinite(a99) ? a99.toFixed(2) : "∞"}`;
   }
 
   const atLeastOneCell = document.getElementById("atLeastOneCell");
@@ -1208,7 +1220,7 @@ function calculate() {
   const atLeastSub = document.getElementById("atLeastSub");
   if (atLeastSub) {
     atLeastSub.textContent =
-      `Chance of ≥1 in one attempt · 99% time: ${fmtDuration(t99)}`;
+      `Chance of ≥1 in one pan · 99% time: ${fmtDuration(t99)}`;
   }
 
   const tbody = document.getElementById("allLocationsTable");
@@ -1225,7 +1237,7 @@ function calculate() {
     if (locFilterVal !== "all" && l.location !== locFilterVal) continue;
 
     const bp = Number(l.chance_percent) / 100;
-    const pAtt = 1 - Math.pow(1 - bp, rollsPerAttempt);
+    const pAtt = 1 - Math.pow(1 - bp, rollsPerPan);
 
     if (pAtt > best.pAttempt) {
       best = {

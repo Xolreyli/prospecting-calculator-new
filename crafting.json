@@ -585,7 +585,7 @@
             "item": "Opal"
           },
           {
-            "amount": 1,
+            "amount": 3,
             "item": "Jade",
             "min_size": 0.3
           }
@@ -1023,6 +1023,64 @@
         }
     },
     {
+      "name": "Eye of Fire",
+      "rarity": "legendary",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/8/86/Eye_of_fire.png/56px-Eye_of_fire.png",
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Cinnabar"
+          },
+          {
+            "amount": 1,
+            "item": "Fire Opal"
+          },
+          {
+            "amount": 10,
+            "item": "Pyrelith"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 4,
+            "max": 24
+          },
+          "dig_speed": {
+            "min": 0,
+            "max": 20
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 20
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 4,
+            "max": 28
+          },
+          "dig_speed": {
+            "min": 0,
+            "max": 22
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 22
+          }
+        }
+      },
+      "cost": {
+        "amount": 4000000,
+        "currency": "money"
+        }
+    },
+    {
       "name": "Crown",
       "rarity": "legendary",
       "availability": "normal",
@@ -1143,64 +1201,6 @@
       },
       "cost": {
         "amount": 10000000,
-        "currency": "money"
-        }
-    },
-    {
-      "name": "Eye of Fire",
-      "rarity": "legendary",
-      "availability": "normal",
-      "slot": "Ring",
-      "description": "",
-      "appearance": "https://static.wikitide.net/prospectingwiki/thumb/8/86/Eye_of_fire.png/56px-Eye_of_fire.png",
-      "crafting": {
-        "materials": [
-          {
-            "amount": 1,
-            "item": "Cinnabar"
-          },
-          {
-            "amount": 1,
-            "item": "Fire Opal"
-          },
-          {
-            "amount": 10,
-            "item": "Pyrelith"
-          }
-        ]
-      },
-      "stats": {
-        "base": {
-          "luck": {
-            "min": 4,
-            "max": 24
-          },
-          "dig_speed": {
-            "min": 0,
-            "max": 20
-          },
-          "size_boost": {
-            "min": 10,
-            "max": 20
-          }
-        },
-        "star6": {
-          "luck": {
-            "min": 4,
-            "max": 28
-          },
-          "dig_speed": {
-            "min": 0,
-            "max": 22
-          },
-          "size_boost": {
-            "min": 10,
-            "max": 22
-          }
-        }
-      },
-      "cost": {
-        "amount": 4000000,
         "currency": "money"
         }
     },
@@ -4026,10 +4026,6 @@
         "materials": [
           {
             "amount": 1,
-            "item": "Umbrite"
-          },
-          {
-            "amount": 1,
             "item": "Adamantine"
           },
           {
@@ -4043,6 +4039,10 @@
           {
             "amount": 5,
             "item": "Aquamarine"
+          },
+          {
+            "amount": 1,
+            "item": "Umbrite"
           }
         ]
       },
@@ -4725,7 +4725,7 @@
             "item": "Celestium"
           },
           {
-            "amount": 3,
+            "amount": 5,
             "item": "Gold",
             "min_size": 60
           },

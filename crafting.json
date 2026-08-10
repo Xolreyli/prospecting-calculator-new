@@ -3834,7 +3834,7 @@
         "base": {
           "luck": {
             "min": 300,
-            "max": 900
+            "max": 760
           },
           "dig_strength": {
             "min": 200,
@@ -3856,7 +3856,7 @@
         "star6": {
           "luck": {
             "min": 300,
-            "max": 1000
+            "max": 860
           },
           "dig_strength": {
             "min": 200,
@@ -4060,6 +4060,9 @@
             "min": 10,
             "max": 28
           },
+          "modifier_boost": {
+            "value": 75
+          },
           "size_boost": {
             "min": 10,
             "max": 50
@@ -4074,6 +4077,9 @@
           },
           "shake_strength": {
             "value": 30
+          },
+          "modifier_boost": {
+            "value": 80
           },
           "size_boost": {
             "value": 55
@@ -4844,7 +4850,7 @@
         "base": {
           "luck": {
             "min": 200,
-            "max": 600
+            "max": 800
           },
           "dig_speed": {
             "min": 10,
@@ -4874,7 +4880,7 @@
         "star6": {
           "luck": {
             "min": 200,
-            "max": 650
+            "max": 850
           },
           "dig_speed": {
             "min": 10,
@@ -4904,6 +4910,281 @@
       },
       "cost": {
         "amount": 10000000000,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Lunar Mask",
+      "rarity": "N/A",
+      "availability": "normal",
+      "slot": "Charm",
+      "description": "",
+      "appearance": "",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Lunar Mask Blueprint",
+        "quest": {
+            "name": "N/A",
+            "giver": {
+            "name": "N/A",
+            "location": "N/A"
+            },
+            "tasks": [
+                "",
+                "",
+                "",
+                ""
+            ]
+        }
+        },
+
+      "crafting": {
+        "materials": [
+          {
+            "amount": 1,
+            "item": "Singularium"
+          },
+          {
+            "amount": 3,
+            "item": "Umbrite"
+          },
+          {
+            "amount": 1,
+            "item": "Eye of the Sands"
+          },
+          {
+            "amount": 5,
+            "item": "Aetherium"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 300,
+            "max": 1250
+          },
+          "dig_speed": {
+            "min": 20,
+            "max": 80
+          },
+          "shake_speed": {
+            "min": 20,
+            "max": 80
+          },
+          "modifier_boost": {
+            "min": 20,
+            "max": 70
+          },
+          "size_boost": {
+            "min": 20,
+            "max": 70
+          },
+          "walkspeed": {
+            "min": 1,
+            "max": 4
+          },
+          "jump_power": {
+            "min": 2,
+            "max": 9
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 300,
+            "max": 1400
+          },
+          "dig_speed": {
+            "min": 20,
+            "max": 85
+          },
+          "shake_speed": {
+            "min": 20,
+            "max": 85
+          },
+          "modifier_boost": {
+            "min": 20,
+            "max": 80
+          },
+          "size_boost": {
+            "min": 20,
+            "max": 80
+          },
+          "walkspeed": {
+            "min": 1,
+            "max": 4.5
+          },
+          "jump_power": {
+            "min": 2,
+            "max": 10
+          }
+        }
+      },
+      "cost": {
+        "amount": 1,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Sun's Gift",
+      "rarity": "N/A",
+      "availability": "normal",
+      "slot": "Ring",
+      "description": "",
+      "appearance": "",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Sun's Gift Blueprint",
+        "quest": {
+            "name": "N/A",
+            "giver": {
+            "name": "N/A",
+            "location": "N/A"
+            },
+            "tasks": [
+                "",
+                "",
+                "",
+                ""
+            ]
+        }
+        },
+
+      "crafting": {
+        "materials": [
+          {
+            "amount": 10,
+            "item": "Inferlume"
+          },
+          {
+            "amount": 5,
+            "item": "Agate"
+          },
+          {
+            "amount": 1,
+            "item": "Solarium"
+          },
+          {
+            "amount": 1,
+            "item": "Starpiercer"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 125,
+            "max": 450
+          },
+          "dig_strength": {
+            "min": 5,
+            "max": 50
+          },
+          "capacity": {
+            "min": 40,
+            "max": 120
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 45
+          },
+          "sell_boost": {
+            "min": 20,
+            "max": 60
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 125,
+            "max": 500
+          },
+          "dig_strength": {
+            "min": 5,
+            "max": 55
+          },
+          "capacity": {
+            "min": 40,
+            "max": 130
+          },
+          "size_boost": {
+            "min": 10,
+            "max": 50
+          },
+          "sell_boost": {
+            "min": 20,
+            "max": 65
+          }
+        }
+      },
+      "cost": {
+        "amount": 1,
+        "currency": "money"
+        }
+    },
+    {
+      "name": "Guardian Pendant",
+      "rarity": "N/A",
+      "availability": "normal",
+      "slot": "Necklace",
+      "description": "",
+      "appearance": "",
+      
+      "unlock": {
+        "type": "quest",
+        "blueprint": "Guardian Pendant Blueprint",
+        "quest": {
+            "name": "N/A",
+            "giver": {
+            "name": "N/A",
+            "location": "N/A"
+            },
+            "tasks": [
+                "",
+                "",
+                "",
+                ""
+            ]
+        }
+        },
+
+      "crafting": {
+        "materials": [
+          {
+            "amount": 5,
+            "item": "Catseye"
+          },
+          {
+            "amount": 5,
+            "item": "Agate"
+          },
+          {
+            "amount": 5,
+            "item": "Prismara"
+          },
+          {
+            "amount": 1,
+            "item": "Key of Life"
+          }
+        ]
+      },
+      "stats": {
+        "base": {
+          "luck": {
+            "min": 1000,
+            "max": 2700
+          }
+        },
+        "star6": {
+          "luck": {
+            "min": 1000,
+            "max": 2800
+          }
+        }
+      },
+      "cost": {
+        "amount": 1,
         "currency": "money"
         }
     }

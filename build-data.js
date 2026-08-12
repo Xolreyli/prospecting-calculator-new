@@ -57,7 +57,7 @@ function extractLocationsFromHtml(html) {
     if (!Number.isFinite(chance_percent)) return;
 
     // Location name: prefer the first <a> text inside the <li>
-    // (your snippet uses <a href="/wiki/...">Location Name</a>)
+    // (snippet uses <a href="/wiki/...">Location Name</a>)
     let location = $li.find("a").first().text().replace(/\s+/g, " ").trim();
 
     // Fallback: try to take left side before " - "
@@ -85,13 +85,13 @@ function extractLocationsFromHtml(html) {
   }));
 }
 
-// Optional: keep rarity blank for now (you can add later once we see how it’s stored)
+// Optional: keep rarity blank for now
 async function getRarityFromHtml(_html) {
   return "";
 }
 
 async function main() {
-  // Uses your existing minerals-index.json like:
+  // Uses existing minerals-index.json like:
   // { "minerals": ["Gold","Copper",...]}
   const index = JSON.parse(await fs.readFile("minerals-index.json", "utf8"));
   const mineralPages = index.minerals ?? [];

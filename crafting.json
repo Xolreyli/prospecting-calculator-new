@@ -3799,16 +3799,15 @@
         "type": "quest",
         "blueprint": "Sun's Gift Blueprint",
         "quest": {
-            "name": "N/A",
+            "name": "Priority Supplies",
             "giver": {
-            "name": "N/A",
-            "location": "N/A"
+            "name": "Craftsman",
+            "location": "Sandstone Stream"
             },
             "tasks": [
-                "",
-                "",
-                "",
-                ""
+                "Collect 1000 Sandsteel",
+                "Collect 1000 Jasper",
+                "Collect 100 Agate"
             ]
         }
         },
@@ -4410,16 +4409,14 @@
         "type": "quest",
         "blueprint": "Guardian Pendant Blueprint",
         "quest": {
-            "name": "N/A",
+            "name": "Purifying the Oasis",
             "giver": {
-            "name": "N/A",
-            "location": "N/A"
+            "name": "Environmentalist",
+            "location": "Lifespring Oasis"
             },
             "tasks": [
-                "",
-                "",
-                "",
-                ""
+                "Collect 100,000 materials fro Sunscorched Desert",
+                "Collect 1 Key of Life"
             ]
         }
         },

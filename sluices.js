@@ -17,6 +17,16 @@ const sluiceSelfPropulsionInput = document.getElementById("selfPropulsionInput")
 const sluiceAutocollectInput = document.getElementById("autocollectInput");
 
 /* =========================================================
+   EXCLUDED SLUICE LOCATIONS
+========================================================= */
+
+const EXCLUDED_SLUICE_LOCATIONS = new Set([
+    "The Void",
+    "Infernal Heart",
+    "Timelocked Sanctuary"
+]);
+
+/* =========================================================
    FORMAT HELPERS
 ========================================================= */
 
@@ -182,9 +192,17 @@ Promise.all([
             )
         );
 
+    /*
+       Build the location list from the mineral data,
+       excluding locations that cannot be used by the sluice.
+    */
+
     for (const mineral of sluiceMinerals) {
         for (const location of mineral.locations || []) {
-            if (location.location) {
+            if (
+                location.location &&
+                !EXCLUDED_SLUICE_LOCATIONS.has(location.location)
+            ) {
                 sluiceLocationNames.add(location.location);
             }
         }
@@ -310,9 +328,13 @@ function populateSluiceLocations() {
 
     sluiceLocationSelect.innerHTML = "";
 
-    const locations = [...sluiceLocationNames].sort(
-        (a, b) => a.localeCompare(b)
-    );
+    const locations = [...sluiceLocationNames]
+        .filter(location =>
+            !EXCLUDED_SLUICE_LOCATIONS.has(location)
+        )
+        .sort((a, b) =>
+            a.localeCompare(b)
+        );
 
     for (const location of locations) {
         const option = document.createElement("option");
@@ -346,12 +368,21 @@ function getSluiceMineralsAtLocation() {
         return [];
     }
 
-    return sluiceMinerals.filter(mineral =>
-        (mineral.locations || []).some(
+    /*
+       These locations cannot be used by the sluice.
+    */
+
+    if (EXCLUDED_SLUICE_LOCATIONS.has(selectedLocation)) {
+        return [];
+    }
+
+    return sluiceMinerals.filter(mineral => {
+        return (mineral.locations || []).some(
             location =>
-                location.location === selectedLocation
-        )
-    );
+                location.location === selectedLocation &&
+                !EXCLUDED_SLUICE_LOCATIONS.has(location.location)
+        );
+    });
 }
 
 /* =========================================================
@@ -405,6 +436,14 @@ function buildSluiceMineralTable() {
 
     if (!location) return;
 
+    /*
+       Do not show minerals for excluded locations.
+    */
+
+    if (EXCLUDED_SLUICE_LOCATIONS.has(location)) {
+        return;
+    }
+
     const locationMinerals =
         getSluiceMineralsAtLocation();
 
@@ -417,6 +456,10 @@ function buildSluiceMineralTable() {
                 mineral,
                 location
             );
+
+        if (baseProbability <= 0) {
+            continue;
+        }
 
         const adjustedProbability =
             sluiceLuckAdjustedProbability(
@@ -486,6 +529,7 @@ function calculateSluice() {
     );
 
     const mineralsPer10 = efficiency;
+
     const mineralsPerMinute =
         mineralsPer10 / 10;
 
@@ -702,6 +746,18 @@ if (sluiceLocationFilter) {
                 sluiceLocationFilter.value;
 
             if (selected === "all") {
+                populateSluiceLocations();
+                return;
+            }
+
+            /*
+               Prevent excluded locations from being selected
+               through the filter as well.
+            */
+
+            if (
+                EXCLUDED_SLUICE_LOCATIONS.has(selected)
+            ) {
                 populateSluiceLocations();
                 return;
             }

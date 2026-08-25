@@ -1,0 +1,134 @@
+{
+  "sluices": [
+    {
+      "name": "Arctic Sluice",
+      "stats": {
+        "luck": 25000,
+        "capacity": 200,
+        "efficiency": 4,
+        "toughness": 6
+      },
+      "location": "Frozen Peak"
+    },
+    {
+      "name": "Corroded Sluice",
+      "stats": {
+        "luck": 110000,
+        "capacity": 300,
+        "efficiency": 10,
+        "toughness": 8
+      },
+      "location": "Fungal Marsh"
+    },
+    {
+      "name": "Dragonflame Sluice",
+      "stats": {
+        "luck": 5000,
+        "capacity": 125,
+        "efficiency": 2,
+        "toughness": 5
+      },
+      "location": "The Magma Furnace"
+    },
+    {
+      "name": "Easter Sluice",
+      "stats": {
+        "luck": 40000,
+        "capacity": 200,
+        "efficiency": 4,
+        "toughness": 8
+      },
+      "location": "Fortune River"
+    },
+    {
+      "name": "Enchanted Sluice",
+      "stats": {
+        "luck": 2500,
+        "capacity": 75,
+        "efficiency": 3,
+        "toughness": 4
+      },
+      "location": "Shady Merchant"
+    },
+    {
+      "name": "Fossilized Sluice",
+      "stats": {
+        "luck": 30000,
+        "capacity": 200,
+        "efficiency": 1,
+        "toughness": 6
+      },
+      "location": "Ancient Ruins"
+    },
+    {
+      "name": "Gold Sluice Box",
+      "stats": {
+        "luck": 400,
+        "capacity": 75,
+        "efficiency": 2,
+        "toughness": 3
+      },
+      "location": "Rubble Creek"
+    },
+    {
+      "name": "Lifetouched Sluice",
+      "stats": {
+        "luck": 60000,
+        "capacity": 250,
+        "efficiency": 5,
+        "toughness": 7
+      },
+      "location": "Deeproot Spring"
+    },
+    {
+      "name": "Obsidian Sluice Box",
+      "stats": {
+        "luck": 1000,
+        "capacity": 100,
+        "efficiency": 2,
+        "toughness": 4
+      },
+      "location": "Shady Merchant"
+    },
+    {
+      "name": "Pharaoh's Sluice",
+      "stats": {
+        "luck": 600000,
+        "capacity": 500,
+        "efficiency": 25,
+        "toughness": 10
+      },
+      "location": "Mystic Floodplains"
+    },
+    {
+      "name": "Starblossom Sluice",
+      "stats": {
+        "luck": 250000,
+        "capacity": 400,
+        "efficiency": 20,
+        "toughness": 9
+      },
+      "location": "Astral Caverns"
+    },
+    {
+      "name": "Steel Sluice Box",
+      "stats": {
+        "luck": 200,
+        "capacity": 60,
+        "efficiency": 1.5,
+        "toughness": 2
+      },
+      "location": "Rubble Creek"
+    },
+    {
+      "name": "Wood Sluice Box",
+      "stats": {
+        "luck": 80,
+        "capacity": 30,
+        "efficiency": 1,
+        "toughness": 1
+      },
+      "location": "Rubble Creek"
+    }
+  ]
+}

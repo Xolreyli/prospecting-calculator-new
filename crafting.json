@@ -4350,11 +4350,11 @@
           },
           "modifier_boost": {
             "min": 20,
-            "max": 70
+            "max": 145
           },
           "size_boost": {
             "min": 20,
-            "max": 70
+            "max": 90
           },
           "walkspeed": {
             "value": 4
@@ -4378,11 +4378,11 @@
           },
           "modifier_boost": {
             "min": 20,
-            "max": 80
+            "max": 160
           },
           "size_boost": {
             "min": 20,
-            "max": 80
+            "max": 100
           },
           "walkspeed": {
             "value": 4.5
@@ -5014,7 +5014,7 @@
         "base": {
           "luck": {
             "min": 50,
-            "max": 225
+            "max": 200
           },
           "capacity": {
             "min": 100,
@@ -5028,19 +5028,19 @@
             "min": 40,
             "max": 90
           },
-          "sell_boost": {
-            "min": 30,
-            "max": 190
-          },
           "size_boost": {
             "min": 0,
+            "max": 190
+          },
+          "sell_boost": {
+            "min": 30,
             "max": 100
           }
         },
         "star6": {
           "luck": {
             "min": 50,
-            "max": 250
+            "max": 225
           },
           "capacity": {
             "min": 100,
@@ -5054,12 +5054,12 @@
             "min": 40,
             "max": 100
           },
-          "sell_boost": {
-            "min": 30,
-            "max": 210
-          },
           "size_boost": {
             "min": 0,
+            "max": 210
+          },
+          "sell_boost": {
+            "min": 30,
             "max": 110
           }
         }

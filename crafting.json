@@ -4157,7 +4157,8 @@
             "max": 28
           },
           "modifier_boost": {
-            "value": 75
+            "min": 10,
+            "max": 70
           },
           "size_boost": {
             "min": 10,
@@ -4166,19 +4167,24 @@
         },
         "star6": {
           "dig_strength": {
-            "value": 135
+            "min": 20,
+            "max": 135
           },
           "capacity": {
-            "value": 550
+            "min": 100,
+            "max": 550
           },
           "shake_strength": {
-            "value": 30
+            "min": 10,
+            "max": 30
           },
           "modifier_boost": {
-            "value": 80
+            "min": 10,
+            "max": 75
           },
           "size_boost": {
-            "value": 55
+            "min": 10,
+            "max": 55
           }
         }
       },

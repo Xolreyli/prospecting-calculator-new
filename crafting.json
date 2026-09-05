@@ -3840,7 +3840,7 @@
           },
           "dig_strength": {
             "min": 5,
-            "max": 20
+            "max": 50
           },
           "capacity": {
             "min": 40,
@@ -3862,7 +3862,7 @@
           },
           "dig_strength": {
             "min": 5,
-            "max": 22
+            "max": 55
           },
           "capacity": {
             "min": 40,

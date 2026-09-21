@@ -605,3 +605,15 @@ function setStatsToggle(baseActive) {
     );
   }
 }
+
+const equipmentWarningModal =
+  document.getElementById("equipmentWarningModal");
+
+const equipmentWarningClose =
+  document.getElementById("equipmentWarningClose");
+
+if (equipmentWarningModal && equipmentWarningClose) {
+  equipmentWarningClose.addEventListener("click", () => {
+    equipmentWarningModal.classList.add("hidden");
+  });
+}

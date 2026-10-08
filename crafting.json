@@ -431,8 +431,8 @@
       "stats": {
         "base": {
           "luck": {
-            "min": 3,
-            "max": 10
+            "min": 4,
+            "max": 11
           },
           "dig_speed": {
             "min": 0,
@@ -449,8 +449,8 @@
         },
         "star6": {
           "luck": {
-            "min": 3,
-            "max": 11
+            "min": 4,
+            "max": 12
           },
           "dig_speed": {
             "min": 0,
@@ -650,8 +650,8 @@
       "stats": {
         "base": {
           "luck": {
-            "min": 1,
-            "max": 7
+            "min": 2,
+            "max": 8
           },
           "dig_speed": {
             "min": 10,
@@ -664,8 +664,8 @@
         },
         "star6": {
           "luck": {
-            "min": 1,
-            "max": 8
+            "min": 2,
+            "max": 9
           },
           "dig_speed": {
             "min": 10,
@@ -712,7 +712,7 @@
             "max": 140
           },
           "inventory_size": {
-            "min": 10,
+            "min": 100,
             "max": 250
           }
         },
@@ -722,7 +722,7 @@
             "max": 160
           },
           "inventory_size": {
-            "min": 10,
+            "min": 100,
             "max": 275
           }
         }
@@ -862,8 +862,8 @@
       "stats": {
         "base": {
           "luck": {
-            "min": 5,
-            "max": 20
+            "min": 10,
+            "max": 25
           },
           "capacity": {
             "min": 10,
@@ -880,8 +880,8 @@
         },
         "star6": {
           "luck": {
-            "min": 5,
-            "max": 22
+            "min": 10,
+            "max": 27
           },
           "capacity": {
             "min": 10,
@@ -1172,12 +1172,12 @@
       "stats": {
         "base": {
           "dig_strength": {
-            "min": 10,
-            "max": 30
+            "min": 15,
+            "max": 35
           },
           "shake_strength": {
-            "min": 1,
-            "max": 8
+            "min": 2,
+            "max": 9
           },
           "inventory_size": {
             "min": 100,
@@ -1186,12 +1186,12 @@
         },
         "star6": {
           "dig_strength": {
-            "min": 10,
-            "max": 32
+            "min": 15,
+            "max": 40
           },
           "shake_strength": {
-            "min": 1,
-            "max": 9
+            "min": 2,
+            "max": 10
           },
           "inventory_size": {
             "min": 100,
@@ -3341,7 +3341,7 @@
             "max": 200
           },
           "shake_strength": {
-            "min": 4,
+            "min": 5,
             "max": 20
           },
           "size_boost": {
@@ -3363,7 +3363,7 @@
             "max": 220
           },
           "shake_strength": {
-            "min": 4,
+            "min": 5,
             "max": 22
           },
           "size_boost": {
